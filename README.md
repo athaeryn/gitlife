@@ -8,3 +8,6 @@ I want to make a little website where people can type in the name of a user,
 and then watch the simulation, and interact with it in various ways.
 
 I'm still working through the details on how I'm going to achieve this...
+
+This should be useful!
+[https://github.com/users/athaeryn/contributions_calendar_data](https://github.com/users/athaeryn/contributions_calendar_data)
