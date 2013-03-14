@@ -1,6 +1,9 @@
 @import "normalize";
 @import "header";
 
+*{
+    box-sizing: border-box;
+}
 body{
     font: 13px Helvetica, arial, freesans, clean, sans-serif; 
 }
@@ -8,14 +11,28 @@ body{
     width: 100%;
     max-width: 960px;
     margin: 0 auto;
-    text-align: center;
+    padding-top: 100px;
 }
-#grid{
-    height: 82px;
-    width: 634px;
+.grid-container{
+    border-radius: 3px;
+    border: 1px solid #ddd;
     margin: 0 auto;
-    border: 1px solid #aaa;
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    width: 680px;
+    h3{
+        background: #f7f7f7;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        line-height: 100%;
+        margin: 0;
+        padding: 10px;
+    }
+    #grid{
+        height: 82px;
+        width: 634px;
+        margin: 24px;
+    }
 }
+
 
 @import "footer";
