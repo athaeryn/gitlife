@@ -553,6 +553,25 @@ textarea {
   color: #000;
   padding: 0.2em 0; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\000034}}
+body {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\000037}}
+.page-contain {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000313}}
+#grid {
+  height: 82px;
+  width: 634px;
+  margin: 0 auto;
+  border: 1px solid #aaa;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); }
+
 /* ==========================================================================
    Media Queries
    ========================================================================== */

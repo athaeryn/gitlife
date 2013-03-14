@@ -1,6 +1,21 @@
 @import "normalize";
 @import "header";
 
-
+body{
+    font: 13px Helvetica, arial, freesans, clean, sans-serif; 
+}
+.page-contain{
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+}
+#grid{
+    height: 82px;
+    width: 634px;
+    margin: 0 auto;
+    border: 1px solid #aaa;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+}
 
 @import "footer";

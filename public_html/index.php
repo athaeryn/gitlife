@@ -1,5 +1,6 @@
 <?php include "header.php" ?>
-
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-
+<div class="page-contain">
+<h1>gitlife</h1>
+<div id="grid"></div>
+</div>
 <?php include "footer.php" ?>
