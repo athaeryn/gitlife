@@ -24,7 +24,6 @@ $(document).ready(function () {
         return important;
     }
 
-
     var paper = new Raphael(document.getElementById("grid"), 634, 82),
         cw = 10,
         ch = 10,
@@ -42,10 +41,13 @@ $(document).ready(function () {
     }
 
     function drawGrid(data) {
-        var first = 2;
+        var first = -data[0];
+        console.log(first);
         for (var x = 0; x < 53; x++) {
-            for (var y = 0; y < 7; y++) {
-                drawCell(x, y, first--);
+            var yStart = x === 0 ? first : 0;
+            var yEnd = x === 52 ? 7 - (5 - first) : 7;
+            for (var y = yStart; y < yEnd; y++) {
+                drawCell(x, y, 0);
             }
         }
     }
