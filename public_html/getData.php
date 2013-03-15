@@ -15,7 +15,7 @@ if (!isset($_GET['user'])) {
     $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
     if($httpCode == 404) {
         /* Handle 404 here. */
-        die ('invalid user');
+        die ('That users does not appear to exist...');
     }
 
     curl_close($handle);
