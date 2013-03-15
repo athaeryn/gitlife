@@ -16,7 +16,7 @@ $(document).ready(function () {
 
         //  Just throw an error if the data is not valid.
         //  It should start with '['
-        if (raw[0] !== '[') return "Error.";
+        if (raw[0] !== '[') return raw; 
 
         // Parse the data from wierdness format to something workable
         raw = raw.split("],["); 
@@ -30,6 +30,11 @@ $(document).ready(function () {
         // Push the commit counts onto the 'parsed' array 
         for (var i = 0; i < raw.length; i++) {
             parsed.push(raw[i][1] > 0);
+        }
+
+        // Check to see if the user has any commits
+        if (parsed.indexOf(true) < 0) {
+            parsed = "This user has no commits... How boring!";
         }
 
         return parsed;
@@ -59,17 +64,25 @@ $(document).ready(function () {
     }
 
     $('#submit').click(function () {
+        drawEmptyGrid();
         var user = $('#user').val();
-        if(user.length === 0) return false;
+        if(user.length === 0) {
+            error("Please enter a user before clicking that button.");
+            return false;
+        }
         // Load the data, parse it, and draw the grid
         $.get('getData.php?user=' + user, function (d){
-            data = parseData(d);
-            if(data[0] === 'E') {
-                error(data);     
+            d = parseData(d);
+            // More sophisticated data validation to be done elsewhere
+            // This is simply to determine whether we're dealing with actual
+            // data or an error
+            if(d instanceof Array) { // Actual data
+                data = d;
+                drawGrid();
+            } else { // Error
+                error(d);     
                 return false;
             }
-            console.log(data);
-            drawGrid();
         });
         return false; 
     });
@@ -82,6 +95,4 @@ $(document).ready(function () {
             }
         }
     }
-
-    
 });
