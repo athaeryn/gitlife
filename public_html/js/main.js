@@ -54,6 +54,26 @@ $(document).ready(function () {
         }
     }
 
+    function error(message) {
+        alert(message);
+    }
+
+    $('#submit').click(function () {
+        var user = $('#user').val();
+        if(user.length === 0) return false;
+        // Load the data, parse it, and draw the grid
+        $.get('getData.php?user=' + user, function (d){
+            data = parseData(d);
+            if(data[0] === 'E') {
+                error(data);     
+                return false;
+            }
+            console.log(data);
+            drawGrid();
+        });
+        return false; 
+    });
+
     // Draws the grid with all the cells "off"
     function drawEmptyGrid() {
         for (var x = 0; x < w; x++) {
@@ -63,10 +83,5 @@ $(document).ready(function () {
         }
     }
 
-    // Load the data, parse it, and draw the grid
-    $.get('getData.php?user=athaeryn', function (d){
-        data = parseData(d);
-        console.log(data);
-        drawGrid();
-    });
+    
 });
