@@ -19,13 +19,13 @@ $(document).ready(function () {
 
 
     var paper = new Raphael(document.getElementById("grid"), 634, 82),
-        w = 10,
-        h = 10,
-        pad = 2;
+        cw = 10,
+        ch = 10,
+        cpad = 2,
+        w = 53,
+        h = 7,
+        boxStyle = {fill: "#eee", stroke: "none"};
 
     paper.rect(0, 0, 634, 82).attr({fill: "#fff", stroke: "none"});
 
-    var boxStyle = {fill: "#eee", stroke: "none"};
-    paper.rect(0, 0, 10, 10).attr(boxStyle);
-    paper.rect(12, 0, 10, 10).attr(boxStyle);
 });
