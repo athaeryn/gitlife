@@ -9,7 +9,8 @@ $(document).ready(function () {
         w = 53,
         h = 7,
         deadStyle = {fill: "#eee", stroke: "none"};
-        aliveStyle = {fill: "#1E6822", stroke: "none"};
+        aliveStyle = {fill: "#1E6822", stroke: "none"},
+        messageBox = $('#message');
 
     function parseData(raw) {
         var parsed = [];
@@ -59,15 +60,17 @@ $(document).ready(function () {
         }
     }
 
-    function error(message) {
-        alert(message);
+    function message(message) {
+        message = message || "";
+        messageBox.html(message);
+        //alert(message);
     }
 
     $('#submit').click(function () {
         drawEmptyGrid();
         var user = $('#user').val();
         if(user.length === 0) {
-            error("Please enter a user before clicking that button.");
+            message("Please enter a user before clicking that button.");
             return false;
         }
         // Load the data, parse it, and draw the grid
@@ -78,9 +81,10 @@ $(document).ready(function () {
             // data or an error
             if(d instanceof Array) { // Actual data
                 data = d;
+                message();
                 drawGrid();
             } else { // Error
-                error(d);     
+                message(d);     
                 return false;
             }
         });
