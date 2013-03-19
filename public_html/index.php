@@ -21,7 +21,7 @@ mysql_close();
 include "header.php" ?>
 <div class="page-contain">
     <div class="grid-container">
-        <h3 class="clearfix"><span id="userBox">--</span><span id="stepsBox">--</span></h3>
+        <h3 class="clearfix"><span id="userBox">gitlife</span><span id="stepsBox">--</span></h3>
         <div id="grid"></div>
     </div>
     <div class="form-contain">
