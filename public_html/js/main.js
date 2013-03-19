@@ -8,9 +8,13 @@ $(document).ready(function () {
         cpad = 2,
         w = 53,
         h = 7,
-        deadStyle = {fill: "#eee", stroke: "none"};
-        aliveStyle = {fill: "#1E6822", stroke: "none"},
+        deadColor = "#eee";
+        aliveColors= "#1E6823,#44A340,#8CC665".split(',');
         messageBox = $('#message');
+
+    function getRandom(c) {
+        return c[Math.floor(Math.random() * c.length)];
+    }
 
     function parseData(raw) {
         var parsed = [];
@@ -48,7 +52,10 @@ $(document).ready(function () {
     // Draws a cell 
     function drawCell(x, y, alive) {
         var cell = paper.rect(x * (cw + cpad), y * (ch + cpad), cw, ch);
-        cell.attr(alive ? aliveStyle : deadStyle);
+        cell.attr({
+            fill: alive ? getRandom(aliveColors) : deadColor,
+            stroke: "none"
+        });
     }
 
     // Draws the grid with the cell states pulled from data
@@ -61,9 +68,7 @@ $(document).ready(function () {
     }
 
     function message(message) {
-        message = message || "";
-        messageBox.html(message);
-        //alert(message);
+        messageBox.html(message || "");
     }
 
     $('#submit').click(function () {
@@ -81,7 +86,7 @@ $(document).ready(function () {
             // data or an error
             if(d instanceof Array) { // Actual data
                 data = d;
-                message();
+                message(); // Clears the message field.
                 drawGrid();
             } else { // Error
                 message(d);     
