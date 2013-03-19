@@ -8,6 +8,7 @@
     <form id="user-picker" action="">
         <input type="text" value="" id="user" placeholder="username">
         <input type="submit" value="Submit" id="submit">
+        <input type="button" value="Step" id="step">
     </form>
 </div>
 <?php include "footer.php" ?>

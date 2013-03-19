@@ -7,7 +7,7 @@ $(document).ready(function () {
         data = [],
         tempData = [],
         startingDay,
-        stillRunning = true,
+        stillRunning = false,
         steps = 0;
         cw = 10,
         ch = 10,
@@ -126,6 +126,8 @@ $(document).ready(function () {
                 }
                 message(); // Clears the message field.
                 drawGrid();
+                stillRunning = true;
+                steps = 0;
                 advance = function () {
                     if (stillRunning) {
                         stillRunning = false;
@@ -142,8 +144,9 @@ $(document).ready(function () {
                         steps += 1;
                         data = tempData;
                         drawGrid();
-                    } else {
-                        message(user + ' went ' + steps + ' steps!');
+                        if (!stillRunning) {
+                            message(user+' went '+steps+' steps!');
+                        }
                     }
                 }
             } else { // Error
@@ -152,6 +155,10 @@ $(document).ready(function () {
             }
         });
         return false; 
+    });
+
+    $('#step').click(function () {
+        advance(); 
     });
 
     // Draws the grid with all the cells "off"
