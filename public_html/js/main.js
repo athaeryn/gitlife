@@ -17,7 +17,9 @@ $(document).ready(function () {
         h = 7,
         deadColor = "#eee",
         aliveColors= "#1E6823,#44A340,#8CC665".split(','),
-        messageBox = $('#message');
+        messageBox = $('#message'),
+        userBox = $('#userBox'),
+        stepsBox = $('#stepsBox');
 
     function getRandom(c) {
         return c[Math.floor(Math.random() * c.length)];
@@ -125,6 +127,7 @@ $(document).ready(function () {
                 for (var c = 0; c < (w * h) - d.length; c++) {
                     data.push(false); 
                 }
+                userBox.html(user);
                 message(); // Clears the message field.
                 drawGrid();
                 stillRunning = true;
@@ -144,6 +147,7 @@ $(document).ready(function () {
                             } 
                         }
                         steps += 1;
+                        stepsBox.html(steps);
                         if (steps >= 100) stillRunning = false;
                         data = tempData;
                         drawGrid();
