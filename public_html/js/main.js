@@ -144,6 +144,7 @@ $(document).ready(function () {
                             } 
                         }
                         steps += 1;
+                        if (steps >= 100) stillRunning = false;
                         data = tempData;
                         drawGrid();
                         if (!stillRunning && postOnce) {
