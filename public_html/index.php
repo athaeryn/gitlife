@@ -60,6 +60,9 @@ include "header.php" ?>
     }
 ?> 
     </div>
-</div>
 <?php } ?>
+    <div class="footer">
+        by <a href="http://mrmikeanderson.com">Mike Anderson</a>
+    </div>
+</div>
 <?php include "footer.php" ?>
