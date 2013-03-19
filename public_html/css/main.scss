@@ -65,7 +65,11 @@ body{
     }
     .row{
         border-bottom: 1px solid #ddd; 
-        &:nth-child(odd) {
+        &:nth-child(2){
+            font-weight: bold; 
+            text-transform: uppercase;
+        }
+        &:nth-child(odd){
             background: #f7f7f7; 
         }
         .user, .steps{

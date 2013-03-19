@@ -626,16 +626,20 @@ body {
   .records .row {
     border-bottom: 1px solid #ddd; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000368}}
+    .records .row:nth-child(2) {
+      font-weight: bold;
+      text-transform: uppercase; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000372}}
     .records .row:nth-child(odd) {
       background: #f7f7f7; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000371}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000375}}
     .records .row .user, .records .row .steps {
       width: 50%;
       text-align: center;
       float: left;
       padding: 10px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000379}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000383}}
 .footer {
   font-size: 85%;
   float: right;
