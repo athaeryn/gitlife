@@ -9,7 +9,7 @@ if (isset($_POST['user']) && isset($_POST['steps'])) {
 
     $querystring = $_SERVER['QUERY_STRING'];
 
-    $query = "INSERT INTO records(user, steps) VALUES ('$_POST[user]', '$_POST[steps]') ON DUPLICATE KEY UPDATE steps=$_POST[steps]";
+    $query = "INSERT INTO records(user, steps) VALUES ('$_POST[user]', '$_POST[steps]') ON DUPLICATE KEY UPDATE steps=$_POST[steps], last_update=NULL";
 
     $username = "root";
     $password = "snorlax";
