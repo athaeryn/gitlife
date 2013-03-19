@@ -9,7 +9,7 @@ $database = "gitlife";
 mysql_connect('localhost', $username, $password);
 @mysql_select_db($database) or die("Unable to select database.");
 
-$query = "SELECT * FROM records ORDER BY steps DESC"; 
+$query = "SELECT * FROM records ORDER BY steps DESC, user ASC"; 
 $result = mysql_query($query);
 
 $records= mysql_numrows($result);
