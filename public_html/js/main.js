@@ -1,16 +1,50 @@
+var advance;
+
 $(document).ready(function () {
+
     // Global stuff
     var paper,
-        data,
+        data = [],
+        tempData = [],
         startingDay,
+        stillRunning = false,
+        postOnce = true,
+        steps = 0,
         cw = 10,
         ch = 10,
         cpad = 2,
         w = 53,
         h = 7,
         deadColor = "#eee",
-        liveColors = "#1e6822,#43a340,#8cc665".split(',');
-        messageBox = $('#message');
+        aliveColors= "#1E6823,#44A340,#8CC665".split(','),
+        messageBox = $('#message'),
+        userBox = $('#userBox'),
+        stepsBox = $('#stepsBox');
+
+    function getRandom(c) {
+        return c[Math.floor(Math.random() * c.length)];
+    }
+
+    function solveCell(x, y, g) {
+        c = g[x * w + y];
+        n = getNeighbors(x, y, g); 
+        if (n === 3 || (n === 2 && c)) {
+            return true; 
+        } else {
+            return false;
+        } 
+    }
+    
+    function getNeighbors(x, y, g) { // Position, Grid
+        var c = 0;
+        for (var i = -1; i < 2; i++) {
+            for (var j = -1; j < 2; j++) {
+                if (i == 0 && j == 0) continue; 
+                c += g[((w + x - i) % w) * h + ((h + y - j) % h)];
+            } 
+        }
+        return c;
+    }
 
     function getRandom(collection) {
         return collection[Math.floor(Math.random() * collection.length)];
@@ -53,8 +87,7 @@ $(document).ready(function () {
     function drawCell(x, y, alive) {
         var cell = paper.rect(x * (cw + cpad), y * (ch + cpad), cw, ch);
         cell.attr({
-            // Randomly grab one of the "liveColors" unless you're dead.
-            fill: alive ? getRandom(liveColors) : deadColor,
+            fill: alive ? getRandom(aliveColors) : deadColor,
             stroke: "none"
         });
     }
@@ -63,7 +96,7 @@ $(document).ready(function () {
     function drawGrid() {
         for (var x = 0; x < w; x++) {
             for (var y = 0; y < h; y++) {
-                drawCell(x, y, data[(x - 1) * h + y + (7 - startingDay)]);
+                drawCell(x, y, data[(x) * h + y]);
             }
         }
     }
@@ -73,6 +106,7 @@ $(document).ready(function () {
     }
 
     $('#submit').click(function () {
+        data = [];
         drawEmptyGrid();
         var user = $('#user').val();
         if(user.length === 0) {
@@ -86,15 +120,56 @@ $(document).ready(function () {
             // This is simply to determine whether we're dealing with actual
             // data or an error
             if(d instanceof Array) { // Actual data
-                data = d;
-                message();
+                for (var a = 0; a < startingDay; a++) {
+                    data.push(false);
+                }
+                for (var b = 0; b < d.length; b++) {
+                    data.push(d[b]);
+                }
+                for (var c = 0; c < (w * h) - d.length; c++) {
+                    data.push(false); 
+                }
+                userBox.html(user);
+                message(); // Clears the message field.
                 drawGrid();
+                stillRunning = true;
+                steps = 0;
+                postOnce = true;
+                advance = function () {
+                    if (stillRunning) {
+                        stillRunning = false;
+                        tempData = [];
+                        for (var x = 0; x < w; x++) {
+                            for (var y = 0; y < h; y++) {
+                                var newState = solveCell(x, y, data);
+                                if (newState) {
+                                    stillRunning = true;
+                                }
+                                tempData.push(newState); 
+                            } 
+                        }
+                        steps += 1;
+                        stepsBox.html(steps);
+                        if (steps >= 100) stillRunning = false;
+                        data = tempData;
+                        drawGrid();
+                        if (!stillRunning && postOnce) {
+                            message(user+' went '+steps+' steps!');
+                            $.post('save_record.php', {user: user, steps: steps});
+                            postOnce = false;
+                        }
+                    }
+                }
             } else { // Error
                 message(d);
                 return false;
             }
         });
         return false;
+    });
+
+    $('#step').click(function () {
+        advance(); 
     });
 
     // Draws the grid with all the cells "off"
