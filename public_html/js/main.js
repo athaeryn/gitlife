@@ -8,14 +8,15 @@ $(document).ready(function () {
         tempData = [],
         startingDay,
         stillRunning = false,
-        steps = 0;
+        postOnce = true,
+        steps = 0,
         cw = 10,
         ch = 10,
         cpad = 2,
         w = 53,
         h = 7,
-        deadColor = "#eee";
-        aliveColors= "#1E6823,#44A340,#8CC665".split(',');
+        deadColor = "#eee",
+        aliveColors= "#1E6823,#44A340,#8CC665".split(','),
         messageBox = $('#message');
 
     function getRandom(c) {
@@ -128,6 +129,7 @@ $(document).ready(function () {
                 drawGrid();
                 stillRunning = true;
                 steps = 0;
+                postOnce = true;
                 advance = function () {
                     if (stillRunning) {
                         stillRunning = false;
@@ -144,8 +146,10 @@ $(document).ready(function () {
                         steps += 1;
                         data = tempData;
                         drawGrid();
-                        if (!stillRunning) {
+                        if (!stillRunning && postOnce) {
                             message(user+' went '+steps+' steps!');
+                            $.post('save_record.php', {user: user, steps: steps});
+                            postOnce = false;
                         }
                     }
                 }
