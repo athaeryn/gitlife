@@ -41,7 +41,7 @@ include "header.php" ?>
         <ul>
             <li>Type the username of a GitHub user into the field</li>
             <li>Hit 'Submit'</li>
-            <li>Press step until the simulation is complete (or you reach 100 steps)</li>
+            <li>Press 'Step' until the simulation is complete (or you reach 100 steps)</li>
             <li>That user's "score" will be added to the Leaderboard</li>
             <li>Repeat!</li>
         </ul>
