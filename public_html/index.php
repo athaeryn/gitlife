@@ -34,8 +34,9 @@ include "header.php" ?>
         <h2>About using it.</h2>
         <p>
             The interface is pretty bad at the moment. I know how I want it to
-            work, I just haven't put it together yet. So in the meantime, here's
-            how you can see it in action:
+            work, I just haven't put it together yet. I'm working with Github's
+            awesome support people to try and implement part of it. In the
+            meantime, here's how you can see it in action:
         </p>
         <ul>
             <li>Type the username of a GitHub user into the field</li>
