@@ -34,7 +34,7 @@ include "header.php" ?>
     </div>
 <?php if ($records > 0 ) { ?>
     <div class="records">
-        <h1>Records</h1>
+        <h1>Leaderboard</h1>
         <div class="row clearfix">
             <div class="user">USER</div>
             <div class="steps">STEPS</div>
