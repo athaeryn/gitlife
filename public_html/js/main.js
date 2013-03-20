@@ -73,7 +73,7 @@ $(document).ready(function () {
 
         // Check to see if the user has any commits
         if (parsed.indexOf(true) < 0) {
-            parsed = "This user has no commits... How boring!";
+            parsed = "This user has no (public) commits... How boring!";
         }
 
         return parsed;
