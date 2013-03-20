@@ -7,10 +7,18 @@
 body{
     font: 13px Helvetica, arial, freesans, clean, sans-serif; 
 }
+p{
+    line-height: 150%;
+}
+ul{
+    li{
+        margin-bottom: 0.4em; 
+    }
+}
 .page-contain{
     width: 680px;
     margin: 0 auto;
-    padding: 100px 0;
+    padding: 3em 0;
 }
 #message{
     color: red;
@@ -46,12 +54,18 @@ body{
         margin: 24px;
     }
 }
+.intro{
+    h1{
+        font-size: 3em; 
+    }
+    margin-bottom: 2em;
+}
 .form-contain{
     width: 100%;
     margin: 0 auto;
 }
 .records{
-    margin-top: 100px;
+    margin-top: 3em;
     border-radius: 3px;
     border: 1px solid #ddd;
     h1{

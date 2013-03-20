@@ -5,7 +5,6 @@
 /**
  * Correct `block` display not defined in IE 6/7/8/9 and Firefox 3.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\0000322}}
 article,
 aside,
 details,
@@ -23,7 +22,6 @@ summary {
 /**
  * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\0000332}}
 audio,
 canvas,
 video {
@@ -35,7 +33,6 @@ video {
  * Prevent modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\0000343}}
 audio:not([controls]) {
   display: none;
   height: 0; }
@@ -44,7 +41,6 @@ audio:not([controls]) {
  * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
  * Known issue: no IE 6 support.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\0000353}}
 [hidden] {
   display: none; }
 
@@ -57,7 +53,6 @@ audio:not([controls]) {
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\0000368}}
 html {
   font-size: 100%;
   /* 1 */
@@ -70,7 +65,6 @@ html {
  * Address `font-family` inconsistency between `textarea` and other form
  * elements.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\0000383}}
 html,
 button,
 input,
@@ -81,7 +75,6 @@ textarea {
 /**
  * Address margins handled incorrectly in IE 6/7.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\0000391}}
 body {
   margin: 0; }
 
@@ -91,14 +84,12 @@ body {
 /**
  * Address `outline` inconsistency between Chrome and other browsers.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003103}}
 a:focus {
   outline: thin dotted; }
 
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003112}}
 a:active,
 a:hover {
   outline: 0; }
@@ -111,32 +102,26 @@ a:hover {
  * Address font sizes within `section` and `article` in Firefox 4+, Safari 5,
  * and Chrome.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003126}}
 h1 {
   font-size: 2em;
   margin: 0.67em 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003131}}
 h2 {
   font-size: 1.5em;
   margin: 0.83em 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003136}}
 h3 {
   font-size: 1.17em;
   margin: 1em 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003141}}
 h4 {
   font-size: 1em;
   margin: 1.33em 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003146}}
 h5 {
   font-size: 0.83em;
   margin: 1.67em 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003151}}
 h6 {
   font-size: 0.67em;
   margin: 2.33em 0; }
@@ -144,26 +129,22 @@ h6 {
 /**
  * Address styling not present in IE 7/8/9, Safari 5, and Chrome.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003160}}
 abbr[title] {
   border-bottom: 1px dotted; }
 
 /**
  * Address style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003169}}
 b,
 strong {
   font-weight: bold; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003173}}
 blockquote {
   margin: 1em 40px; }
 
 /**
  * Address styling not present in Safari 5 and Chrome.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003181}}
 dfn {
   font-style: italic; }
 
@@ -171,7 +152,6 @@ dfn {
  * Address differences between Firefox and other browsers.
  * Known issue: no IE 6/7 normalization.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003190}}
 hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -180,7 +160,6 @@ hr {
 /**
  * Address styling not present in IE 6/7/8/9.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003200}}
 mark {
   background: #ff0;
   color: #000; }
@@ -188,7 +167,6 @@ mark {
 /**
  * Address margins set differently in IE 6/7.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003210}}
 p,
 pre {
   margin: 1em 0; }
@@ -196,19 +174,17 @@ pre {
 /**
  * Correct font family set oddly in IE 6, Safari 4/5, and Chrome.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003221}}
 code,
 kbd,
 pre,
 samp {
   font-family: monospace, serif;
-  _font-family: 'courier new', monospace;
+  _font-family: "courier new", monospace;
   font-size: 1em; }
 
 /**
  * Improve readability of pre-formatted text in all browsers.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003231}}
 pre {
   white-space: pre;
   white-space: pre-wrap;
@@ -217,14 +193,12 @@ pre {
 /**
  * Address CSS quotes not supported in IE 6/7.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003241}}
 q {
   quotes: none; }
 
 /**
  * Address `quotes` property not supported in Safari 4.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003250}}
 q:before,
 q:after {
   content: '';
@@ -233,14 +207,12 @@ q:after {
 /**
  * Address inconsistent and variable font size in all browsers.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003259}}
 small {
   font-size: 80%; }
 
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003268}}
 sub,
 sup {
   font-size: 75%;
@@ -248,11 +220,9 @@ sup {
   position: relative;
   vertical-align: baseline; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003275}}
 sup {
   top: -0.5em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003279}}
 sub {
   bottom: -0.25em; }
 
@@ -262,21 +232,18 @@ sub {
 /**
  * Address margins set differently in IE 6/7.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003294}}
 dl,
 menu,
 ol,
 ul {
   margin: 1em 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003298}}
 dd {
   margin: 0 0 0 40px; }
 
 /**
  * Address paddings set differently in IE 6/7.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003308}}
 menu,
 ol,
 ul {
@@ -285,7 +252,6 @@ ul {
 /**
  * Correct list images handled incorrectly in IE 7.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003317}}
 nav ul,
 nav ol {
   list-style: none;
@@ -298,7 +264,6 @@ nav ol {
  * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
  * 2. Improve image quality when scaled in IE 7.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003331}}
 img {
   border: 0;
   /* 1 */
@@ -308,7 +273,6 @@ img {
 /**
  * Correct overflow displayed oddly in IE 9.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003340}}
 svg:not(:root) {
   overflow: hidden; }
 
@@ -318,7 +282,6 @@ svg:not(:root) {
 /**
  * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003352}}
 figure {
   margin: 0; }
 
@@ -328,16 +291,14 @@ figure {
 /**
  * Correct margin displayed oddly in IE 6/7.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003364}}
 form {
   margin: 0; }
 
 /**
  * Define consistent border, margin, and padding.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003372}}
 fieldset {
-  border: 1px solid #c0c0c0;
+  border: 1px solid silver;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em; }
 
@@ -346,7 +307,6 @@ fieldset {
  * 2. Correct text not wrapping in Firefox 3.
  * 3. Correct alignment displayed oddly in IE 6/7.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003384}}
 legend {
   border: 0;
   /* 1 */
@@ -362,7 +322,6 @@ legend {
  *    and Chrome.
  * 3. Improve appearance and consistency in all browsers.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003401}}
 button,
 input,
 select,
@@ -380,7 +339,6 @@ textarea {
  * Address Firefox 3+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003414}}
 button,
 input {
   line-height: normal; }
@@ -391,7 +349,6 @@ input {
  * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
  * Correct `select` style inheritance in Firefox 4+ and Opera.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003426}}
 button,
 select {
   text-transform: none; }
@@ -405,7 +362,6 @@ select {
  * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
  *    Known issue: inner spacing remains in IE 6.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003443}}
 button,
 html input[type="button"],
 input[type="reset"],
@@ -420,7 +376,6 @@ input[type="submit"] {
 /**
  * Re-set default cursor for disabled elements.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003454}}
 button[disabled],
 html input[disabled] {
   cursor: default; }
@@ -431,7 +386,6 @@ html input[disabled] {
  * 3. Remove excess padding in IE 7.
  *    Known issue: excess padding remains in IE 6.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003466}}
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
@@ -448,7 +402,6 @@ input[type="radio"] {
  * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
  *    (include `-moz` to future-proof).
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003479}}
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
@@ -461,7 +414,6 @@ input[type="search"] {
  * Remove inner padding and search cancel button in Safari 5 and Chrome
  * on OS X.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003492}}
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none; }
@@ -469,7 +421,6 @@ input[type="search"]::-webkit-search-decoration {
 /**
  * Remove inner padding and border in Firefox 3+.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003501}}
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -479,7 +430,6 @@ input::-moz-focus-inner {
  * 1. Remove default vertical scrollbar in IE 6/7/8/9.
  * 2. Improve readability and alignment in all browsers.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003511}}
 textarea {
   overflow: auto;
   /* 1 */
@@ -492,7 +442,6 @@ textarea {
 /**
  * Remove most spacing between table cells.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_normalize\.scss}line{font-family:\00003524}}
 table {
   border-collapse: collapse;
   border-spacing: 0; }
@@ -500,7 +449,6 @@ table {
 /* ==========================================================================
 HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
 ========================================================================== */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_header\.scss}line{font-family:\000039}}
 html,
 button,
 input,
@@ -508,78 +456,70 @@ select,
 textarea {
   color: #222; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_header\.scss}line{font-family:\0000313}}
 body {
   font-size: 1em;
   line-height: 1.4; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_header\.scss}line{font-family:\0000318}}
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_header\.scss}line{font-family:\0000323}}
 ::selection {
   background: #b3d4fc;
   text-shadow: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_header\.scss}line{font-family:\0000328}}
 hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #cccccc;
   margin: 1em 0;
   padding: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_header\.scss}line{font-family:\0000337}}
 img {
   vertical-align: middle; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_header\.scss}line{font-family:\0000341}}
 fieldset {
   border: 0;
   margin: 0;
   padding: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_header\.scss}line{font-family:\0000347}}
 textarea {
   resize: vertical; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_header\.scss}line{font-family:\0000351}}
 .chromeframe {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
   padding: 0.2em 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\000034}}
 * {
   box-sizing: border-box; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\000037}}
 body {
   font: 13px Helvetica, arial, freesans, clean, sans-serif; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000310}}
+p {
+  line-height: 150%; }
+
+ul li {
+  margin-bottom: 0.4em; }
+
 .page-contain {
   width: 680px;
   margin: 0 auto;
-  padding: 100px 0; }
+  padding: 3em 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000315}}
 #message {
   color: red;
   height: 2em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000319}}
 .grid-container {
   border-radius: 3px;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   margin: 0 auto;
   margin-bottom: 20px;
   width: 100%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000325}}
   .grid-container h3 {
     background: #f7f7f7;
     border-top-left-radius: 3px;
@@ -588,32 +528,31 @@ body {
     width: 100%;
     margin: 0;
     padding: 10px;
-    border-bottom: 1px solid #ddd; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000334}}
+    border-bottom: 1px solid #dddddd; }
     .grid-container h3 #userBox {
       float: left;
       margin-left: 15px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000338}}
     .grid-container h3 #stepsBox {
       float: right;
       margin-right: 15px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000343}}
   .grid-container #grid {
     height: 82px;
     width: 634px;
     margin: 24px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000349}}
+.intro {
+  margin-bottom: 2em; }
+  .intro h1 {
+    font-size: 3em; }
+
 .form-contain {
   width: 100%;
   margin: 0 auto; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000353}}
 .records {
-  margin-top: 100px;
+  margin-top: 3em;
   border-radius: 3px;
-  border: 1px solid #ddd; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000357}}
+  border: 1px solid #dddddd; }
   .records h1 {
     background: #eee;
     border-top-left-radius: 3px;
@@ -621,25 +560,20 @@ body {
     line-height: 100%;
     margin: 0;
     padding: 10px;
-    border-bottom: 1px solid #ccc; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000366}}
+    border-bottom: 1px solid #cccccc; }
   .records .row {
-    border-bottom: 1px solid #ddd; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000368}}
+    border-bottom: 1px solid #dddddd; }
     .records .row:nth-child(2) {
       font-weight: bold;
       text-transform: uppercase; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000372}}
     .records .row:nth-child(odd) {
       background: #f7f7f7; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000375}}
     .records .row .user, .records .row .steps {
       width: 50%;
       text-align: center;
       float: left;
       padding: 10px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000383}}
 .footer {
   font-size: 85%;
   float: right;
@@ -651,26 +585,22 @@ body {
 /* ==========================================================================
    Helper classes
    ========================================================================== */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_footer\.scss}line{font-family:\0000320}}
 .ir {
   background-color: transparent;
   border: 0;
   overflow: hidden;
   *text-indent: -9999px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_footer\.scss}line{font-family:\0000327}}
 .ir:before {
   content: "";
   display: block;
   width: 0;
   height: 150%; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_footer\.scss}line{font-family:\0000334}}
 .hidden {
   display: none !important;
   visibility: hidden; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_footer\.scss}line{font-family:\0000339}}
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -681,7 +611,6 @@ body {
   position: absolute;
   width: 1px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_footer\.scss}line{font-family:\0000351}}
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -691,21 +620,17 @@ body {
   position: static;
   width: auto; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_footer\.scss}line{font-family:\0000360}}
 .invisible {
   visibility: hidden; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_footer\.scss}line{font-family:\0000365}}
 .clearfix:before,
 .clearfix:after {
   content: " ";
   display: table; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_footer\.scss}line{font-family:\0000370}}
 .clearfix:after {
   clear: both; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_footer\.scss}line{font-family:\0000374}}
 .clearfix {
   *zoom: 1; }
 
@@ -713,67 +638,56 @@ body {
    Print styles
    ========================================================================== */
 @media print {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_footer\.scss}line{font-family:\0000383}}
   * {
     background: transparent !important;
-    color: #000 !important;
+    color: black !important;
     /* Black prints faster: h5bp.com/s */
     box-shadow: none !important;
     text-shadow: none !important; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_footer\.scss}line{font-family:\0000391}}
   a,
   a:visited {
     text-decoration: underline; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_footer\.scss}line{font-family:\0000395}}
   a[href]:after {
     content: " (" attr(href) ")"; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_footer\.scss}line{font-family:\0000399}}
   abbr[title]:after {
     content: " (" attr(title) ")"; }
 
   /*
    * Don't show links for images, or javascript/internal links
    */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_footer\.scss}line{font-family:\00003109}}
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: ""; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_footer\.scss}line{font-family:\00003114}}
   pre,
   blockquote {
-    border: 1px solid #999;
+    border: 1px solid #999999;
     page-break-inside: avoid; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_footer\.scss}line{font-family:\00003119}}
   thead {
     display: table-header-group;
     /* h5bp.com/t */ }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_footer\.scss}line{font-family:\00003124}}
   tr,
   img {
     page-break-inside: avoid; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_footer\.scss}line{font-family:\00003128}}
   img {
     max-width: 100% !important; }
 
   @page {
     margin: 0.5cm; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_footer\.scss}line{font-family:\00003138}}
   p,
   h2,
   h3 {
     orphans: 3;
     widows: 3; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/manderson\/www\/gitlife\/public_html\/css\/_footer\.scss}line{font-family:\00003144}}
   h2,
   h3 {
     page-break-after: avoid; } }
