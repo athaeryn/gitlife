@@ -1,4 +1,3 @@
-var g;
 $(document).ready(function () {
     function Grid (props) {
         var tempData = [],
@@ -113,13 +112,13 @@ $(document).ready(function () {
         }
     }
 
-    g = new Grid({
-            "width": 53,
-            "height": 7,
-            "cellSize": 10,
-            "cellPadding": 2,
-            "paper": new Raphael(document.getElementById("grid"), 634, 82)
-        });
+    var g = new Grid({
+        "width": 53,
+        "height": 7,
+        "cellSize": 10,
+        "cellPadding": 2,
+        "paper": new Raphael(document.getElementById("grid"), 634, 82)
+    });
     g.reset();
 
     var messageBox = $('#message'),
