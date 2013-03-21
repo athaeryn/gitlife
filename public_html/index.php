@@ -41,7 +41,7 @@ id="stepsBox">--</span></h3>
             <input type="submit" value="Submit" id="submit">
         </form>
     </div>
-    <div class="records">
+    <div class="leaderboard">
         <h1>Leaderboard</h1>
         <div class="row clearfix">
             <div class="rank">RANK</div>

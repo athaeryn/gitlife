@@ -624,13 +624,13 @@ ul li {
   margin: 0 auto; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000367}}
-.records {
+.leaderboard {
   width: 340px;
   margin-top: 5em;
   border-radius: 3px;
   border: 1px solid #ddd; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000372}}
-  .records h1 {
+  .leaderboard h1 {
     background: #eee;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
@@ -639,28 +639,28 @@ ul li {
     padding: 10px;
     border-bottom: 1px solid #ccc; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000381}}
-  .records .row {
+  .leaderboard .row {
     border-bottom: 1px solid #ddd; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000383}}
-    .records .row:nth-child(2) {
+    .leaderboard .row:nth-child(2) {
       font-weight: bold;
       text-transform: uppercase; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000387}}
-    .records .row:nth-child(odd) {
+    .leaderboard .row:nth-child(odd) {
       background: #f7f7f7; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000390}}
-    .records .row .rank {
+    .leaderboard .row .rank {
       width: 20%;
       float: left;
       padding: 10px;
       margin-left: 20px; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000396}}
-    .records .row .user {
+    .leaderboard .row .user {
       width: 20%;
       float: left;
       padding: 10px; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\00003101}}
-    .records .row .steps {
+    .leaderboard .row .steps {
       width: 20%;
       float: right;
       text-align: right;
