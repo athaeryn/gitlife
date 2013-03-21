@@ -1,55 +1,125 @@
+var g;
 $(document).ready(function () {
+    function Grid (props) {
+        var tempData = [],
+            w = props.width,
+            h = props.height,
+            s = props.cellSize,
+            p = props.cellPadding,
+            paper = props.paper,
+            runInterval,
+            running = false,
+            forceDead = true,
+            colors = {
+                "live": "#1E6823,#44A340,#8CC665".split(','),
+                "dead": "#EEE"
+            },
+            steps = 0,
+            data;
 
-    // Global stuff
-    var paper,
-        data = [],
-        tempData = [],
-        startingDay,
-        stillRunning = false,
+        function setData(d) {
+            data = d; 
+        }
+
+        function advance () {
+            console.log(data);
+            tempData = [];
+            for (var x = 0; x < w; x++) {
+                for (var y = 0; y < h; y++) {
+                    var newState = solveCell(x, y, data);
+                    tempData.push(newState);
+                }
+            }
+            steps += 1;
+            data = tempData;
+            drawGrid(data);
+        }
+
+        function drawCell(x, y, alive) {
+            var cell = paper.rect(x * (s + p), y * (s + p), s, s);
+            cell.attr({
+                fill: alive ? getLiveColor() : deadColor,
+                stroke: "none"
+            });
+        }
+
+        function getLiveColor() {
+            return colors.live[Math.floor(Math.random() * colors.live.length)];
+        }
+
+        function solveCell(x, y, g) {
+            var c = g[x * w + y],
+                n = 0;
+            for (var i = -1; i < 2; i++) {
+                for (var j = -1; j < 2; j++) {
+                    if (i == 0 && j == 0) continue;
+                    n += g[((w + x - i) % w) * h + ((h + y - j) % h)];
+                }
+            }
+            if (n === 3 || (n === 2 && c)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function drawGrid(draw) {
+            for (var x = 0; x < w; x++) {
+                for (var y = 0; y < h; y++) {
+                    drawCell(x, y, (data && draw) ? data[x * h + y] : false);
+                }
+            }
+        }
+
+        return {
+            "log": function () {
+                console.log({
+                    "randomColor": getLiveColor(),
+                    "data": data
+                });
+            },
+            "giveData": function (d) {
+               setData(d); 
+            },
+            "reset": function () {
+                steps = 0;
+                running = false;
+                drawGrid();
+            },
+            "draw": function () {
+                drawGrid(true);
+            },
+            "play": function (onStep, onComplete) {
+                if (onStep) onStep(steps);
+                if (onComplete) onComplete(steps);
+            },
+            "step": function () {
+                advance();
+            }
+        }
+    }
+
+    g = new Grid({
+            "width": 53,
+            "height": 7,
+            "cellSize": 10,
+            "cellPadding": 2,
+            "paper": new Raphael(document.getElementById("grid"), 634, 82)
+        });
+    g.reset();
+
+    var stillRunning = false,
         postOnce = true,
         steps = 0,
-        cw = 10,
-        ch = 10,
-        cpad = 2,
-        w = 53,
-        h = 7,
         deadColor = "#eee",
-        aliveColors= "#1E6823,#44A340,#8CC665".split(','),
         messageBox = $('#message'),
         userBox = $('#userBox'),
         stepsBox = $('#stepsBox');
 
-    function getRandom(c) {
-        return c[Math.floor(Math.random() * c.length)];
-    }
-
-    function solveCell(x, y, g) {
-        c = g[x * w + y];
-        n = getNeighbors(x, y, g); 
-        if (n === 3 || (n === 2 && c)) {
-            return true; 
-        } else {
-            return false;
-        } 
-    }
-    
-    function getNeighbors(x, y, g) { // Position, Grid
-        var c = 0;
-        for (var i = -1; i < 2; i++) {
-            for (var j = -1; j < 2; j++) {
-                if (i == 0 && j == 0) continue; 
-                c += g[((w + x - i) % w) * h + ((h + y - j) % h)];
-            } 
-        }
-        return c;
-    }
-
-    function getRandom(collection) {
-        return collection[Math.floor(Math.random() * collection.length)];
-    }
-
-    function parseData(raw) {
-        var parsed = [];
+    function parseData(raw, w, h) {
+        var parsed = [],
+            startingDay,
+            adjusted = [];
 
         //  Just throw an error if the data is not valid.
         //  It should start with '['
@@ -74,29 +144,19 @@ $(document).ready(function () {
             parsed = "This user has no (public) commits... How boring!";
         }
 
-        return parsed;
-    }
-
-    // Initalize the canvas and draw the empty grid
-    paper = new Raphael(document.getElementById("grid"), 634, 82);
-    drawEmptyGrid();
-
-    // Draws a cell
-    function drawCell(x, y, alive) {
-        var cell = paper.rect(x * (cw + cpad), y * (ch + cpad), cw, ch);
-        cell.attr({
-            fill: alive ? getRandom(aliveColors) : deadColor,
-            stroke: "none"
-        });
-    }
-
-    // Draws the grid with the cell states pulled from data
-    function drawGrid() {
-        for (var x = 0; x < w; x++) {
-            for (var y = 0; y < h; y++) {
-                drawCell(x, y, data[(x) * h + y]);
-            }
+        // The data needs to be adjusted based on the day of the week the data
+        // starts.
+        for (var a = 0; a < startingDay; a++) {
+            adjusted.push(false);
         }
+        for (var b = 0; b < parsed.length; b++) {
+            adjusted.push(parsed[b]);
+        }
+        for (var c = 0; c < (w * h) - adjusted.length; c++) {
+            adjusted.push(false);
+        }
+
+        return adjusted;
     }
 
     function message(message) {
@@ -104,8 +164,8 @@ $(document).ready(function () {
     }
 
     $('#submit').click(function () {
-        data = [];
-        drawEmptyGrid();
+        d = [];
+        g.reset();
         var user = $('#user').val();
         if(user.length === 0) {
             message("Please enter a user before clicking that button.");
@@ -113,52 +173,17 @@ $(document).ready(function () {
         }
         // Load the data, parse it, and draw the grid
         $.get('getData.php?user=' + user, function (d){
-            d = parseData(d);
-            // More sophisticated data validation to be done elsewhere
+            d = parseData(d, 53, 7);
             // This is simply to determine whether we're dealing with actual
             // data or an error
             if(d instanceof Array) { // Actual data
-                for (var a = 0; a < startingDay; a++) {
-                    data.push(false);
-                }
-                for (var b = 0; b < d.length; b++) {
-                    data.push(d[b]);
-                }
-                for (var c = 0; c < (w * h) - d.length; c++) {
-                    data.push(false); 
-                }
                 userBox.html(user);
                 message(); // Clears the message field.
-                drawGrid();
                 stillRunning = true;
                 steps = 0;
                 postOnce = true;
-                var advance = setInterval(function () {
-                    if (stillRunning) {
-                        stillRunning = false;
-                        tempData = [];
-                        for (var x = 0; x < w; x++) {
-                            for (var y = 0; y < h; y++) {
-                                var newState = solveCell(x, y, data);
-                                if (newState) {
-                                    stillRunning = true;
-                                }
-                                tempData.push(newState); 
-                            } 
-                        }
-                        steps += 1;
-                        stepsBox.html(steps);
-                        if (steps >= 100) stillRunning = false;
-                        data = tempData;
-                        drawGrid();
-                        if (!stillRunning && postOnce) {
-                            message(user+' went '+steps+' steps!');
-                            $.post('save_record.php', {user: user, steps: steps});
-                            postOnce = false;
-                            clearInterval(advance);
-                        }
-                    }
-                }, 750);
+                g.giveData(d);
+                g.draw();
             } else { // Error
                 message(d);
                 return false;
@@ -166,13 +191,4 @@ $(document).ready(function () {
         });
         return false;
     });
-
-    // Draws the grid with all the cells "off"
-    function drawEmptyGrid() {
-        for (var x = 0; x < w; x++) {
-            for (var y = 0; y < h; y++) {
-                drawCell(x, y, false);
-            }
-        }
-    }
 });
