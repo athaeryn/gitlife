@@ -1,24 +1,4 @@
-<?php 
-
-$querystring = $_SERVER['QUERY_STRING'];
-
-$username = "root";
-$password = "snorlax";
-$database = "gitlife";
-
-mysql_connect('localhost', $username, $password);
-@mysql_select_db($database) or die("Unable to select database.");
-
-$query = "SELECT * FROM records ORDER BY steps DESC, user ASC LIMIT 0, 20"; 
-$result = mysql_query($query);
-
-$records= mysql_numrows($result);
-
-mysql_close();
-
-
-
-include "header.php" ?>
+<?php include "header.php" ?>
 <div class="page-contain">
     <div class="intro">
         <h1>Greetings!</h1>
@@ -61,7 +41,6 @@ id="stepsBox">--</span></h3>
             <input type="submit" value="Submit" id="submit">
         </form>
     </div>
-<?php if ($records > 0 ) { ?>
     <div class="records">
         <h1>Leaderboard</h1>
         <div class="row clearfix">
@@ -69,32 +48,8 @@ id="stepsBox">--</span></h3>
             <div class="user">USER</div>
             <div class="steps">STEPS</div>
         </div>
-
-<?php
-    $i = 0;
-    while ($i < $records) {
-        $user = mysql_result($result, $i, "user");
-        $steps = mysql_result($result, $i, "steps");
-        if ($steps == "100") $steps = "&infin;";
-?>
-
-        <div class="row clearfix">
-            <div class="rank">
-                <?php echo $i + 1 . '.'?>
-            </div>
-            <div class="user">
-                <a href="https://github.com/<?php echo $user; ?>">
-                    <?php echo $user; ?>
-                </a>
-            </div>
-            <div class="steps"><?php echo $steps; ?></div>
-        </div>
-<?php 
-        $i++;
-    }
-?> 
+        <?php include "leaderboard.php"; ?>
     </div>
-<?php } ?>
     <div class="footer">
         by <a href="http://mrmikea.com">Mike Anderson</a>
     </div>
