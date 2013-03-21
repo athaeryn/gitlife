@@ -65,7 +65,8 @@ ul{
     margin: 0 auto;
 }
 .records{
-    margin-top: 3em;
+    width: 340px;
+    margin-top: 5em;
     border-radius: 3px;
     border: 1px solid #ddd;
     h1{
@@ -86,11 +87,23 @@ ul{
         &:nth-child(odd){
             background: #f7f7f7; 
         }
-        .user, .steps{
-            width: 50%;
-            text-align: center;
+        .rank{
+            width: 20%; 
             float: left;
             padding: 10px;
+            margin-left: 20px;
+        }
+        .user{
+            width: 20%;
+            float: left;
+            padding: 10px;
+        }
+        .steps{
+            width: 20%;
+            float: right;
+            text-align: right;
+            padding: 10px;
+            margin-right: 20px;
         }
     }
 }

@@ -1,5 +1,3 @@
-var advance;
-
 $(document).ready(function () {
 
     // Global stuff
@@ -135,7 +133,7 @@ $(document).ready(function () {
                 stillRunning = true;
                 steps = 0;
                 postOnce = true;
-                advance = function () {
+                var advance = setInterval(function () {
                     if (stillRunning) {
                         stillRunning = false;
                         tempData = [];
@@ -157,19 +155,16 @@ $(document).ready(function () {
                             message(user+' went '+steps+' steps!');
                             $.post('save_record.php', {user: user, steps: steps});
                             postOnce = false;
+                            clearInterval(advance);
                         }
                     }
-                }
+                }, 750);
             } else { // Error
                 message(d);
                 return false;
             }
         });
         return false;
-    });
-
-    $('#step').click(function () {
-        advance(); 
     });
 
     // Draws the grid with all the cells "off"

@@ -9,7 +9,7 @@ $database = "gitlife";
 mysql_connect('localhost', $username, $password);
 @mysql_select_db($database) or die("Unable to select database.");
 
-$query = "SELECT * FROM records ORDER BY steps DESC, user ASC"; 
+$query = "SELECT * FROM records ORDER BY steps DESC, user ASC LIMIT 0, 20"; 
 $result = mysql_query($query);
 
 $records= mysql_numrows($result);
@@ -34,15 +34,13 @@ include "header.php" ?>
         <h2>About using it.</h2>
         <p>
             The interface is pretty bad at the moment. I know how I want it to
-            work, I just haven't put it together yet. I'm working with Github's
-            awesome support people to try and implement part of it. In the
-            meantime, here's how you can see it in action:
+            work, I just haven't put it together yet. In the meantime, here's
+            how you can see it in action:
         </p>
         <ul>
             <li>Type the username of a GitHub user into the field</li>
             <li>Hit 'Submit'</li>
-            <li>Press 'Step' until the simulation is complete (or you reach 100 steps)</li>
-            <li>That user's "score" will be added to the Leaderboard</li>
+            <li>Enjoy the show</li>
             <li>Repeat!</li>
         </ul>
         <p>
@@ -61,13 +59,13 @@ id="stepsBox">--</span></h3>
         <form id="user-picker" action="">
             <input type="text" value="" id="user" placeholder="username">
             <input type="submit" value="Submit" id="submit">
-            <input type="button" value="Step" id="step">
         </form>
     </div>
 <?php if ($records > 0 ) { ?>
     <div class="records">
         <h1>Leaderboard</h1>
         <div class="row clearfix">
+            <div class="rank">RANK</div>
             <div class="user">USER</div>
             <div class="steps">STEPS</div>
         </div>
@@ -77,9 +75,13 @@ id="stepsBox">--</span></h3>
     while ($i < $records) {
         $user = mysql_result($result, $i, "user");
         $steps = mysql_result($result, $i, "steps");
+        if ($steps == "100") $steps = "&infin;";
 ?>
 
         <div class="row clearfix">
+            <div class="rank">
+                <?php echo $i + 1 . '.'?>
+            </div>
             <div class="user">
                 <a href="https://github.com/<?php echo $user; ?>">
                     <?php echo $user; ?>
