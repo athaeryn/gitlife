@@ -22,7 +22,6 @@ $(document).ready(function () {
         }
 
         function advance (callback) {
-            console.log(data);
             tempData = [];
             var stillGoing = false;
             for (var x = 0; x < w; x++) {
@@ -39,7 +38,7 @@ $(document).ready(function () {
         function drawCell(x, y, alive) {
             var cell = paper.rect(x * (s + p), y * (s + p), s, s);
             cell.attr({
-                fill: alive ? getLiveColor() : deadColor,
+                fill: alive ? getLiveColor() : colors.dead,
                 stroke: "none"
             });
         }
@@ -67,7 +66,7 @@ $(document).ready(function () {
         function drawGrid(draw) {
             for (var x = 0; x < w; x++) {
                 for (var y = 0; y < h; y++) {
-                    drawCell(x, y, (data && draw) ? data[x * h + y] : false);
+                    drawCell(x, y, data ? data[x * h + y] : false);
                 }
             }
         }
@@ -99,10 +98,11 @@ $(document).ready(function () {
             "reset": function () {
                 steps = 0;
                 running = false;
+                clearInterval(runInterval);
                 drawGrid();
             },
             "draw": function () {
-                drawGrid(true);
+                drawGrid();
             },
             "play": function (onStep, onComplete) {
                 play(onStep, onComplete);
@@ -122,11 +122,7 @@ $(document).ready(function () {
         });
     g.reset();
 
-    var stillRunning = false,
-        postOnce = true,
-        steps = 0,
-        deadColor = "#eee",
-        messageBox = $('#message'),
+    var messageBox = $('#message'),
         userBox = $('#userBox'),
         stepsBox = $('#stepsBox');
 
@@ -196,13 +192,10 @@ $(document).ready(function () {
                 g.giveData(d);
                 g.draw();
                 g.play(function(s){ // onStep
-                    console.log(s);
                     stepsBox.html(s);
                 }, function (s) { // onComplete
-                    console.log(s); 
-                    console.log("complete.");
                     message(user + " went " + s + " step(s)!");
-                    $.post('save_record.php', {user: user, steps: steps});
+                    $.post('save_record.php', {user: user, steps: s});
                 });
             } else { // Error
                 message(d);
