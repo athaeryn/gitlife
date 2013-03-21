@@ -27,6 +27,7 @@ $(document).ready(function () {
                 for (var y = 0; y < h; y++) {
                     var newState = solveCell(x, y, data);
                     if (newState) stillGoing = true;
+                    if (newState != data[x * h + y]) drawCell(x, y, newState);
                     tempData.push(newState);
                 }
             }
@@ -75,7 +76,6 @@ $(document).ready(function () {
                 steps++; 
                 advance(function (q) {
                     if (onStep) onStep(steps);
-                    drawGrid(data);
                     if(!q.stillGoing) {
                         clearInterval(runInterval);
                         if (onComplete) onComplete(steps);
