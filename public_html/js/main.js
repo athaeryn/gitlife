@@ -21,18 +21,19 @@ $(document).ready(function () {
             data = d; 
         }
 
-        function advance () {
+        function advance (callback) {
             console.log(data);
             tempData = [];
+            var stillGoing = false;
             for (var x = 0; x < w; x++) {
                 for (var y = 0; y < h; y++) {
                     var newState = solveCell(x, y, data);
+                    if (newState) stillGoing = true;
                     tempData.push(newState);
                 }
             }
-            steps += 1;
             data = tempData;
-            drawGrid(data);
+            if (callback) callback({"stillGoing": stillGoing});
         }
 
         function drawCell(x, y, alive) {
@@ -71,6 +72,20 @@ $(document).ready(function () {
             }
         }
 
+        function play(onStep, onComplete) {
+            runInterval = setInterval(function () {
+                steps++; 
+                advance(function (q) {
+                    if (onStep) onStep(steps);
+                    drawGrid(data);
+                    if(!q.stillGoing) {
+                        clearInterval(runInterval);
+                        if (onComplete) onComplete(steps);
+                    } 
+                });
+            }, 750);
+        }
+
         return {
             "log": function () {
                 console.log({
@@ -90,8 +105,7 @@ $(document).ready(function () {
                 drawGrid(true);
             },
             "play": function (onStep, onComplete) {
-                if (onStep) onStep(steps);
-                if (onComplete) onComplete(steps);
+                play(onStep, onComplete);
             },
             "step": function () {
                 advance();
@@ -179,11 +193,17 @@ $(document).ready(function () {
             if(d instanceof Array) { // Actual data
                 userBox.html(user);
                 message(); // Clears the message field.
-                stillRunning = true;
-                steps = 0;
-                postOnce = true;
                 g.giveData(d);
                 g.draw();
+                g.play(function(s){ // onStep
+                    console.log(s);
+                    stepsBox.html(s);
+                }, function (s) { // onComplete
+                    console.log(s); 
+                    console.log("complete.");
+                    message(user + " went " + s + " step(s)!");
+                    $.post('save_record.php', {user: user, steps: steps});
+                });
             } else { // Error
                 message(d);
                 return false;
