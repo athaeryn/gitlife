@@ -197,6 +197,10 @@ $(document).ready(function () {
                 $('#user').val("");
                 g.giveData(d);
                 g.draw();
+                $.post('json.php', {
+                    "action": "add",
+                    "user": user
+                });
                 g.play(function(s){ // onStep
                     stepsBox.html(s);
                 }, function (s) { // onComplete
