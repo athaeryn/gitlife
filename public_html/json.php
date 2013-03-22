@@ -14,7 +14,7 @@ if (isset($_POST['action']) && isset($_POST['user'])) {
             array_push($data, $_POST['user']);
         }
         $fh = fopen("users.json", "w");
-        fwrite($fh, json_encode($data, JSON_UNESCAPED_UNICODE));
+        fwrite($fh, json_encode($data));
         fclose($fh);
     }
 }
