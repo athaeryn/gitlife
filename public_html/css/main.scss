@@ -64,6 +64,23 @@ ul{
 .form-contain{
     width: 100%;
     margin: 0 auto;
+    .twitter-typeahead{
+        width: 75%;
+        height: 50px;
+    }
+    input[type="text"]{
+        width: 100%;
+        height: inherit;
+        padding: 10px;
+        float: left;
+        border-radius: 3px;
+    }
+    input[type="submit"]{
+        display: block;
+        width: 23%;
+        float: right;
+        height: 50px;
+    }
 }
 .leaderboard{
     width: 340px;
@@ -126,5 +143,15 @@ ul{
 }
 .tt-suggestion{
     padding-left: 10px;
+    border-bottom: 1px solid #ddd;
+    background: #f7f7f7;
+    p{
+        margin: 0;
+        padding: 1em;
+    }
+}
+.tt-is-under-cursor{
+    background: white;
+    box-shadow: inset 0px 0px 15px rgba(0,0,0,0.1);
 }
 @import "footer";

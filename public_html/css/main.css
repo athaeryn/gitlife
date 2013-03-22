@@ -701,14 +701,31 @@ ul li {
 .form-contain {
   width: 100%;
   margin: 0 auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000367}}
+  .form-contain .twitter-typeahead {
+    width: 75%;
+    height: 50px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000371}}
+  .form-contain input[type="text"] {
+    width: 100%;
+    height: inherit;
+    padding: 10px;
+    float: left;
+    border-radius: 3px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000378}}
+  .form-contain input[type="submit"] {
+    display: block;
+    width: 23%;
+    float: right;
+    height: 50px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000368}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000385}}
 .leaderboard {
   width: 340px;
   margin-top: 5em;
   border-radius: 3px;
   border: 1px solid #ddd; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000373}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000390}}
   .leaderboard h1 {
     background: #eee;
     border-top-left-radius: 3px;
@@ -717,28 +734,28 @@ ul li {
     margin: 0;
     padding: 10px;
     border-bottom: 1px solid #ccc; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000382}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000399}}
   .leaderboard .row {
     border-bottom: 1px solid #ddd; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000384}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\00003101}}
     .leaderboard .row.legend {
       font-weight: bold;
       text-transform: uppercase; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000388}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\00003105}}
     .leaderboard .row:nth-child(odd) {
       background: #f7f7f7; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000391}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\00003108}}
     .leaderboard .row .rank {
       width: 20%;
       float: left;
       padding: 10px;
       margin-left: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000397}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\00003114}}
     .leaderboard .row .user {
       width: 20%;
       float: left;
       padding: 10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\00003102}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\00003119}}
     .leaderboard .row .steps {
       width: 20%;
       float: right;
@@ -746,17 +763,17 @@ ul li {
       padding: 10px;
       margin-right: 20px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\00003111}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\00003128}}
 .footer {
   font-size: 85%;
   float: right;
   margin: 10px 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\00003116}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\00003133}}
 .tt-hint {
   color: #ccc; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\00003119}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\00003136}}
 .tt-dropdown-menu {
   background: white;
   width: 100%;
@@ -765,9 +782,20 @@ ul li {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\00003127}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\00003144}}
 .tt-suggestion {
-  padding-left: 10px; }
+  padding-left: 10px;
+  border-bottom: 1px solid #ddd;
+  background: #f7f7f7; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\00003148}}
+  .tt-suggestion p {
+    margin: 0;
+    padding: 1em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\00003153}}
+.tt-is-under-cursor {
+  background: white;
+  box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.1); }
 
 /* ==========================================================================
    Media Queries

@@ -41,7 +41,7 @@ id="stepsBox">--</span></h3>
     </div>
     <div class="form-contain">
         <div id="message"></div>
-        <form id="user-picker" action="">
+        <form id="user-picker clearfix" action="">
             <input type="text" value="" id="user" placeholder="username">
             <input type="submit" value="Submit" id="submit">
         </form>
