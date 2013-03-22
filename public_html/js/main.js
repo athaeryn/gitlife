@@ -123,7 +123,6 @@ $(document).ready(function () {
         stepsBox = $('#stepsBox');
 
     $.getJSON('../users.json', function (json) {
-        console.log(json[0]);
         $('#user').typeahead({
             name: 'users',
             local: json
@@ -138,6 +137,8 @@ $(document).ready(function () {
         //  Just throw an error if the data is not valid.
         //  It should start with '['
         if (raw[0] !== '[') return raw;
+
+        console.log(raw.length);
 
         // Parse the data from wierdness format to something workable
         raw = raw.split("],[");
@@ -156,8 +157,10 @@ $(document).ready(function () {
         // Check to see if the user has any commits
         if (parsed.indexOf(true) < 0) {
             parsed = "This user has no (public) commits... How boring!";
+            return parsed;
         }
 
+        console.log(parsed);
         // The data needs to be adjusted based on the day of the week the data
         // starts.
         for (var a = 0; a < startingDay; a++) {
@@ -170,6 +173,7 @@ $(document).ready(function () {
             adjusted.push(false);
         }
 
+        console.log(adjusted.length);
         return adjusted;
     }
 
