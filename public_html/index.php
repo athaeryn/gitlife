@@ -43,12 +43,14 @@ id="stepsBox">--</span></h3>
     </div>
     <div class="leaderboard">
         <h1>Leaderboard</h1>
-        <div class="row clearfix">
+        <div class="row legend clearfix">
             <div class="rank">RANK</div>
             <div class="user">USER</div>
             <div class="steps">STEPS</div>
         </div>
-        <?php include "leaderboard.php"; ?>
+        <div class="rows">
+            <?php include "leaderboard.php"; ?>
+        </div>
     </div>
     <div class="footer">
         by <a href="http://mrmikea.com">Mike Anderson</a>

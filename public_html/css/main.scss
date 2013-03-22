@@ -80,7 +80,7 @@ ul{
     }
     .row{
         border-bottom: 1px solid #ddd; 
-        &:nth-child(2){
+        &.legend{
             font-weight: bold; 
             text-transform: uppercase;
         }

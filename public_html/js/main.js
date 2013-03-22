@@ -188,13 +188,21 @@ $(document).ready(function () {
             if(d instanceof Array) { // Actual data
                 userBox.html(user);
                 message(); // Clears the message field.
+                $('#user').val("");
                 g.giveData(d);
                 g.draw();
                 g.play(function(s){ // onStep
                     stepsBox.html(s);
                 }, function (s) { // onComplete
                     message(user + " went " + s + " step(s)!");
-                    $.post('save_record.php', {user: user, steps: s});
+                    $.post('save_record.php', {
+                        "user": user,
+                        "steps": s
+                    }, function() {
+                        $.get('leaderboard.php', function (board) {
+                            $('.rows').html(board);    
+                        }); 
+                    });
                 });
             } else { // Error
                 message(d);

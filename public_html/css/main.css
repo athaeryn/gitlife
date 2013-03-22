@@ -642,7 +642,7 @@ ul li {
   .leaderboard .row {
     border-bottom: 1px solid #ddd; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000383}}
-    .leaderboard .row:nth-child(2) {
+    .leaderboard .row.legend {
       font-weight: bold;
       text-transform: uppercase; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/main\.scss}line{font-family:\0000387}}
