@@ -32,7 +32,12 @@
     <div class="grid-container">
         <h3 class="clearfix"><span id="userBox">gitlife</span><span 
 id="stepsBox">--</span></h3>
-        <div id="grid"></div>
+        <canvas id="grid" width="634" height="82">
+            This website uses HTML5's canvas to function. If you're reading this,
+            your browser doesn't support canvas, which means you're probably running
+            an old version of IE. Consider updating that old thing so you can
+            join in the fun!
+        </canvas>
     </div>
     <div class="form-contain">
         <div id="message"></div>

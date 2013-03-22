@@ -5,7 +5,7 @@ $(document).ready(function () {
             h = props.height,
             s = props.cellSize,
             p = props.cellPadding,
-            paper = props.paper,
+            canvas = props.canvas,
             runInterval,
             running = false,
             forceDead = true,
@@ -36,11 +36,8 @@ $(document).ready(function () {
         }
 
         function drawCell(x, y, alive) {
-            var cell = paper.rect(x * (s + p), y * (s + p), s, s);
-            cell.attr({
-                fill: alive ? getLiveColor() : colors.dead,
-                stroke: "none"
-            });
+            canvas.fillStyle = alive ? getLiveColor() : colors.dead;
+            canvas.fillRect(x * (s + p), y * (s + p), s, s);
         }
 
         function getLiveColor() {
@@ -117,7 +114,7 @@ $(document).ready(function () {
         "height": 7,
         "cellSize": 10,
         "cellPadding": 2,
-        "paper": new Raphael(document.getElementById("grid"), 634, 82)
+        "canvas": document.getElementById("grid").getContext('2d') 
     });
     g.reset();
 
