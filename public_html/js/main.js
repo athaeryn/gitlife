@@ -73,7 +73,7 @@ $(document).ready(function () {
                 steps++; 
                 advance(function (q) {
                     if (onStep) onStep(steps);
-                    if(!q.stillGoing) {
+                    if(!q.stillGoing || steps >= 100) {
                         clearInterval(runInterval);
                         if (onComplete) onComplete(steps);
                     } 
