@@ -1,4 +1,6 @@
+/* global $:false */
 $(document).ready(function () {
+    "use strict";
     function Grid (props) {
         var tempData = [],
             w = props.width,
@@ -8,7 +10,6 @@ $(document).ready(function () {
             canvas = props.canvas,
             runInterval,
             running = false,
-            forceDead = true,
             colors = {
                 "live": "#1E6823,#44A340,#8CC665".split(','),
                 "dead": "#EEE"
@@ -26,13 +27,13 @@ $(document).ready(function () {
             for (var x = 0; x < w; x++) {
                 for (var y = 0; y < h; y++) {
                     var newState = solveCell(x, y, data);
-                    if (newState) stillGoing = true;
-                    if (newState != data[x * h + y]) drawCell(x, y, newState);
+                    if (newState) { stillGoing = true; }
+                    if (newState !== data[x * h + y]) { drawCell(x, y, newState); }
                     tempData.push(newState);
                 }
             }
             data = tempData;
-            if (callback) callback({"stillGoing": stillGoing});
+            if (callback) { callback({"stillGoing": stillGoing}); }
         }
 
         function drawCell(x, y, alive) {
@@ -49,7 +50,7 @@ $(document).ready(function () {
                 n = 0;
             for (var i = -1; i < 2; i++) {
                 for (var j = -1; j < 2; j++) {
-                    if (i == 0 && j == 0) continue;
+                    if (i === 0 && j === 0) { continue; }
                     n += g[((w + x - i) % w) * h + ((h + y - j) % h)];
                 }
             }
@@ -60,7 +61,7 @@ $(document).ready(function () {
             }
         }
 
-        function drawGrid(draw) {
+        function drawGrid() {
             for (var x = 0; x < w; x++) {
                 for (var y = 0; y < h; y++) {
                     drawCell(x, y, data ? data[x * h + y] : false);
@@ -72,10 +73,10 @@ $(document).ready(function () {
             runInterval = setInterval(function () {
                 steps++; 
                 advance(function (q) {
-                    if (onStep) onStep(steps);
+                    if (onStep) { onStep(steps); }
                     if(!q.stillGoing || steps >= 100) {
                         clearInterval(runInterval);
-                        if (onComplete) onComplete(steps);
+                        if (onComplete) { onComplete(steps); }
                     } 
                 });
             }, 750);
@@ -89,7 +90,7 @@ $(document).ready(function () {
                 });
             },
             "giveData": function (d) {
-               setData(d); 
+                setData(d); 
             },
             "reset": function () {
                 steps = 0;
@@ -106,7 +107,7 @@ $(document).ready(function () {
             "step": function () {
                 advance();
             }
-        }
+        };
     }
 
     var g = new Grid({
@@ -136,7 +137,7 @@ $(document).ready(function () {
 
         //  Just throw an error if the data is not valid.
         //  It should start with '['
-        if (raw[0] !== '[') return raw;
+        if (raw[0] !== '[') { return raw; }
 
         console.log(raw.length);
 
@@ -150,8 +151,8 @@ $(document).ready(function () {
         startingDay = new Date(raw[0][0]).getDay();
 
         // Push the commit counts onto the 'parsed' array
-        for (var i = 0; i < raw.length; i++) {
-            parsed.push(raw[i][1] > 0);
+        for (var j = 0; j < raw.length; j++) {
+            parsed.push(raw[j][1] > 0);
         }
 
         // Check to see if the user has any commits
@@ -177,13 +178,13 @@ $(document).ready(function () {
         return adjusted;
     }
 
-    function message(message) {
-        messageBox.html(message || "");
+    function message(msg) {
+        messageBox.html(msg || "");
     }
 
     $('#submit').click(function () {
         $("#user").blur();
-        d = [];
+        //d = [];
         g.reset();
         var user = $('#user').val();
         if(user.length === 0) {
