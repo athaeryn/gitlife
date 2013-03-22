@@ -122,6 +122,14 @@ $(document).ready(function () {
         userBox = $('#userBox'),
         stepsBox = $('#stepsBox');
 
+    $.getJSON('../users.json', function (json) {
+        console.log(json[0]);
+        $('#user').typeahead({
+            name: 'users',
+            local: json
+        });
+    });
+
     function parseData(raw, w, h) {
         var parsed = [],
             startingDay,
@@ -170,6 +178,7 @@ $(document).ready(function () {
     }
 
     $('#submit').click(function () {
+        $("#user").blur();
         d = [];
         g.reset();
         var user = $('#user').val();
