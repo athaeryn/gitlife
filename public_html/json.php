@@ -10,7 +10,7 @@ if (isset($_POST['action']) && isset($_POST['user'])) {
         $raw = file_get_contents("users.json");
         $data = json_decode($raw);
         $user = $_POST['user'];
-        if (!in_array($data, $user)) {
+        if (!in_array($user, $data)) {
             array_push($data, $_POST['user']);
         }
         $fh = fopen("users.json", "w");
