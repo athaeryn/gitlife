@@ -18,7 +18,7 @@ $(document).ready(function () {
             data;
 
         function setData(d) {
-            data = d; 
+            data = d;
         }
 
         function advance (callback) {
@@ -71,26 +71,20 @@ $(document).ready(function () {
 
         function play(onStep, onComplete) {
             runInterval = setInterval(function () {
-                steps++; 
+                steps++;
                 advance(function (q) {
                     if (onStep) { onStep(steps); }
                     if(!q.stillGoing || steps >= 100) {
                         clearInterval(runInterval);
                         if (onComplete) { onComplete(steps); }
-                    } 
+                    }
                 });
             }, 750);
         }
 
         return {
-            "log": function () {
-                console.log({
-                    "randomColor": getLiveColor(),
-                    "data": data
-                });
-            },
             "giveData": function (d) {
-                setData(d); 
+                setData(d);
             },
             "reset": function () {
                 steps = 0;
@@ -115,13 +109,13 @@ $(document).ready(function () {
         "height": 7,
         "cellSize": 10,
         "cellPadding": 2,
-        "canvas": document.getElementById("grid").getContext('2d') 
-    });
-    g.reset();
-
-    var messageBox = $('#message'),
+        "canvas": document.getElementById("grid").getContext('2d')
+    }),
+        messageBox = $('#message'),
         userBox = $('#userBox'),
         stepsBox = $('#stepsBox');
+
+    g.reset();
 
     $.getJSON('../users.json', function (json) {
         $('#user').typeahead({
@@ -137,9 +131,7 @@ $(document).ready(function () {
 
         //  Just throw an error if the data is not valid.
         //  It should start with '['
-        if (raw[0] !== '[') { return raw; }
-
-        console.log(raw.length);
+        if (raw[0] !== '[') { throw raw; }
 
         // Parse the data from wierdness format to something workable
         raw = raw.split("],[");
@@ -157,11 +149,9 @@ $(document).ready(function () {
 
         // Check to see if the user has any commits
         if (parsed.indexOf(true) < 0) {
-            parsed = "This user has no (public) commits... How boring!";
-            return parsed;
+            throw "This user has no (public) commits... How boring!";
         }
 
-        console.log(parsed);
         // The data needs to be adjusted based on the day of the week the data
         // starts.
         for (var a = 0; a < startingDay; a++) {
@@ -174,7 +164,10 @@ $(document).ready(function () {
             adjusted.push(false);
         }
 
-        console.log(adjusted.length);
+        // Last little check, just to be careful!
+        if (!(adjusted instanceof Array)) {
+            throw "Error parsing data.";
+        }
         return adjusted;
     }
 
@@ -182,48 +175,52 @@ $(document).ready(function () {
         messageBox.html(msg || "");
     }
 
-    $('#submit').click(function () {
-        $("#user").blur();
-        //d = [];
-        g.reset();
-        var user = $('#user').val();
-        if(user.length === 0) {
-            message("Please enter a user before clicking that button.");
-            return false;
-        }
-        // Load the data, parse it, and draw the grid
-        $.get('getData.php?user=' + user, function (d){
-            d = parseData(d, 53, 7);
-            // This is simply to determine whether we're dealing with actual
-            // data or an error
-            if(d instanceof Array) { // Actual data
-                userBox.html(user);
-                message(); // Clears the message field.
-                $('#user').val("");
-                g.giveData(d);
-                g.draw();
-                $.post('json.php', {
-                    "action": "add",
-                    "user": user
-                });
-                g.play(function(s){ // onStep
-                    stepsBox.html(s);
-                }, function (s) { // onComplete
-                    message(user + " went " + s + " step(s)!");
-                    $.post('save_record.php', {
-                        "user": user,
-                        "steps": s
-                    }, function() {
-                        $.get('leaderboard.php', function (board) {
-                            $('.rows').html(board);    
-                        }); 
+    function tryStartSim(user, data) {
+        try{
+            data = parseData(data, 53, 7);
+            userBox.html(user);
+            message(); // Clears the message field.
+            $('#user').val("");
+            g.giveData(data);
+            g.draw();
+            $.post('json.php', {
+                "action": "add",
+                "user": user
+            });
+            g.play(function(s){ // onStep
+                stepsBox.html(s);
+            }, function (s) { // onComplete
+                message(user + " went " + s + " step(s)!");
+                $.post('save_record.php', {
+                    "user": user,
+                    "steps": s
+                }, function() {
+                    $.get('leaderboard.php', function (board) {
+                        $('.rows').html(board);
                     });
                 });
-            } else { // Error
-                message(d);
-                return false;
+            });
+        } catch (e) {
+            message(e);
+        }
+    }
+
+    $('#submit').click(function () {
+        $("#user").blur();
+        g.reset();
+        var user = $('#user').val();
+        try{
+            if(user.length === 0) {
+                throw "Please enter a user before clicking that button.";
             }
-        });
-        return false;
+            $.get('getData.php?user=' + user, function (data){
+                tryStartSim(user, data);
+            });
+        } catch (e) {
+            message(e);
+        } finally {
+            return false;
+        }
     });
 });
+
