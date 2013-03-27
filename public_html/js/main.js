@@ -1,4 +1,5 @@
 /* global $:false */
+var g;
 $(document).ready(function () {
     "use strict";
     function Grid (props) {
@@ -139,6 +140,30 @@ $(document).ready(function () {
             }, 750);
         }
 
+        function test() {
+            steps = 0;
+            running = false;
+            clearInterval(runInterval);
+            drawGrid();
+            for (var x = 0; x < w; x++) {
+                for (var y = 0; y < h; y++) {
+                    data[x * h + y] = false;
+                    tempData[x * h + y] = false;
+                }
+            }
+            //data[0] = true;
+            setInterval(function () {
+                //var c = data.indexOf(true);
+                //if (c > (x * h + y)) { c = 0; }
+                //data[c] = false;
+                //data[c + 1] = true;
+                data[w * h - 2 + 1] = true;
+                drawGrid();
+            }, 50);
+            console.log(data.indexOf(true));
+            drawGrid();
+        }
+
         return {
             // Used to pass the data to the Grid.
             "giveData": function (d) {
@@ -158,18 +183,27 @@ $(document).ready(function () {
             // Start the simulation.
             "play": function (onStep, onComplete) {
                 play(onStep, onComplete);
+            },
+            "getWidth": function () {
+                return w;
+            },
+            "getHeight": function () {
+                return h;
+            },
+            "test": function () {
+                test(); 
             }
         };
     }
 
-    var g = new Grid({
+    g = new Grid({
         "width": 53,
         "height": 7,
         "cellSize": 10,
         "cellPadding": 2,
         "canvas": document.getElementById("grid").getContext('2d')
-    }),
-        messageBox = $('#message'),
+    });
+    var messageBox = $('#message'),
         userBox = $('#userBox'),
         stepsBox = $('#stepsBox');
 
@@ -208,6 +242,7 @@ $(document).ready(function () {
         // This will be used to offset the data so that data points
         // are correctly aligned with the days of the week in the calendar
         startingDay = new Date(raw[0][0]).getDay();
+        console.log(startingDay);
 
         // Push the commit counts onto the 'parsed' array
         parsed = $.map(raw, function (val){
@@ -221,7 +256,7 @@ $(document).ready(function () {
 
         // The data needs to be adjusted based on the day of the week the data
         // starts.
-        for (var b = 0; b < w * h; b++) {
+        for (var b = 0; b < (w * h - startingDay + 1); b++) {
             adjusted.push(parsed[b - startingDay] || false);
         }
 
