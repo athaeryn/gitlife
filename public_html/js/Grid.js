@@ -20,7 +20,7 @@ function validateArgs(given, expected, what) {
 function Grid (args) {
     "use strict";
     args = args || {};
-    validateArgs(args, ["width", "height"]);
+    validateArgs(args, ["width", "height", "canvas"]);
     var w = args.width,
         h = args.height,
         s = args.cellSize,
