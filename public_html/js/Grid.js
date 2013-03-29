@@ -13,12 +13,13 @@ function validateArgs(given, expected, what) {
         var error = "Missing argument(s)";
         if (what) { error += " for " + what; }
         error += ": " + String(missing);
-        throw error;
+        throw new Error(error);
     }
 }
 
 function Grid (args) {
     "use strict";
+    args = args || {};
     validateArgs(args, ["width", "height"]);
     var w = args.width,
         h = args.height,
