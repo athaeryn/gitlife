@@ -43,9 +43,8 @@ $(document).ready(function () {
             adjusted = [];
 
         // The data should start with '[' if it was retrieved successfully.
-        // If not, we don't want to try and parse it.
         // raw should contain the error message from getData.php
-        if (raw[0] !== '[') { throw raw; }
+        if (raw[0] !== '[') { throw new Error(raw); }
 
         // Get the data out of wierdness format and in to something workable
         raw = raw.split("],["); // Separate the data points
@@ -54,11 +53,8 @@ $(document).ready(function () {
             raw[i] = raw[i].replace(/[\[|\]|"]/g, '').split(',');
         }
 
-        // Grab the day of the week of the first data point
-        // This will be used to offset the data so that data points
-        // are correctly aligned with the days of the week in the calendar
+        // Grab the day of the week of the first data point for offsetting
         startingDay = new Date(raw[0][0]).getDay();
-        console.log(startingDay);
 
         // Push the commit counts onto the 'parsed' array
         parsed = $.map(raw, function (val){
@@ -67,18 +63,17 @@ $(document).ready(function () {
 
         // Check to see if the user has any commits
         if (parsed.indexOf(true) < 0) {
-            throw "This user has no (public) commits... How boring!";
+            throw new Error("This user has no (public) commits... How boring!");
         }
 
         // The data needs to be adjusted based on the day of the week the data
         // starts.
-        for (var b = 0; b < (w * h - startingDay + 1); b++) {
-            adjusted.push(parsed[b - startingDay] || false);
+        for (var j = 0; j < (w * h - startingDay + 1); j++) {
+            adjusted.push(parsed[j - startingDay] || false);
         }
 
-        // Last little check, just to be careful!
         if (!(adjusted instanceof Array)) {
-            throw "Error parsing data.";
+            throw new Error("Error parsing data.");
         }
         return adjusted;
     }
@@ -121,7 +116,7 @@ $(document).ready(function () {
                 });
             });
         } catch (e) {
-            message(e);
+            message(e.message);
         }
     }
 
@@ -133,7 +128,7 @@ $(document).ready(function () {
         try{
             // If no user was entered, we can't go on.
             if(user.length === 0) {
-                throw "Please enter a user before clicking that button.";
+                throw new Error("Please enter a user before clicking that button.");
             }
             // Try to fetch the data and start the simulation.
             $.get('getData.php?user=' + user, function (data){
