@@ -1,7 +1,7 @@
 /* jshint unused:false */
 /* global validateArgs:false  */
 
-function Game (props) {
+function Solver(props) {
     "use strict";
     validateArgs(props, ["width", "height"], "Game");
 

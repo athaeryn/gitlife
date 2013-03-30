@@ -1,6 +1,6 @@
-/* global $:false, Grid:false, Game:false */
+/* global $:false, Grid:false, Solver:false */
 /* jshint unused:false */
-var grid, game;
+var grid, solver;
 $(document).ready(function () {
     "use strict";
 
@@ -14,7 +14,7 @@ $(document).ready(function () {
         cellPadding: 2,
         canvas: document.getElementById("grid").getContext('2d')
     });
-    game = new Game({
+    solver = new Solver({
         width: W,
         height: H
     });
