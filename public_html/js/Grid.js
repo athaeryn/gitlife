@@ -1,7 +1,6 @@
-/* jshint unused:false */
-/* global validateArgs:false  */
+/*global validateArgs*/
 
-function Grid (args) {
+function Grid(args) {
     "use strict";
     args = args || {};
     validateArgs(args, ["width", "height", "canvas"]);
@@ -11,8 +10,8 @@ function Grid (args) {
         p = args.cellPadding,
         canvas = args.canvas,
         colors = {
-            "live": "#1E6823,#44A340,#8CC665".split(','),
-            "dead": "#EEE"
+            live: ["#1E6823", "#44A340", "#8CC665"],
+            dead: "#EEE"
         };
 
     // Randomly selects one of the greens.
@@ -28,13 +27,13 @@ function Grid (args) {
     }
 
     function drawGrid(array) {
+        var x, y;
         array = array || false;
-        for (var x = 0; x < w; x++) {
-            for (var y = 0; y < h; y++) {
+        for (x = 0; x < w; x += 1) {
+            for (y = 0; y < h; y += 1) {
                 drawCell(x, y, array ? array[x * w + y] : false);
             }
         }
-   
     }
 
     return {
@@ -42,17 +41,17 @@ function Grid (args) {
             console.log(w, h);
         },
         draw: function (array) {
-            if (array.length !== w * h) { throw "Wrong size data."; } 
+            if (array.length !== w * h) { throw "Wrong size data."; }
             drawGrid(array);
         },
         clear: function () {
-            drawGrid(); 
+            drawGrid();
         },
         getWidth: function () {
-            return w; 
+            return w;
         },
         getHeight: function () {
-            return h; 
+            return h;
         }
     };
 }

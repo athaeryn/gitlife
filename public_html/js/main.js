@@ -1,11 +1,14 @@
-/* global $:false, Grid:false, Solver:false */
-/* jshint unused:false */
+/*jslint browser: true */
+/*global $, Grid, Solver */
 var grid, solver;
 $(document).ready(function () {
     "use strict";
 
     var W = 53,
-        H = 7;
+        H = 7,
+        messageBox = $('#message'),
+        userBox = $('#userBox'),
+        stepsBox = $('#stepsBox');
 
     grid = new Grid({
         width: W,
@@ -21,11 +24,6 @@ $(document).ready(function () {
 
     grid.clear();
 
-    var messageBox = $('#message'),
-        userBox = $('#userBox'),
-        stepsBox = $('#stepsBox');
-
-
     // Get the users list for typeahead
     $.getJSON('../users.json', function (json) {
         $('#user').typeahead({
@@ -40,7 +38,9 @@ $(document).ready(function () {
     function parseGitHubData(raw, w, h) {
         var parsed = [],
             startingDay,
-            adjusted = [];
+            adjusted = [],
+            i,
+            j;
 
         // The data should start with '[' if it was retrieved successfully.
         // raw should contain the error message from getData.php
@@ -48,7 +48,7 @@ $(document).ready(function () {
 
         // Get the data out of wierdness format and in to something workable
         raw = raw.split("],["); // Separate the data points
-        for (var i = 0; i < raw.length; i++) {
+        for (i = 0; i < raw.length; i += 1) {
             // And remove bad characters
             raw[i] = raw[i].replace(/[\[|\]|"]/g, '').split(',');
         }
@@ -57,7 +57,7 @@ $(document).ready(function () {
         startingDay = new Date(raw[0][0]).getDay();
 
         // Push the commit counts onto the 'parsed' array
-        parsed = $.map(raw, function (val){
+        parsed = $.map(raw, function (val) {
             return val[1] > 0;
         });
 
@@ -68,7 +68,7 @@ $(document).ready(function () {
 
         // The data needs to be adjusted based on the day of the week the data
         // starts.
-        for (var j = 0; j < (w * h - startingDay + 1); j++) {
+        for (j = 0; j < (w * h - startingDay + 1); j += 1) {
             adjusted.push(parsed[j - startingDay] || false);
         }
 
@@ -85,7 +85,7 @@ $(document).ready(function () {
     // Try to start the simulation
     function tryStartSim(user, data) {
         // We need to catch errors, parseGitHubData is a whiner.
-        try{
+        try {
             data = parseGitHubData(data, grid.getWidth(), grid.getHeight());
             userBox.html(user);
             message(); // Clears the message field.
@@ -98,7 +98,7 @@ $(document).ready(function () {
                 "user": user
             });
             // Start the simulation.
-            grid.play(function(s){ // onStep
+            grid.play(function (s) { // onStep
                 // Update the steps box with the current count.
                 stepsBox.html(s);
             }, function (s) { // onComplete
@@ -108,7 +108,7 @@ $(document).ready(function () {
                 $.post('save_record.php', {
                     "user": user,
                     "steps": s
-                }, function() {
+                }, function () {
                     // Fetch the updated leaderboard.
                     $.get('leaderboard.php', function (board) {
                         $('.rows').html(board);
@@ -125,13 +125,13 @@ $(document).ready(function () {
         $("#user").blur();
         grid.reset();
         var user = $('#user').val();
-        try{
+        try {
             // If no user was entered, we can't go on.
-            if(user.length === 0) {
+            if (user.length === 0) {
                 throw new Error("Please enter a user before clicking that button.");
             }
             // Try to fetch the data and start the simulation.
-            $.get('getData.php?user=' + user, function (data){
+            $.get('getData.php?user=' + user, function (data) {
                 tryStartSim(user, data);
             });
         } catch (e) {

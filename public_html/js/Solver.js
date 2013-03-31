@@ -1,16 +1,17 @@
-/* jshint unused:false */
-/* global validateArgs:false  */
+/*global validateArgs */
 
 function Solver(props) {
     "use strict";
-    validateArgs(props, ["width", "height"], "Game");
+    var data,
+        tempData,
+        steps = 0,
+        initialized;
+
+    validateArgs(props, ["width", "height", "data"], "Game");
 
     return {
-        init: function (data) {
-               
-        },
         step: function () {
-            //return data;
+            //TODO return data, and steps
         }
     };
 }
