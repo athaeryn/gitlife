@@ -1,13 +1,14 @@
 /*global validateArgs */
 
-function Solver(props) {
+function Solver(args) {
     "use strict";
+    args = args || {};
     var data,
         tempData,
         steps = 0,
         initialized;
 
-    validateArgs(props, ["width", "height", "data"], "Game");
+    validateArgs(args, ["height", "width", "data"], "Solver");
 
     return {
         step: function () {
