@@ -17,10 +17,6 @@ $(document).ready(function () {
         cellPadding: 2,
         canvas: document.getElementById("grid").getContext('2d')
     });
-    solver = new Solver({
-        width: W,
-        height: H
-    });
 
     grid.clear();
 
@@ -35,18 +31,19 @@ $(document).ready(function () {
     // Function to parse the raw data from GitHub
     // Throws errors and temper tantrums if things go awry
     // Params: the data, and the width and height of the grid
-    function parseGitHubData(raw, w, h) {
+    function parseGitHubData(raw) {
         var parsed = [],
             startingDay,
             adjusted = [],
             i,
-            j;
+            j,
+            offset;
 
         // The data should start with '[' if it was retrieved successfully.
         // raw should contain the error message from getData.php
         if (raw[0] !== '[') { throw new Error(raw); }
 
-        // Get the data out of wierdness format and in to something workable
+        // Get the data out of .weird format and in to something workable
         raw = raw.split("],["); // Separate the data points
         for (i = 0; i < raw.length; i += 1) {
             // And remove bad characters
@@ -66,10 +63,10 @@ $(document).ready(function () {
             throw new Error("This user has no (public) commits... How boring!");
         }
 
-        // The data needs to be adjusted based on the day of the week the data
-        // starts.
-        for (j = 0; j < (w * h - startingDay + 1); j += 1) {
-            adjusted.push(parsed[j - startingDay] || false);
+        offset = 7 - startingDay;
+
+        for (j = offset; j < (W * H) + offset; j += 1) {
+            adjusted.push(parsed[j]);
         }
 
         if (!(adjusted instanceof Array)) {
@@ -86,35 +83,39 @@ $(document).ready(function () {
     function tryStartSim(user, data) {
         // We need to catch errors, parseGitHubData is a whiner.
         try {
-            data = parseGitHubData(data, grid.getWidth(), grid.getHeight());
+            data = parseGitHubData(data, W, H);
             userBox.html(user);
             message(); // Clears the message field.
             $('#user').val(""); // Reset the user field.
-            grid.giveData(data); // Hand over the data.
-            grid.draw(); // Draw the starting state of the simulation.
+            grid.draw(data); // Draw the starting state of the simulation.
+            solver = new Solver({
+                width: W,
+                height: H,
+                data: data
+            });
             // Add the username to the list for typeahead.
             $.post('json.php', {
                 "action": "add",
                 "user": user
             });
             // Start the simulation.
-            grid.play(function (s) { // onStep
-                // Update the steps box with the current count.
-                stepsBox.html(s);
-            }, function (s) { // onComplete
-                // Display how many steps the simulation took.
-                message(user + " went " + s + " step(s)!");
-                // Save the result to the leaderboard.
-                $.post('save_record.php', {
-                    "user": user,
-                    "steps": s
-                }, function () {
-                    // Fetch the updated leaderboard.
-                    $.get('leaderboard.php', function (board) {
-                        $('.rows').html(board);
-                    });
-                });
-            });
+            //grid.play(function (s) { // onStep
+                //// Update the steps box with the current count.
+                //stepsBox.html(s);
+            //}, function (s) { // onComplete
+                //// Display how many steps the simulation took.
+                //message(user + " went " + s + " step(s)!");
+                //// Save the result to the leaderboard.
+                //$.post('save_record.php', {
+                    //"user": user,
+                    //"steps": s
+                //}, function () {
+                    //// Fetch the updated leaderboard.
+                    //$.get('leaderboard.php', function (board) {
+                        //$('.rows').html(board);
+                    //});
+                //});
+            //});
         } catch (e) {
             message(e.message);
         }
@@ -123,7 +124,7 @@ $(document).ready(function () {
     // Handle the user submitting the form.
     $('#submit').click(function () {
         $("#user").blur();
-        grid.reset();
+        grid.clear();
         var user = $('#user').val();
         try {
             // If no user was entered, we can't go on.
@@ -137,7 +138,6 @@ $(document).ready(function () {
         } catch (e) {
             message(e);
         } finally {
-            // This is to keep the page from reloading.
             return false;
         }
     });

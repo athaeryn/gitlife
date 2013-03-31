@@ -2,7 +2,7 @@
         <script src="js/vendor/typeahead.min.js"></script>
         <script src="js/validateArgs.js"></script>
         <script src="js/Grid.js"></script>
-        <script src="js/Game.js"></script>
+        <script src="js/Solver.js"></script>
         <script src="js/main.js"></script>
 
         <script>

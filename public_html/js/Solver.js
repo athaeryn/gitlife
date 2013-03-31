@@ -79,6 +79,7 @@ function Solver(args) {
     advance = function () {
         var cell;
         backData = [];
+        console.log(data);
         for (cell = 0; cell < data.length; cell += 1) {
             backData.push(solveCell(cell));
         }

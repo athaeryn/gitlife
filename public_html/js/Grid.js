@@ -28,10 +28,10 @@ function Grid(args) {
 
     function drawGrid(array) {
         var x, y;
-        array = array || false;
+        array = array || [false];
         for (x = 0; x < w; x += 1) {
             for (y = 0; y < h; y += 1) {
-                drawCell(x, y, array ? array[x * w + y] : false);
+                drawCell(x, y, array[x * h + y]);
             }
         }
     }
@@ -41,7 +41,7 @@ function Grid(args) {
             console.log(w, h);
         },
         draw: function (array) {
-            if (array.length !== w * h) { throw "Wrong size data."; }
+            if (array.length !== w * h) { throw new Error("Wrong size data."); }
             drawGrid(array);
         },
         clear: function () {
