@@ -24,14 +24,9 @@
             <li>Repeat!</li>
         </ul>
         <p>
-            Also, you&rsquo;ll have to refresh the page if you want to see the updated
-            leaderboard. Like I said, this is a work in progress at this point,
-            but have fun anyway!
-        </p>
-        <p>
             <b>There is currently a problem with the way the grid 
             &ldquo;wraps&rdquo; at the edges. I&rsquo;m in the process of
-            refactoring everything, and this issues will be fixed then.</b>
+            refactoring everything, and this issue will be fixed then.</b>
         </p>
     </div>
     <div class="grid-container">
