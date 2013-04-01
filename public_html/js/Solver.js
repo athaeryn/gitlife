@@ -8,7 +8,8 @@ function Solver(args) {
         steps = 0,
         advance,
         w,
-        h;
+        h,
+        changed = [];
 
     validateArgs(args, ["height", "width", "data"], "Solver");
 
@@ -52,18 +53,18 @@ function Solver(args) {
 
     advance = function () {
         var x,
-            y,
-            change = false;
+            y;
+        changed = [];
         backData = [];
         for (x = 0; x < w; x += 1) {
             for (y = 0; y < h; y += 1) {
                 backData.push(solveCell(x, y));
                 if (backData[x * h + y] !== data[x * h + y]) {
-                    change = true;
+                    changed.push(x *h + y);
                 }
             }
         }
-        if (!change) {
+        if (changed.length === 0) {
             data = "STILL LIFE";
         } else {
             data = backData;
@@ -74,7 +75,7 @@ function Solver(args) {
     return {
         step: function () {
             advance();
-            return {data: data, steps: steps};
+            return {data: data, steps: steps, changed: changed};
         }
     };
 }
