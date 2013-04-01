@@ -33,7 +33,6 @@ $(document).ready(function () {
     // Params: the data, and the width and height of the grid
     function parseGitHubData(raw) {
         var parsed = [],
-            startingDay,
             adjusted = [],
             i,
             j,
@@ -50,8 +49,8 @@ $(document).ready(function () {
             raw[i] = raw[i].replace(/[\[|\]|"]/g, '').split(',');
         }
 
-        // Grab the day of the week of the first data point for offsetting
-        startingDay = new Date(raw[0][0]).getDay();
+        // Offset by the day of the week of the first data point
+        offset = 7 - new Date(raw[0][0]).getDay();
 
         // Push the commit counts onto the 'parsed' array
         parsed = $.map(raw, function (val) {
@@ -63,7 +62,6 @@ $(document).ready(function () {
             throw new Error("This user has no (public) commits... How boring!");
         }
 
-        offset = 7 - startingDay;
 
         for (j = offset; j < (W * H) + offset; j += 1) {
             adjusted.push(parsed[j]);
@@ -72,6 +70,7 @@ $(document).ready(function () {
         if (!(adjusted instanceof Array)) {
             throw new Error("Error parsing data.");
         }
+
         return adjusted;
     }
 
