@@ -1,8 +1,7 @@
         <script src="js/vendor/jquery-1.9.1.min.js"></script>
         <script src="js/vendor/typeahead.min.js"></script>
         <script src="js/validateArgs.js"></script>
-        <script src="js/Grid.js"></script>
-        <script src="js/Solver.js"></script>
+        <script src="js/GameOfLife.js"></script>
         <script src="js/main.js"></script>
 
         <script>

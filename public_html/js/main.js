@@ -1,16 +1,16 @@
-/*jslint browser: true */
-/*global $, Grid, Solver */
-var grid, solver;
+/*jslint browser: true, unused: false*/
+/*global $, GameOfLife */
+var game;
 $(document).ready(function () {
     "use strict";
 
     var W = 53,
-        H = 7,
+        H = 21,
         messageBox = $('#message'),
         userBox = $('#userBox'),
         stepsBox = $('#stepsBox');
 
-    grid = new Grid({
+    game = new GameOfLife({
         width: W,
         height: H,
         cellSize: 10,
@@ -18,7 +18,7 @@ $(document).ready(function () {
         canvas: document.getElementById("grid").getContext('2d')
     });
 
-    grid.clear();
+    game.clear();
 
     // Get the users list for typeahead
     $.getJSON('../users.json', function (json) {
@@ -36,7 +36,8 @@ $(document).ready(function () {
             adjusted = [],
             i,
             j,
-            offset;
+            offset,
+            pad = [];
 
         // The data should start with '[' if it was retrieved successfully.
         // raw should contain the error message from getData.php
@@ -62,41 +63,31 @@ $(document).ready(function () {
             throw new Error("This user has no (public) commits... How boring!");
         }
 
+        for (j = offset; j < (W * 7) + offset; j += 1) {
+            adjusted[j] = parsed[j];
+        }
 
-        for (j = offset; j < (W * H) + offset; j += 1) {
-            adjusted.push(parsed[j]);
+        for (j = 0; j < W * 7; j += 1) {
+            pad[j] = j % 4 ? false : true;
         }
 
         if (!(adjusted instanceof Array)) {
             throw new Error("Error parsing data.");
         }
-
-        return adjusted;
+        return pad.concat(adjusted, pad);
     }
 
     function message(msg) {
         messageBox.html(msg || "");
     }
 
-    function runSim() {
-        var derp;
-        derp = setInterval(function () {
-            var returned = solver.step();
-            stepsBox.html(returned.steps);
-            if (returned.data instanceof Array) {
-                grid.draw(returned.data);
-            } else {
-                clearInterval(derp);
-                message(returned.data);
-            }
-        }, 100);
-    }
-
     // Handle the user submitting the form.
     $('#submit').click(function () {
-        $("#user").blur();
-        grid.clear();
         var user = $('#user').val();
+        stepsBox.html('--');
+        userBox.html('gitlife');
+        $("#user").blur();
+        game.clear();
         try {
             // If no user was entered, we can't go on.
             if (user.length === 0) {
@@ -105,25 +96,18 @@ $(document).ready(function () {
             // Try to fetch the data and start the simulation.
             $.get('getData.php?user=' + user, function (data) {
                 try {
-                    data = parseGitHubData(data, W, H);
+                    game.setData(parseGitHubData(data));
                     userBox.html(user);
                     message(); // Clears the message field.
                     $('#user').val(""); // Reset the user field.
-                    grid.draw(data); // Draw the starting state of the simulation.
-                    solver = new Solver({
-                        width: W,
-                        height: H,
-                        data: data
-                    });
                     // Add the username to the list for typeahead.
                     $.post('json.php', {
                         "action": "add",
                         "user": user
                     });
-                    runSim();
                     // Start the simulation.
-                    //grid.play(function (s) { // onStep
-                        //// Update the steps box with the current count.
+                    //game.play(400, function (s) { // onStep
+                         ////Update the steps box with the current count.
                         //stepsBox.html(s);
                     //}, function (s) { // onComplete
                         //// Display how many steps the simulation took.
