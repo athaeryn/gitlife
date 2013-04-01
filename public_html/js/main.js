@@ -79,46 +79,18 @@ $(document).ready(function () {
         messageBox.html(msg || "");
     }
 
-    // Try to start the simulation
-    function tryStartSim(user, data) {
-        // We need to catch errors, parseGitHubData is a whiner.
-        try {
-            data = parseGitHubData(data, W, H);
-            userBox.html(user);
-            message(); // Clears the message field.
-            $('#user').val(""); // Reset the user field.
-            grid.draw(data); // Draw the starting state of the simulation.
-            solver = new Solver({
-                width: W,
-                height: H,
-                data: data
-            });
-            // Add the username to the list for typeahead.
-            $.post('json.php', {
-                "action": "add",
-                "user": user
-            });
-            // Start the simulation.
-            //grid.play(function (s) { // onStep
-                //// Update the steps box with the current count.
-                //stepsBox.html(s);
-            //}, function (s) { // onComplete
-                //// Display how many steps the simulation took.
-                //message(user + " went " + s + " step(s)!");
-                //// Save the result to the leaderboard.
-                //$.post('save_record.php', {
-                    //"user": user,
-                    //"steps": s
-                //}, function () {
-                    //// Fetch the updated leaderboard.
-                    //$.get('leaderboard.php', function (board) {
-                        //$('.rows').html(board);
-                    //});
-                //});
-            //});
-        } catch (e) {
-            message(e.message);
-        }
+    function runSim() {
+        var derp;
+        derp = setInterval(function () {
+            var returned = solver.step();
+            stepsBox.html(returned.steps);
+            if (returned.data instanceof Array) {
+                grid.draw(returned.data);
+            } else {
+                clearInterval(derp);
+                message(returned.data);
+            }
+        }, 100);
     }
 
     // Handle the user submitting the form.
@@ -133,7 +105,44 @@ $(document).ready(function () {
             }
             // Try to fetch the data and start the simulation.
             $.get('getData.php?user=' + user, function (data) {
-                tryStartSim(user, data);
+                try {
+                    data = parseGitHubData(data, W, H);
+                    userBox.html(user);
+                    message(); // Clears the message field.
+                    $('#user').val(""); // Reset the user field.
+                    grid.draw(data); // Draw the starting state of the simulation.
+                    solver = new Solver({
+                        width: W,
+                        height: H,
+                        data: data
+                    });
+                    // Add the username to the list for typeahead.
+                    $.post('json.php', {
+                        "action": "add",
+                        "user": user
+                    });
+                    runSim();
+                    // Start the simulation.
+                    //grid.play(function (s) { // onStep
+                        //// Update the steps box with the current count.
+                        //stepsBox.html(s);
+                    //}, function (s) { // onComplete
+                        //// Display how many steps the simulation took.
+                        //message(user + " went " + s + " step(s)!");
+                        //// Save the result to the leaderboard.
+                        //$.post('save_record.php', {
+                            //"user": user,
+                            //"steps": s
+                        //}, function () {
+                            //// Fetch the updated leaderboard.
+                            //$.get('leaderboard.php', function (board) {
+                                //$('.rows').html(board);
+                            //});
+                        //});
+                    //});
+                } catch (e) {
+                    message(e.message);
+                }
             });
         } catch (e) {
             message(e);

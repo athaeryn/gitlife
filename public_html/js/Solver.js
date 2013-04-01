@@ -32,7 +32,7 @@ function Solver(args) {
             neighbors;
         bake = [];
         for (i = 0; i < data.length; i += 1) {
-            /* How this is supposed to work:
+            /* How this works:
              *  create an object which acts like a hash
              *  each key will be an index of the data array
              *  the value of the key will be an array of the positions
@@ -77,13 +77,20 @@ function Solver(args) {
     }
 
     advance = function () {
-        var cell;
+        var cell,
+            change = false;
         backData = [];
-        console.log(data);
         for (cell = 0; cell < data.length; cell += 1) {
             backData.push(solveCell(cell));
+            if (backData[cell] !== data[cell]) {
+                change = true;
+            }
         }
-        data = backData;
+        if (!change) {
+            data = "STILL LIFE";
+        } else {
+            data = backData;
+        }
         steps += 1;
     };
 
