@@ -1,5 +1,5 @@
+/*jslint unused: false */
 /*global validateArgs*/
-
 function Grid(args) {
     "use strict";
     args = args || {};
@@ -55,5 +55,3 @@ function Grid(args) {
         }
     };
 }
-
-
