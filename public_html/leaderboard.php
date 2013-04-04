@@ -1,11 +1,11 @@
 <?php
 
-$username = "root";
-$password = "snorlax";
-$database = "gitlife";
+$root = $_SERVER['DOCUMENT_ROOT'];
+$app = $root."/../app/";
+require_once $app."config.php";
 
 mysql_connect('localhost', $username, $password);
-@mysql_select_db($database) or die("Unable to select database.");
+@mysql_select_db('gitlife') or die("Unable to select database.");
 
 $query = "SELECT * FROM records ORDER BY steps DESC, user ASC";
 $result = mysql_query($query);
