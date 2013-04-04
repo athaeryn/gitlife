@@ -31,7 +31,6 @@ $(document).ready(function () {
 
     // Function to parse the raw data from GitHub
     // Throws errors and temper tantrums if things go awry
-    // Params: the data, and the width and height of the grid
     function parseGitHubData(raw) {
         var offset, i, x, y, parsed = [], pad = [];
         if (raw[0] !== '[') {
@@ -41,33 +40,36 @@ $(document).ready(function () {
         // Separate the data points.
         raw = raw.split('],[');
 
+        // Grab the offset. This is the day of the week that the data begins on,
+        // because of the way the contributions calendar is structured.
         offset = (new Date(raw[0].split('"')[1]).getDay());
 
+        // Map each data point to a boolean representing commits or no commits
+        // on each day.
         raw = $.map(raw, function (v) {
             return v.replace(/\[|\]/g, '').split(',')[1] > 0;
         });
         if (raw.indexOf(true) === -1) {
             throw new Error("This user has no (public) commits...");
         }
+        // Massage that data
         for (i = 0; i < offset; i += 1) {
             raw.unshift(false);
         }
         while (raw.length > 371) {
             raw.pop();
         }
+        // Rotate it
         for (y = 0; y < 7; y += 1) {
             for (x = 0; x < W; x += 1) {
                 parsed.push(raw[y + x * 7]);
             }
         }
+        // Create the pad
         while (pad.length < 53 * 7) {
             pad.push(false);
         }
-        console.log([
-            offset,
-            raw.length,
-            raw
-        ]);
+        // Return the data, sandwiched in pad
         return pad.concat(parsed, pad);
     }
 
