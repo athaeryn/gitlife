@@ -99,7 +99,6 @@ function GameOfLife(args) {
         });
         data.grid = data.backGrid;
         data.steps += 1;
-        console.log(data.grid);
         if (onStep) { onStep(data.steps); }
         if (stepchange === 0 || !living) {
             clearInterval(runInterval);

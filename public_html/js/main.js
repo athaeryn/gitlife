@@ -137,15 +137,15 @@ $(document).ready(function () {
                 // Display how many steps the simulation took.
                 message(user + " went " + s + " step(s)!");
                 // Save the result to the leaderboard.
-                $.post('save_record.php', {
-                    "user": user,
-                    "steps": s
-                }, function () {
-                    // Fetch the updated leaderboard.
-                    $.get('leaderboard.php', function (board) {
-                        $('.rows').html(board);
-                    });
-                });
+                //$.post('save_record.php', {
+                    //"user": user,
+                    //"steps": s
+                //}, function () {
+                    //// Fetch the updated leaderboard.
+                    //$.get('leaderboard.php', function (board) {
+                        //$('.rows').html(board);
+                    //});
+                //});
             });
             gridClickable(false);
         } else {
