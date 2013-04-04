@@ -1,7 +1,5 @@
 <?php
 
-$querystring = $_SERVER['QUERY_STRING'];
-
 $username = "root";
 $password = "snorlax";
 $database = "gitlife";
