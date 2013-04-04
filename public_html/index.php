@@ -1,10 +1,16 @@
 <?php
 
+
 $root = $_SERVER['DOCUMENT_ROOT'];
 $app = $root."/../app/";
 
 require_once $app."config.default.php";
 require_once $app."config.php";
+
+// Add ability to override EVN to preview prod
+if (isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING'] === "prod") {
+    $GLOBALS['ENV'] = 'prod';
+}
 
 function leaderboard() {
     mysql_connect('localhost', $GLOBALS['db_user'], $GLOBALS['db_pass']);
