@@ -10,6 +10,7 @@ $(document).ready(function () {
         userBox = $('#userBox'),
         stepsBox = $('#stepsBox'),
         readyToRun = false,
+        user = "",
         game = new GameOfLife({
             width: W,
             height: H,
@@ -87,7 +88,7 @@ $(document).ready(function () {
 
     // Handle the user submitting the form.
     $('#submit').click(function () {
-        var user = $('#user').val();
+        user = $('#user').val();
         gridClickable(false);
         message("<img src=\"img/loader.gif\">"); // Clears the message field.
         stepsBox.html('--');
@@ -132,21 +133,20 @@ $(document).ready(function () {
             game.play(300, function (s) { // onStep
                  //Update the steps box with the current count.
                 stepsBox.html(s);
-            }
-            //, function (s) { // onComplete
-                //// Display how many steps the simulation took.
-                //message(user + " went " + s + " step(s)!");
-                //// Save the result to the leaderboard.
-                //$.post('save_record.php', {
-                    //"user": user,
-                    //"steps": s
-                //}, function () {
-                    //// Fetch the updated leaderboard.
-                    //$.get('leaderboard.php', function (board) {
-                        //$('.rows').html(board);
-                    //});
-                //});
-            );
+            }, function (s) { // onComplete
+                // Display how many steps the simulation took.
+                message(user + " went " + s + " step(s)!");
+                // Save the result to the leaderboard.
+                $.post('save_record.php', {
+                    "user": user,
+                    "steps": s
+                }, function () {
+                    // Fetch the updated leaderboard.
+                    $.get('leaderboard.php', function (board) {
+                        $('.rows').html(board);
+                    });
+                });
+            });
             gridClickable(false);
         } else {
             return; 

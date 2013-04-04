@@ -1,3 +1,4 @@
+/*jslint unused: false */
 /*global validateArgs*/
 function GameOfLife(args) {
     "use strict";
@@ -26,7 +27,6 @@ function GameOfLife(args) {
     }
 
     function indexFromCoords(x, y, wrap) {
-        var index;
         if (wrap) {
             x = (x + w) % w;
             y = (y + h) % h;
@@ -85,20 +85,26 @@ function GameOfLife(args) {
                 (neighbors === 2 && living));
     }
 
-    function advance(callback) {
-        var state;
+    function advance(onStep, onComplete) {
+        var state, stepchange = 0, living = false;
         data.backGrid = [];
         eachCell(function (x, y, index) {
             state = solveCell(x, y);
             data.backGrid.push(state);
-            if (state !== data.grid[indexFromCoords(x, y)]) {
+            if (state) { living = true; }
+            if (state !== data.grid[index]) {
+                stepchange += 1;
                 drawCell(x, y, state);
             }
         });
         data.grid = data.backGrid;
         data.steps += 1;
         console.log(data.grid);
-        if (callback) { callback(data.steps); }
+        if (onStep) { onStep(data.steps); }
+        if (stepchange === 0 || !living) {
+            clearInterval(runInterval);
+            onComplete(data.steps);
+        }
     }
 
     function reset() {
@@ -110,7 +116,7 @@ function GameOfLife(args) {
 
     function runSimulation(speed, onStep, onComplete) {
         runInterval = setInterval(function () {
-            advance(onStep);
+            advance(onStep, onComplete);
         }, speed);
     }
 
