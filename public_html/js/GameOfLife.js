@@ -1,4 +1,3 @@
-/*jslint unused: false */
 /*global validateArgs*/
 function GameOfLife(args) {
     "use strict";
@@ -26,20 +25,6 @@ function GameOfLife(args) {
         return colors.live[Math.floor(Math.random() * colors.live.length)];
     }
 
-    function drawCell(x, y, alive) {
-        // Get the appropriate color,
-        canvas.fillStyle = alive ? getLiveColor() : colors.dead;
-        // and draw the cell.
-        canvas.fillRect(x * (s + p), y * (s + p), s, s);
-    }
-
-    function drawGrid(array) {
-        array = array || [false];
-        eachCell(function(x, y, index) {
-            drawCell(x, y, array[index]);
-        });
-    }
-
     function indexFromCoords(x, y, wrap) {
         var index;
         if (wrap) {
@@ -57,6 +42,20 @@ function GameOfLife(args) {
                 callback(x, y, indexFromCoords(x, y));
             }
         }
+    }
+
+    function drawCell(x, y, alive) {
+        // Get the appropriate color,
+        canvas.fillStyle = alive ? getLiveColor() : colors.dead;
+        // and draw the cell.
+        canvas.fillRect(x * (s + p), y * (s + p), s, s);
+    }
+
+    function drawGrid(array) {
+        array = array || [false];
+        eachCell(function (x, y, index) {
+            drawCell(x, y, array[index]);
+        });
     }
 
     function getNeighbors(x, y) {
@@ -107,7 +106,7 @@ function GameOfLife(args) {
             advance(onStep);
         }, speed);
     }
-    
+
     return {
         clear: function () {
             reset();
@@ -119,7 +118,7 @@ function GameOfLife(args) {
             drawGrid(data.grid);
         },
         play: function (speed, onStep, onComplete) {
-            //runSimulation(speed, onStep, onComplete); 
+            //runSimulation(speed, onStep, onComplete);
         }
     };
 }

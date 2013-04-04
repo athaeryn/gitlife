@@ -1,6 +1,7 @@
-/*jslint browser: true, unused: false*/
+/*jslint browser: true */
 /*global $, GameOfLife */
 var game;
+
 $(document).ready(function () {
     "use strict";
 
@@ -8,7 +9,8 @@ $(document).ready(function () {
         H = 21,
         messageBox = $('#message'),
         userBox = $('#userBox'),
-        stepsBox = $('#stepsBox');
+        stepsBox = $('#stepsBox'),
+        user = 'paulirish';
 
     game = new GameOfLife({
         width: W,
@@ -32,56 +34,52 @@ $(document).ready(function () {
     // Throws errors and temper tantrums if things go awry
     // Params: the data, and the width and height of the grid
     function parseGitHubData(raw) {
-        var parsed = [],
-            adjusted = [],
-            i,
-            j,
-            offset,
-            pad = [];
-
-        // The data should start with '[' if it was retrieved successfully.
-        // raw should contain the error message from getData.php
-        if (raw[0] !== '[') { throw new Error(raw); }
-
-        // Get the data out of .weird format and in to something workable
-        raw = raw.split("],["); // Separate the data points
-        for (i = 0; i < raw.length; i += 1) {
-            // And remove bad characters
-            raw[i] = raw[i].replace(/[\[|\]|"]/g, '').split(',');
+        var offset, i, x, y, parsed = [], pad = [];
+        if (raw[0] !== '[') {
+            throw new Error("That user does not appear to exist...");
         }
 
-        // Offset by the day of the week of the first data point
-        offset = 7 - new Date(raw[0][0]).getDay();
+        // Separate the data points.
+        raw = raw.split('],[');
 
-        // Push the commit counts onto the 'parsed' array
-        parsed = $.map(raw, function (val) {
-            return val[1] > 0;
+        offset = (new Date(raw[0].split('"')[1]).getDay());
+
+        raw = $.map(raw, function (v) {
+            return v.replace(/\[|\]/g, '').split(',')[1] > 0;
         });
-
-        // Check to see if the user has any commits
-        if (parsed.indexOf(true) < 0) {
-            throw new Error("This user has no (public) commits... How boring!");
+        if (raw.indexOf(true) === -1) {
+            throw new Error("This user has no (public) commits...");
         }
-
-        for (j = offset; j < (W * 7) + offset; j += 1) {
-            adjusted[j] = parsed[j];
+        for (i = 0; i < offset; i += 1) {
+            raw.unshift(false);
         }
-
-        for (j = 0; j < W * 7; j += 1) {
-            pad[j] = j % 4 ? false : true;
+        while (raw.length > 371) {
+            raw.pop();
         }
-
-        if (!(adjusted instanceof Array)) {
-            throw new Error("Error parsing data.");
+        for (y = 0; y < 7; y += 1) {
+            for (x = 0; x < W; x += 1) {
+                parsed.push(raw[y + x * 7]);
+            }
         }
-        return pad.concat(adjusted, pad);
+        while (pad.length < 53 * 7) {
+            pad.push(false);
+        }
+        console.log([
+            offset,
+            raw.length,
+            raw
+        ]);
+        return pad.concat(parsed, pad);
     }
 
     function message(msg) {
         messageBox.html(msg || "");
     }
 
+
+
     // Handle the user submitting the form.
+    /*
     $('#submit').click(function () {
         var user = $('#user').val();
         stepsBox.html('--');
@@ -94,44 +92,47 @@ $(document).ready(function () {
                 throw new Error("Please enter a user before clicking that button.");
             }
             // Try to fetch the data and start the simulation.
-            $.get('getData.php?user=' + user, function (data) {
-                try {
-                    game.setData(parseGitHubData(data));
-                    userBox.html(user);
-                    message(); // Clears the message field.
-                    $('#user').val(""); // Reset the user field.
-                    // Add the username to the list for typeahead.
-                    $.post('json.php', {
-                        "action": "add",
-                        "user": user
+            */
+    $.get('getData.php?user=' + user, function (data) {
+        try {
+            userBox.html(user);
+            message(); // Clears the message field.
+            game.setData(parseGitHubData(data));
+            $('#user').val(""); // Reset the user field.
+            // Add the username to the list for typeahead.
+            //$.post('json.php', {
+                //"action": "add",
+                //"user": user
+            //});
+            // Start the simulation.
+            game.play(400, function (s) { // onStep
+                 //Update the steps box with the current count.
+                stepsBox.html(s);
+            }, function (s) { // onComplete
+                // Display how many steps the simulation took.
+                message(user + " went " + s + " step(s)!");
+                // Save the result to the leaderboard.
+                $.post('save_record.php', {
+                    "user": user,
+                    "steps": s
+                }, function () {
+                    // Fetch the updated leaderboard.
+                    $.get('leaderboard.php', function (board) {
+                        $('.rows').html(board);
                     });
-                    // Start the simulation.
-                    //game.play(400, function (s) { // onStep
-                         ////Update the steps box with the current count.
-                        //stepsBox.html(s);
-                    //}, function (s) { // onComplete
-                        //// Display how many steps the simulation took.
-                        //message(user + " went " + s + " step(s)!");
-                        //// Save the result to the leaderboard.
-                        //$.post('save_record.php', {
-                            //"user": user,
-                            //"steps": s
-                        //}, function () {
-                            //// Fetch the updated leaderboard.
-                            //$.get('leaderboard.php', function (board) {
-                                //$('.rows').html(board);
-                            //});
-                        //});
-                    //});
-                } catch (e) {
-                    message(e.message);
-                }
+                });
             });
+        } catch (e) {
+            message(e.message);
+        }
+    });
+            /*
         } catch (e) {
             message(e);
         } finally {
             return false;
         }
     });
+    */
 });
 

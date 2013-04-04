@@ -1,5 +1,6 @@
 <?php include "header.php" ?>
 <div class="page-contain">
+<!--
     <div class="intro">
         <h1>Greetings!</h1>
         <p>
@@ -29,6 +30,7 @@
             but have fun anyway!
         </p>
     </div>
+-->
     <div class="grid-container">
         <h3 class="clearfix"><span id="userBox">gitlife</span><span id="stepsBox">--</span></h3>
         <canvas id="grid" width="634" height="400">
@@ -38,6 +40,7 @@
             join in the fun!
         </canvas>
     </div>
+<!--
     <div class="form-contain">
         <div id="message"></div>
         <form id="user-picker clearfix" action="">
@@ -59,5 +62,6 @@
     <div class="footer">
         by <a href="http://mrmikea.com">Mike Anderson</a>
     </div>
+-->
 </div>
 <?php include "footer.php" ?>
