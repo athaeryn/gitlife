@@ -93,6 +93,7 @@ $(document).ready(function () {
         stepsBox.html('--');
         userBox.html('--');
         $("#user").blur();
+        $("#user").typeahead('setQuery', '');
         game.clear();
         try {
             // If no user was entered, we can't go on.
