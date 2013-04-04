@@ -65,7 +65,13 @@ function GameOfLife(args) {
         for (xOffset = -1; xOffset < 2; xOffset += 1) {
             for (yOffset = -1; yOffset < 2; yOffset += 1) {
                 if (!(xOffset === 0 && yOffset === 0)) {
-                    neighbors += data.grid[indexFromCoords(x, y, true)];
+                    neighbors += data.grid[
+                        indexFromCoords(
+                            x + xOffset,
+                            y + yOffset,
+                            true // wrap
+                        )
+                    ];
                 }
             }
         }
@@ -91,6 +97,7 @@ function GameOfLife(args) {
         });
         data.grid = data.backGrid;
         data.steps += 1;
+        console.log(data.grid);
         if (callback) { callback(data.steps); }
     }
 
@@ -118,7 +125,7 @@ function GameOfLife(args) {
             drawGrid(data.grid);
         },
         play: function (speed, onStep, onComplete) {
-            //runSimulation(speed, onStep, onComplete);
+            runSimulation(speed, onStep, onComplete);
         }
     };
 }

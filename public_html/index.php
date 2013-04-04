@@ -31,16 +31,16 @@
         </p>
     </div>
 -->
+    <h1>gitlife</h1>
     <div class="grid-container">
-        <h3 class="clearfix"><span id="userBox">gitlife</span><span id="stepsBox">--</span></h3>
-        <canvas id="grid" width="634" height="400">
+        <h3 class="clearfix"><span id="userBox">--</span><span id="stepsBox">--</span></h3>
+        <canvas id="grid" width="634" height="252">
             This website uses HTML5's canvas to function. If you're reading this,
             your browser doesn't support canvas, which means you're probably running
             an old version of IE. Consider updating that old thing so you can
             join in the fun!
         </canvas>
     </div>
-<!--
     <div class="form-contain">
         <div id="message"></div>
         <form id="user-picker clearfix" action="">
@@ -62,6 +62,5 @@
     <div class="footer">
         by <a href="http://mrmikea.com">Mike Anderson</a>
     </div>
--->
 </div>
 <?php include "footer.php" ?>
