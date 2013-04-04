@@ -1,6 +1,5 @@
 /*jslint browser: true */
 /*global $, GameOfLife */
-var game;
 
 $(document).ready(function () {
     "use strict";
@@ -9,22 +8,22 @@ $(document).ready(function () {
         H = 21,
         messageBox = $('#message'),
         userBox = $('#userBox'),
-        stepsBox = $('#stepsBox');
-
-    game = new GameOfLife({
-        width: W,
-        height: H,
-        cellSize: 10,
-        cellPadding: 2,
-        canvas: document.getElementById("grid").getContext('2d')
-    });
+        stepsBox = $('#stepsBox'),
+        readyToRun = false,
+        game = new GameOfLife({
+            width: W,
+            height: H,
+            cellSize: 10,
+            cellPadding: 2,
+            canvas: document.getElementById("grid").getContext('2d')
+        });
 
     game.clear();
 
     // Get the users list for typeahead
     $.getJSON('../users.json', function (json) {
         $('#user').typeahead({
-            name: 'users',
+            name: 'username',
             local: json
         });
     });
@@ -77,13 +76,22 @@ $(document).ready(function () {
         messageBox.html(msg || "");
     }
 
-
+    function gridClickable(yesno) {
+        readyToRun = yesno;
+        if (readyToRun) {
+            $('#grid').addClass('clickable');
+        } else {
+            $('#grid').removeClass('clickable');
+        }
+    }
 
     // Handle the user submitting the form.
     $('#submit').click(function () {
         var user = $('#user').val();
+        gridClickable(false);
+        message("<img src=\"img/loader.gif\">"); // Clears the message field.
         stepsBox.html('--');
-        userBox.html('gitlife');
+        userBox.html('--');
         $("#user").blur();
         game.clear();
         try {
@@ -92,43 +100,55 @@ $(document).ready(function () {
                 throw new Error("Please enter a user before clicking that button.");
             }
             // Try to fetch the data and start the simulation.
-            $.get('getData.php?user=' + user, function (data) {
+            $.get('/d/' + user, function (data) {
                 try {
+                    game.setData(parseGitHubData(data));
                     userBox.html(user);
                     message(); // Clears the message field.
-                    game.setData(parseGitHubData(data));
                     $('#user').val(""); // Reset the user field.
                     // Add the username to the list for typeahead.
                     $.post('json.php', {
                         "action": "add",
                         "user": user
                     });
+                    gridClickable(true);
                     // Start the simulation.
-                    game.play(300, function (s) { // onStep
-                         //Update the steps box with the current count.
-                        stepsBox.html(s);
-                    }, function (s) { // onComplete
-                        // Display how many steps the simulation took.
-                        message(user + " went " + s + " step(s)!");
-                        // Save the result to the leaderboard.
-                        $.post('save_record.php', {
-                            "user": user,
-                            "steps": s
-                        }, function () {
-                            // Fetch the updated leaderboard.
-                            $.get('leaderboard.php', function (board) {
-                                $('.rows').html(board);
-                            });
-                        });
-                    });
                 } catch (e) {
                     message(e.message);
+                    gridClickable(false);
                 }
             });
         } catch (e) {
-            message(e);
+            message(e.message);
+            gridClickable(false);
         } finally {
+            $('#user').val("");
             return false;
+        }
+    });
+    $('#grid').click(function () {
+        if (readyToRun) {
+            game.play(300, function (s) { // onStep
+                 //Update the steps box with the current count.
+                stepsBox.html(s);
+            }
+            //, function (s) { // onComplete
+                //// Display how many steps the simulation took.
+                //message(user + " went " + s + " step(s)!");
+                //// Save the result to the leaderboard.
+                //$.post('save_record.php', {
+                    //"user": user,
+                    //"steps": s
+                //}, function () {
+                    //// Fetch the updated leaderboard.
+                    //$.get('leaderboard.php', function (board) {
+                        //$('.rows').html(board);
+                    //});
+                //});
+            );
+            gridClickable(false);
+        } else {
+            return; 
         }
     });
 });

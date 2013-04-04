@@ -4,6 +4,8 @@
 
 *{
     box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 body{
     font: 13px Helvetica, arial, freesans, clean, sans-serif; 
@@ -16,6 +18,11 @@ ul{
         margin-bottom: 0.4em; 
     }
 }
+.clickable{
+    cursor: pointer;
+    transition: box-shadow 1s;
+    box-shadow: 0px 0px 2px 2px white, 0px 0px 40px -2px green;
+}
 .page-contain{
     width: 720px;
     margin: 0 auto;
@@ -24,6 +31,7 @@ ul{
 #message{
     color: red;
     height: 2em;
+    margin-top: 1em;
 }
 .grid-container{
     border-radius: 3px;
@@ -50,8 +58,7 @@ ul{
         }
     }
     #grid{
-        height: 82px;
-        width: 634px;
+        transition: box-shadow 0.5s;
         margin: 24px;
     }
 }
