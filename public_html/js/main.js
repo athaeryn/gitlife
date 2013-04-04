@@ -1,225 +1,155 @@
-/* global $:false */
+/*jslint browser: true */
+/*global $, GameOfLife */
+
 $(document).ready(function () {
     "use strict";
-    function Grid (props) {
-        var tempData = [],
-            w = props.width,
-            h = props.height,
-            s = props.cellSize,
-            p = props.cellPadding,
-            canvas = props.canvas,
-            runInterval,
-            running = false,
-            colors = {
-                "live": "#1E6823,#44A340,#8CC665".split(','),
-                "dead": "#EEE"
-            },
-            steps = 0,
-            data;
 
-        function setData(d) {
-            data = d;
-        }
-
-        function advance (callback) {
-            tempData = [];
-            var stillGoing = false;
-            for (var x = 0; x < w; x++) {
-                for (var y = 0; y < h; y++) {
-                    var newState = solveCell(x, y, data);
-                    if (newState) { stillGoing = true; }
-                    if (newState !== data[x * h + y]) { drawCell(x, y, newState); }
-                    tempData.push(newState);
-                }
-            }
-            data = tempData;
-            if (callback) { callback({"stillGoing": stillGoing}); }
-        }
-
-        function drawCell(x, y, alive) {
-            canvas.fillStyle = alive ? getLiveColor() : colors.dead;
-            canvas.fillRect(x * (s + p), y * (s + p), s, s);
-        }
-
-        function getLiveColor() {
-            return colors.live[Math.floor(Math.random() * colors.live.length)];
-        }
-
-        function solveCell(x, y, g) {
-            var c = g[x * w + y],
-                n = 0;
-            for (var i = -1; i < 2; i++) {
-                for (var j = -1; j < 2; j++) {
-                    if (i === 0 && j === 0) { continue; }
-                    n += g[((w + x - i) % w) * h + ((h + y - j) % h)];
-                }
-            }
-            if (n === 3 || (n === 2 && c)) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        function drawGrid() {
-            for (var x = 0; x < w; x++) {
-                for (var y = 0; y < h; y++) {
-                    drawCell(x, y, data ? data[x * h + y] : false);
-                }
-            }
-        }
-
-        function play(onStep, onComplete) {
-            runInterval = setInterval(function () {
-                steps++;
-                advance(function (q) {
-                    if (onStep) { onStep(steps); }
-                    if(!q.stillGoing || steps >= 100) {
-                        clearInterval(runInterval);
-                        if (onComplete) { onComplete(steps); }
-                    }
-                });
-            }, 750);
-        }
-
-        return {
-            "giveData": function (d) {
-                setData(d);
-            },
-            "reset": function () {
-                steps = 0;
-                running = false;
-                clearInterval(runInterval);
-                drawGrid();
-            },
-            "draw": function () {
-                drawGrid();
-            },
-            "play": function (onStep, onComplete) {
-                play(onStep, onComplete);
-            },
-            "step": function () {
-                advance();
-            }
-        };
-    }
-
-    var g = new Grid({
-        "width": 53,
-        "height": 7,
-        "cellSize": 10,
-        "cellPadding": 2,
-        "canvas": document.getElementById("grid").getContext('2d')
-    }),
+    var W = 53,
+        H = 21,
         messageBox = $('#message'),
         userBox = $('#userBox'),
-        stepsBox = $('#stepsBox');
+        stepsBox = $('#stepsBox'),
+        readyToRun = false,
+        user = "",
+        game = new GameOfLife({
+            width: W,
+            height: H,
+            cellSize: 10,
+            cellPadding: 2,
+            canvas: document.getElementById("grid").getContext('2d')
+        });
 
-    g.reset();
+    game.clear();
 
+    // Get the users list for typeahead
     $.getJSON('../users.json', function (json) {
         $('#user').typeahead({
-            name: 'users',
+            name: 'username',
             local: json
         });
     });
 
-    function parseData(raw, w, h) {
-        var parsed = [],
-            startingDay,
-            adjusted = [];
-
-        //  Just throw an error if the data is not valid.
-        //  It should start with '['
-        if (raw[0] !== '[') { throw raw; }
-
-        // Parse the data from wierdness format to something workable
-        raw = raw.split("],[");
-        for (var i = 0; i < raw.length; i++) {
-            raw[i] = raw[i].replace(/[\[|\]|"]/g, '').split(',');
+    // Function to parse the raw data from GitHub
+    // Throws errors and temper tantrums if things go awry
+    function parseGitHubData(raw) {
+        var offset, i, x, y, parsed = [], pad = [];
+        if (raw[0] !== '[') {
+            throw new Error("That user does not appear to exist...");
         }
 
-        // Grab the day of the week of the first data point
-        startingDay = new Date(raw[0][0]).getDay();
+        // Separate the data points.
+        raw = raw.split('],[');
 
-        // Push the commit counts onto the 'parsed' array
-        for (var j = 0; j < raw.length; j++) {
-            parsed.push(raw[j][1] > 0);
-        }
+        // Grab the offset. This is the day of the week that the data begins on,
+        // because of the way the contributions calendar is structured.
+        offset = (new Date(raw[0].split('"')[1]).getDay());
 
-        // Check to see if the user has any commits
-        if (parsed.indexOf(true) < 0) {
-            throw "This user has no (public) commits... How boring!";
+        // Map each data point to a boolean representing commits or no commits
+        // on each day.
+        raw = $.map(raw, function (v) {
+            return v.replace(/\[|\]/g, '').split(',')[1] > 0;
+        });
+        if (raw.indexOf(true) === -1) {
+            throw new Error("This user has no (public) commits...");
         }
-
-        // The data needs to be adjusted based on the day of the week the data
-        // starts.
-        for (var a = 0; a < startingDay; a++) {
-            adjusted.push(false);
+        // Massage that data
+        for (i = 0; i < offset; i += 1) {
+            raw.unshift(false);
         }
-        for (var b = 0; b < parsed.length; b++) {
-            adjusted.push(parsed[b]);
+        while (raw.length > 371) {
+            raw.pop();
         }
-        for (var c = 0; c < (w * h) - adjusted.length; c++) {
-            adjusted.push(false);
+        // Rotate it
+        for (y = 0; y < 7; y += 1) {
+            for (x = 0; x < W; x += 1) {
+                parsed.push(raw[y + x * 7]);
+            }
         }
-
-        // Last little check, just to be careful!
-        if (!(adjusted instanceof Array)) {
-            throw "Error parsing data.";
+        // Create the pad
+        while (pad.length < 53 * 7) {
+            pad.push(false);
         }
-        return adjusted;
+        // Return the data, sandwiched in pad
+        return pad.concat(parsed, pad);
     }
 
     function message(msg) {
         messageBox.html(msg || "");
     }
 
-    function tryStartSim(user, data) {
-        try{
-            data = parseData(data, 53, 7);
-            userBox.html(user);
-            message(); // Clears the message field.
-            $('#user').val("");
-            g.giveData(data);
-            g.draw();
-            $.post('json.php', {
-                "action": "add",
-                "user": user
+    function gridClickable(yesno) {
+        readyToRun = yesno;
+        if (readyToRun) {
+            $('#grid').addClass('clickable');
+        } else {
+            $('#grid').removeClass('clickable');
+        }
+    }
+
+    // Handle the user submitting the form.
+    $('#submit').click(function () {
+        user = $('#user').val();
+        gridClickable(false);
+        message("<img src=\"img/loader.gif\">"); // Clears the message field.
+        stepsBox.html('--');
+        userBox.html('--');
+        $("#user").blur();
+        $("#user").typeahead('setQuery', '');
+        game.clear();
+        try {
+            // If no user was entered, we can't go on.
+            if (user.length === 0) {
+                throw new Error("Please enter a user before clicking that button.");
+            }
+            // Try to fetch the data and start the simulation.
+            $.get('/d/' + user, function (data) {
+                try {
+                    game.setData(parseGitHubData(data));
+                    userBox.html(user);
+                    message(); // Clears the message field.
+                    $('#user').val(""); // Reset the user field.
+                    // Add the username to the list for typeahead.
+                    $.post('json.php', {
+                        "action": "add",
+                        "user": user
+                    });
+                    gridClickable(true);
+                    // Start the simulation.
+                } catch (e) {
+                    message(e.message);
+                    gridClickable(false);
+                }
             });
-            g.play(function(s){ // onStep
+        } catch (e) {
+            message(e.message);
+            gridClickable(false);
+        } finally {
+            $('#user').val("");
+            return false;
+        }
+    });
+    $('#grid').click(function () {
+        if (readyToRun) {
+            game.play(300, function (s) { // onStep
+                 //Update the steps box with the current count.
                 stepsBox.html(s);
             }, function (s) { // onComplete
+                // Display how many steps the simulation took.
                 message(user + " went " + s + " step(s)!");
+                // Save the result to the leaderboard.
                 $.post('save_record.php', {
                     "user": user,
                     "steps": s
-                }, function() {
+                }, function () {
+                    // Fetch the updated leaderboard.
                     $.get('leaderboard.php', function (board) {
                         $('.rows').html(board);
                     });
                 });
             });
-        } catch (e) {
-            message(e);
-        }
-    }
-
-    $('#submit').click(function () {
-        $("#user").blur();
-        g.reset();
-        var user = $('#user').val();
-        try{
-            if(user.length === 0) {
-                throw "Please enter a user before clicking that button.";
-            }
-            $.get('getData.php?user=' + user, function (data){
-                tryStartSim(user, data);
-            });
-        } catch (e) {
-            message(e);
-        } finally {
-            return false;
+            gridClickable(false);
+        } else {
+            return; 
         }
     });
 });
