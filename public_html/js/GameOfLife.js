@@ -1,4 +1,3 @@
-/*jslint unused: false */
 /*global validateArgs*/
 function GameOfLife(args) {
     "use strict";

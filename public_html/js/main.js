@@ -149,7 +149,7 @@ $(document).ready(function () {
             });
             gridClickable(false);
         } else {
-            return; 
+            return;
         }
     });
 });
