@@ -1,4 +1,3 @@
-/* jshint unused:false */
 function validateArgs(given, expected, what) {
     "use strict";
     var missing = [], i, error;
