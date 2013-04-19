@@ -21,7 +21,9 @@ ul{
 .clickable{
     cursor: pointer;
     transition: box-shadow 1s;
-    box-shadow: 0px 0px 2px 2px white, 0px 0px 40px -2px green;
+    -webkit-box-shadow: 0px 0px 0px 1px white, 0px 0px 1px 2px green;
+       -moz-box-shadow: 0px 0px 0px 1px white, 0px 0px 1px 2px green;
+            box-shadow: 0px 0px 0px 1px white, 0px 0px 1px 2px green;
 }
 .page-contain{
     width: 720px;
