@@ -1,8 +1,8 @@
-        <script async src="js/vendor/jquery-1.9.1.min.js"></script>
-        <script async src="js/vendor/typeahead.min.js"></script>
-        <script async src="js/validateArgs.js"></script>
-        <script async src="js/GameOfLife.js"></script>
-        <script async src="js/main.js"></script>
+        <script src="js/vendor/jquery-1.9.1.min.js"></script>
+        <script src="js/vendor/typeahead.min.js"></script>
+        <script src="js/validateArgs.js"></script>
+        <script src="js/GameOfLife.js"></script>
+        <script src="js/main.js"></script>
         <script>
             var _gaq=[['_setAccount','UA-38200450-3'],['_trackPageview']];
             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
