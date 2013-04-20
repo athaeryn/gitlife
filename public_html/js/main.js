@@ -86,6 +86,31 @@ $(document).ready(function () {
         }
     }
 
+    function go(user) {
+        $.get('/d/' + user, function (data) {
+            try {
+                game.setData(parseGitHubData(data));
+                userBox.html(user);
+                message(); // Clears the message field.
+                $('#user').val(""); // Reset the user field.
+                // Add the username to the list for typeahead.
+                $.post('json.php', {
+                    "action": "add",
+                    "user": user
+                });
+                gridClickable(true);
+                // Start the simulation.
+            } catch (e) {
+                message(e.message);
+                gridClickable(false);
+            }
+        });
+    }
+
+    if (window.location.pathname !== "/") {
+        go(window.location.pathname.substring(1, window.location.pathname.length));
+    }
+
     // Handle the user submitting the form.
     $('#submit').click(function () {
         user = $('#user').val();
@@ -102,24 +127,7 @@ $(document).ready(function () {
                 throw new Error("Please enter a user before clicking that button.");
             }
             // Try to fetch the data and start the simulation.
-            $.get('/d/' + user, function (data) {
-                try {
-                    game.setData(parseGitHubData(data));
-                    userBox.html(user);
-                    message(); // Clears the message field.
-                    $('#user').val(""); // Reset the user field.
-                    // Add the username to the list for typeahead.
-                    $.post('json.php', {
-                        "action": "add",
-                        "user": user
-                    });
-                    gridClickable(true);
-                    // Start the simulation.
-                } catch (e) {
-                    message(e.message);
-                    gridClickable(false);
-                }
-            });
+            go(user);
         } catch (e) {
             message(e.message);
             gridClickable(false);
