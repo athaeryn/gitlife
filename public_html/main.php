@@ -8,6 +8,12 @@
                     <a href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life" target="_blank">Conway's Game of Life</a>.
                     It's still a bit rough around the edges. The biggest problem currently (sans interface, design, etc.) is stopping the simulation once it is composed entirely of oscillators and/or still lifes (AKA nothing interesting is going on anymore). However, it's coming along nicely, so I've put it up&nbsp;here.
                 </p>
+                <p>
+                    The code is up on GitHub <a href="https://github.com/athaeryn/gitlife">over here</a>.
+                </p>
+                <p>
+                    You can direct feedback to <a href="mailto:hello@mrmikea.com">hello@mrmikea.com</a>.
+                </p>
                 <h2>About using it.</h2>
                 <p>
                     The UI is pretty bad at the moment, since I've been focusing more on 
