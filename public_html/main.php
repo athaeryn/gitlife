@@ -49,6 +49,15 @@
             </div>
         -->
         <?php */ ?>
+            <div class="todo">
+                <h2>Current todo list:</h2>
+                <ul>
+                    <li>Make it pretty.</li>
+                    <li>Speed control.</li>
+                    <li>A way to view your own private contributions.</li>
+                    <li>Bring back the leaderboard.</li>
+                </ul>
+            </div>
             <div class="footer">
                 by <a href="http://mrmikea.com">Mike Anderson</a>
             </div>
