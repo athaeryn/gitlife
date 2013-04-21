@@ -672,7 +672,8 @@ nav {
 
 #grid {
   transition: box-shadow 0.5s;
-  margin: 24px; }
+  margin: 24px auto;
+  display: block; }
 
 .intro {
   margin-bottom: 2em; }

@@ -125,9 +125,11 @@ nav{
     float: right; 
     margin-right: 15px;
 }
+
 #grid{
     transition: box-shadow 0.5s;
-    margin: 24px;
+    margin: 24px auto;
+    display: block;
 }
 .intro{
     h1{
