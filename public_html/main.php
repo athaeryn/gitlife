@@ -16,6 +16,17 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
+        <header class="page-outer">
+            <div class="page-inner">
+                <img src="img/logo.png" class="logo" height="24" width="24">
+                <nav>
+                    <ul>
+                        <li><a href="/">about</a></li>
+                        <li><a href="/">contribute</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
         <div class="page-inner">
             <div class="left-column">
                 <img src="http://gravatar.com/avatar/a4db33172b6f59a50b7e9621538026ed?s=210" id="gravatar" height="210" width="210">
@@ -25,7 +36,10 @@
             </div>
             <div class="right-column">
                 <div class="grid-container">
-                    <h3 class="clearfix"><span id="stepsBox">--</span></h3>
+                    <div class="top clearfix">
+                        <input type="text" placeholder="Search for a user..." autofocus="autofocus">
+                        <span id="stepsBox">--</span>
+                    </div>
                     <canvas id="grid" width="634" height="250">
                         This website uses HTML5's canvas to function. If you're reading 
                         this, your browser doesn't support canvas, which means you're 
