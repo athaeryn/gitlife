@@ -32,6 +32,14 @@
                     probably running an old version of IE. Consider updating that old 
                     thing so you can join in the fun!
                 </canvas>
+                Speed:
+                <select id="speedSelect">
+                    <option>100</option>
+                    <option selected>300</option>
+                    <option>500</option>
+                    <option>700</option>
+                    <option>900</option>
+                </select>
             </div>
             <div class="form-contain">
                 <div id="message"></div>

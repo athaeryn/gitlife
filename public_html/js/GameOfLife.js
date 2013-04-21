@@ -8,6 +8,9 @@ function GameOfLife(args) {
         s = args.cellSize,
         p = args.cellPadding,
         canvas = args.canvas,
+        speed = 300,
+        onStep = args.onStep,
+        onComplete = args.onComplete,
         colors = {
             live: ["#1E6823", "#44A340", "#8CC665"],
             dead: "#EEE"
@@ -18,7 +21,8 @@ function GameOfLife(args) {
             steps: 0,
             stat: ""
         },
-        runInterval;
+        runInterval,
+        running = false;
 
     // Randomly selects one of the greens.
     function getLiveColor() {
@@ -84,7 +88,7 @@ function GameOfLife(args) {
                 (neighbors === 2 && living));
     }
 
-    function advance(onStep, onComplete) {
+    function advance() {
         var state, stepchange = 0, living = false;
         data.backGrid = [];
         eachCell(function (x, y, index) {
@@ -110,12 +114,22 @@ function GameOfLife(args) {
         data.backGrid = [];
         data.steps = 0;
         clearInterval(runInterval);
+        running = false;
     }
 
-    function runSimulation(speed, onStep, onComplete) {
-        runInterval = setInterval(function () {
-            advance(onStep, onComplete);
-        }, speed);
+    function runSimulation() {
+        if (!running) {
+            runInterval = setInterval(advance, speed);
+            running = true;
+        }
+    }
+
+    function changeSpeed(newSpeed) {
+        speed = newSpeed;
+        if (running) {
+            clearInterval(runInterval);
+            runInterval = setInterval(advance, speed);
+        }
     }
 
     return {
@@ -128,8 +142,11 @@ function GameOfLife(args) {
             data.grid = d;
             drawGrid(data.grid);
         },
-        play: function (speed, onStep, onComplete) {
-            runSimulation(speed, onStep, onComplete);
+        play: function () {
+            runSimulation();
+        },
+        speed: function(speed) {
+            changeSpeed(speed);
         }
     };
 }
