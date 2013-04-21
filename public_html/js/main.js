@@ -16,10 +16,29 @@ $(document).ready(function () {
             height: H,
             cellSize: 10,
             cellPadding: 2,
-            canvas: document.getElementById("grid").getContext('2d')
+            canvas: document.getElementById("grid").getContext('2d'),
+            onStep: function (s) { // onStep
+                 //Update the steps box with the current count.
+                stepsBox.html(s);
+            },
+            onComplete: function (s) { // onComplete
+                // Display how many steps the simulation took.
+                message(user + " went " + s + " step(s)!");
+                // Save the result to the leaderboard.
+                //$.post('save_record.php', {
+                    //"user": user,
+                    //"steps": s
+                //}, function () {
+                    //// Fetch the updated leaderboard.
+                    //$.get('leaderboard.php', function (board) {
+                        //$('.rows').html(board);
+                    //});
+                //});
+            }
         });
 
     game.clear();
+    game.speed($('#speedSelect').val());
 
     // Get the users list for typeahead
     $.getJSON('../users.json', function (json) {
@@ -138,27 +157,14 @@ $(document).ready(function () {
     });
     $('#grid').click(function () {
         if (readyToRun) {
-            game.play(300, function (s) { // onStep
-                 //Update the steps box with the current count.
-                stepsBox.html(s);
-            }, function (s) { // onComplete
-                // Display how many steps the simulation took.
-                message(user + " went " + s + " step(s)!");
-                // Save the result to the leaderboard.
-                //$.post('save_record.php', {
-                    //"user": user,
-                    //"steps": s
-                //}, function () {
-                    //// Fetch the updated leaderboard.
-                    //$.get('leaderboard.php', function (board) {
-                        //$('.rows').html(board);
-                    //});
-                //});
-            });
+            game.play();
             gridClickable(false);
         } else {
             return;
         }
+    });
+    $('#speedSelect').change(function() {
+        game.speed($(this).val());
     });
 });
 

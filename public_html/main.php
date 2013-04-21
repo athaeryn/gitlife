@@ -33,6 +33,14 @@
                     thing so you can join in the fun!
                 </canvas>
             </div>
+            Speed:
+                <select id="speedSelect">
+                    <option value="100">Fastest</option>
+                    <option value="200">Fast</option>
+                    <option value="300" selected>Normal</option>
+                    <option value="500">Slow</option>
+                    <option value="800">Slowest</option>
+                </select>
             <div class="form-contain">
                 <div id="message"></div>
                 <form id="user-picker clearfix" action="">
