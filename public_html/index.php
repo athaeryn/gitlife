@@ -64,6 +64,14 @@ if (substr($_SERVER['REQUEST_URI'], 0, 3) === '/d/') {
     }
 }
 
+if (isset($_REQUEST['user'])) {
+    $username = $_REQUEST['user'];
+    if (!empty($username)) {
+        data($username);
+        exit;
+    }
+}
+
 function data($user) {
     if (!isset($user) || $user === "") {
         echo "Error: no user specified.";
@@ -71,6 +79,7 @@ function data($user) {
         $url = 'https://github.com/users/'.$user.'/contributions_calendar_data';
         $handle = curl_init($url);
         curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, false);
 
         /* Get the HTML or whatever is linked in $url. */
         $response = curl_exec($handle);
