@@ -106,8 +106,7 @@ $(document).ready(function () {
     }
 
     function go(user) {
-        // $.get('/d/' + user, function (data) {
-        $.get('?user=' + user, function (data) {
+        $.get('/d/' + user, function (data) {
             try {
                 game.setData(parseGitHubData(data));
                 userBox.html(user);
