@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2">
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3">
         <link rel="stylesheet" href="css/main.css">
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
