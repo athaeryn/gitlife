@@ -616,9 +616,18 @@ header {
   header .logo {
     height: 24px;
     width: 24px;
+    display: inline-block;
+    float: left;
     margin-top: 8px; }
     header .logo:before {
-      content: '\f020'; }
+      font-size: 24px;
+      content: '\f29f'; }
+  header a {
+    -webkit-transition: color 0.3s ease;
+    color: #333;
+    text-shadow: 0 1px 0 10px white; }
+  header a:hover {
+    color: #4183c4; }
 
 nav {
   float: right; }
@@ -627,13 +636,7 @@ nav {
     nav ul li {
       float: left;
       margin-left: 20px;
-      color: #333;
-      font-weight: bold;
-      text-shadow: 0 1px 0 white; }
-      nav ul li a {
-        -webkit-transition: all 0.3s ease; }
-      nav ul li a:hover {
-        color: #4183c4; }
+      font-weight: bold; }
 
 #gravatar {
   box-sizing: content-box;

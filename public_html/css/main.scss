@@ -68,10 +68,21 @@ header{
     .logo{
         height: 24px;
         width: 24px;
+        display: inline-block;
+        float: left;
         &:before{
-            content: '\f020';
+            font-size: 24px;
+            content: '\f29f';
         }
         margin-top: 8px;
+    }
+    a{
+        -webkit-transition: color 0.3s ease;
+        color: #333;
+        text-shadow: 0 1px 0 10px white;
+    }
+    a:hover{
+        color: #4183c4;
     }
 }
 nav{
@@ -81,15 +92,7 @@ nav{
         li{
             float: left;
             margin-left: 20px;
-            color: #333;
             font-weight: bold;
-            text-shadow: 0 1px 0 white;
-            a{
-                -webkit-transition: all 0.3s ease;
-            }
-            a:hover{
-                color: #4183c4;
-            }
         }
     }
 }

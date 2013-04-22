@@ -18,7 +18,9 @@
         <![endif]-->
         <header class="page-outer">
             <div class="page-inner">
-                <div class="logo"></div>
+                <a href="/">
+                    <div class="logo"></div>
+                </a>
                 <nav>
                     <ul>
                         <li><a href="/">about</a></li>
