@@ -86,9 +86,23 @@ $(document).ready(function () {
         }
     }
 
+    function loadUserInfo(info) {
+        $('#gravatar').attr('src', 'http://gravatar.com/avatar/' + info.gravatar_id + '?s=210&d=blank');
+        if (info.name) {
+            $('#name').html(info.name);
+            $('#username').html(info.login);
+        } else {
+            $('#name').html(info.login);
+            $('#username').html('');
+        }
+    }
+
     function go(user) {
         $.get('/d/' + user, function (data) {
             try {
+                $.getJSON('https://api.github.com/users/' + user, function (d) {
+                    loadUserInfo(d);
+                });
                 game.setData(parseGitHubData(data));
                 userBox.html(user);
                 message(); // Clears the message field.
@@ -99,7 +113,7 @@ $(document).ready(function () {
                     "user": user
                 });
                 gridClickable(true);
-                // Start the simulation.
+                $('#search').blur();
             } catch (e) {
                 message(e.message);
                 gridClickable(false);
@@ -109,6 +123,14 @@ $(document).ready(function () {
 
     if (window.location.pathname !== "/") {
         go(window.location.pathname.substring(1, window.location.pathname.length));
+    } else {
+        $('#search').focus();
+        loadUserInfo({
+            gravatar_id: 'a4db33172b6f59a50b7e9621538026ed',
+            name: 'Mike Anderson',
+            login: 'athaeryn'
+        });
+        go('athaeryn');
     }
 
     // Handle the user submitting the form.

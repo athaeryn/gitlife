@@ -31,15 +31,15 @@
         </header>
         <div class="page-inner">
             <div class="left-column">
-                <img src="http://gravatar.com/avatar/a4db33172b6f59a50b7e9621538026ed?s=210" id="gravatar" height="210" width="210">
-                <h1 class="name">Mike Anderson</h1>
-                <h3 class="username">athaeryn</h3>
+                <img src="" id="gravatar" height="210" width="210">
+                <h1 class="name" id="name"></h1>
+                <h3 class="username" id="username"></h3>
                 <hr>
             </div>
             <div class="right-column">
                 <div class="grid-container">
                     <div class="top clearfix">
-                        <input type="text" placeholder="Search for a user..." autofocus="autofocus">
+                        <input id="search" type="text" placeholder="Search for a user...">
                         <span id="stepsBox">--</span>
                     </div>
                     <canvas id="grid" width="634" height="250">
