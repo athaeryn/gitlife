@@ -561,6 +561,13 @@ textarea {
   color: #000;
   padding: 0.2em 0; }
 
+@font-face {
+  font-family: 'octiconsregular';
+  src: url("font/octicons-regular-webfont.eot");
+  src: url("font/octicons-regular-webfont.eot?#iefix") format("embedded-opentype"), url("font/octicons-regular-webfont.woff") format("woff"), url("font/octicons-regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
 * {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -604,11 +611,14 @@ header {
   height: 40px;
   margin-bottom: 40px;
   background: #f3f3f3;
-  border-bottom: 1px solid #e5e5e5; }
+  border-bottom: 1px solid #e5e5e5;
+  font-family: 'octiconsregular'; }
   header .logo {
     height: 24px;
     width: 24px;
     margin-top: 8px; }
+    header .logo:before {
+      content: '\f020'; }
 
 nav {
   float: right; }

@@ -18,7 +18,7 @@
         <![endif]-->
         <header class="page-outer">
             <div class="page-inner">
-                <img src="img/logo.png" class="logo" height="24" width="24">
+                <div class="logo"></div>
                 <nav>
                     <ul>
                         <li><a href="/">about</a></li>
