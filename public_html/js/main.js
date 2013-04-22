@@ -104,6 +104,7 @@ $(document).ready(function () {
                     loadUserInfo(d);
                 });
                 game.setData(parseGitHubData(data));
+                document.title = "GitLife (" + user + ")";
                 userBox.html(user);
                 message(); // Clears the message field.
                 $('#user').val(""); // Reset the user field.
