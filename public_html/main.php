@@ -2,7 +2,7 @@
             <div class="intro">
                 <h1>Greetings!</h1>
                 <p>
-                    This is gitlife. It takes the nifty
+                    This is GitLife. It takes the nifty
                     <a href="https://github.com/blog/1360-introducing-contributions" target="_blank">contributions calendar</a>
                     from a GitHub user's profile and turns it into a simulation of
                     <a href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life" target="_blank">Conway's Game of Life</a>.
