@@ -39,7 +39,10 @@
             <div class="right-column">
                 <div class="grid-container">
                     <div class="top clearfix">
-                        <input id="search" type="text" placeholder="Search for a user...">
+                        <div class="search-bar">
+                            <input id="search" type="text" placeholder="Search for a user...">
+                            <div class="go"></div>
+                        </div>
                         <span id="stepsBox">--</span>
                     </div>
                     <canvas id="grid" width="634" height="250">

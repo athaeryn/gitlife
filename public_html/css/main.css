@@ -674,6 +674,7 @@ nav {
     border-top-right-radius: 3px;
     line-height: 100%;
     width: 100%;
+    height: 35px;
     margin: 0;
     padding: 5px;
     border-bottom: 1px solid #ddd; }
@@ -681,7 +682,14 @@ nav {
     padding: 4px 20px 4px 8px;
     font-size: 12px;
     border: 1px solid #ccc;
-    border-radius: 3px; }
+    border-radius: 3px;
+    width: 140px;
+    -webkit-transition: all 0.3s ease;
+    outline: none; }
+    .grid-container input.wide {
+      width: 230px;
+      border-color: #51a7e8;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 5px rgba(81, 167, 232, 0.5); }
 
 #stepsBox {
   float: right;
@@ -696,6 +704,26 @@ nav {
   margin-bottom: 2em; }
   .intro h1 {
     font-size: 3em; }
+
+.search-bar {
+  position: relative;
+  display: inline-block; }
+  .search-bar .go {
+    position: absolute;
+    top: 7px;
+    right: 3px;
+    cursor: pointer;
+    color: #888; }
+    .search-bar .go:before {
+      font-family: 'octiconsregular';
+      content: '\f25a';
+      height: 16px;
+      width: 16px;
+      font-size: 16px; }
+    .search-bar .go:hover {
+      color: #555; }
+    .search-bar .go:active {
+      color: #51a7e8; }
 
 .form-contain {
   width: 100%;
@@ -719,6 +747,29 @@ nav {
   font-size: 85%;
   float: right;
   margin: 10px 0; }
+
+.tt-hint {
+  color: #ccc;
+  width: 100% !important; }
+
+.tt-dropdown-menu {
+  background: white;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px; }
+
+.tt-suggestion {
+  padding-left: 10px;
+  border-bottom: 1px solid #ddd;
+  background: #f7f7f7; }
+  .tt-suggestion p {
+    margin: 0;
+    padding: 1em; }
+
+.tt-is-under-cursor {
+  background: white; }
 
 .todo {
   margin-top: 70px; }

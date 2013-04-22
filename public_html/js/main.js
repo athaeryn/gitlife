@@ -23,7 +23,7 @@ $(document).ready(function () {
 
     // Get the users list for typeahead
     $.getJSON('../users.json', function (json) {
-        $('#user').typeahead({
+        $('#search').typeahead({
             name: 'username',
             local: json
         });
@@ -122,10 +122,15 @@ $(document).ready(function () {
         });
     }
 
+    $('#search').focus(function () {
+        $(this).addClass('wide');
+    }).blur(function () {
+        $(this).removeClass('wide');
+    });
+
     if (window.location.pathname !== "/") {
         go(window.location.pathname.substring(1, window.location.pathname.length));
     } else {
-        $('#search').focus();
         loadUserInfo({
             gravatar_id: 'a4db33172b6f59a50b7e9621538026ed',
             name: 'Mike Anderson',
@@ -142,7 +147,7 @@ $(document).ready(function () {
         stepsBox.html('--');
         userBox.html('--');
         $("#user").blur();
-        $("#user").typeahead('setQuery', '');
+        $("#search").typeahead('setQuery', '');
         game.clear();
         try {
             // If no user was entered, we can't go on.
