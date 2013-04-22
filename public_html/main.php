@@ -6,23 +6,24 @@
                     <a href="https://github.com/blog/1360-introducing-contributions" target="_blank">contributions calendar</a>
                     from a GitHub user's profile and turns it into a simulation of
                     <a href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life" target="_blank">Conway's Game of Life</a>.
-                    It's still a bit rough around the edges. The biggest problem currently (sans interface, design, etc.) is stopping the simulation once it is composed entirely of oscillators and/or still lifes (AKA nothing interesting is going on anymore). However, it's coming along nicely, so I've put it up&nbsp;here.
+                    It's not super pretty at the moment, since my inital focus was on the simulation, but I've shifted gears and I'm working on the redesign now.
+                    It's going to look very nice and I'm excited.
                 </p>
                 <p>
-                    The code is up on GitHub <a href="https://github.com/athaeryn/gitlife">over here</a>.
-                </p>
-                <p>
+                    Also, the code is up on GitHub <a href="https://github.com/athaeryn/gitlife">over here</a>.
                     You can direct feedback to <a href="mailto:hello@mrmikea.com">hello@mrmikea.com</a>.
                 </p>
-                <h2>About using it.</h2>
-                <p>
-                    The UI is pretty bad at the moment, since I've been focusing more on 
-                    the simulation. For now, here's how you can see it in&nbsp;action:
-                </p>
+                <h2>How to use it:</h2>
                 <ul>
                     <li>Type a GitHub username into the field and submit.</li>
-                    <li>Click or touch the grid to play the simulation!</li>
+                    <li>Click or touch the grid to play the simulation.</li>
+                    <li>Enjoy!</li>
                 </ul>
+                <p>
+                    Also, you can send links like this: 
+                    <a href="http://gitlife.mrmikea.com/athaeryn">gitlife.mrmikea.com/athaeryn</a>,
+                    so share with your friends!
+                </p>
             </div>
             <div class="grid-container">
                 <h3 class="clearfix"><span id="userBox">--</span><span id="stepsBox">--</span></h3>
@@ -66,10 +67,9 @@
             <div class="todo">
                 <h2>Current todo list:</h2>
                 <ul>
-                    <li>Make it pretty.</li>
-                    <li>Speed control.</li>
-                    <li>A way to view your own private contributions.</li>
-                    <li>Bring back the leaderboard.</li>
+                    <li>Make it pretty (working on it)</li>
+                    <li>A way to view your own private contributions</li>
+                    <li>Bring back the leaderboard</li>
                 </ul>
             </div>
             <div class="footer">
