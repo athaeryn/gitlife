@@ -115,7 +115,6 @@ $(document).ready(function () {
                     game.setData(parseGitHubData(data));
                     document.title = "GitLife (" + user + ")";
                     message(); // Clears the message field.
-                    $('#user').val(""); // Reset the user field.
                     // Add the username to the list for typeahead.
                     $.post('json.php', {
                         "action": "add",
@@ -150,11 +149,11 @@ $(document).ready(function () {
 
     // Handle the user submitting the form.
     $('#submit').click(function () {
-        user = $('#user').val();
+        user = search.val();
         gridClickable(false);
-        message("<img src=\"img/loader.gif\">"); // Clears the message field.
+        //message("<img src=\"img/loader.gif\">");
         stepsBox.html('--');
-        $("#user").blur();
+        search.blur();
         search.typeahead('setQuery', '');
         game.clear();
         try {
@@ -168,10 +167,10 @@ $(document).ready(function () {
             message(e.message);
             gridClickable(false);
         } finally {
-            $('#user').val("");
-            return false;
+            search.val("");
         }
     });
+
     grid.click(function () {
         if (readyToRun) {
             game.play(300, function (s) { // onStep
@@ -179,7 +178,7 @@ $(document).ready(function () {
                 stepsBox.html(s);
             }, function (s) { // onComplete
                 // Display how many steps the simulation took.
-                message(user + " went " + s + " step(s)!");
+                message("went " + s + " step(s)!");
             });
             gridClickable(false);
         } else {
