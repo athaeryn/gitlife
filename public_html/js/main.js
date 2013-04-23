@@ -168,6 +168,7 @@ $(document).ready(function () {
             gridClickable(false);
         } finally {
             search.val("");
+            return false;
         }
     });
 

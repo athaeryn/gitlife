@@ -179,17 +179,20 @@ nav{
     display: inline-block;
     .go{
         position: absolute;
-        top: 7px;
-        right: 3px;
+        top: 3px;
+        right: 1px;
         cursor: pointer;
+        color: #888;
+        visibility: hidden;
+        padding: 0;
         &:before{
             font-family: 'octiconsregular';
             content: '\f25a';
             height: 16px;
             width: 16px;
             font-size: 16px;
+            visibility: visible;
         }
-        color: #888;
         &:hover{
             color: #555;
         }

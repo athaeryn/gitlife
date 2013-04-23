@@ -41,8 +41,10 @@
                 <div class="grid-container">
                     <div class="top clearfix">
                         <div class="search-bar">
-                            <input id="search" type="text" placeholder="Search for a user...">
-                            <div class="go"></div>
+                            <form>
+                                <input id="search" type="text" placeholder="Search for a user...">
+                                <button type="submit" class="go" id="submit"></button>
+                            </form>
                         </div>
                         <span id="stepsBox">--</span>
                     </div>

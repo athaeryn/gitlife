@@ -715,16 +715,19 @@ nav {
   display: inline-block; }
   .search-bar .go {
     position: absolute;
-    top: 7px;
-    right: 3px;
+    top: 3px;
+    right: 1px;
     cursor: pointer;
-    color: #888; }
+    color: #888;
+    visibility: hidden;
+    padding: 0; }
     .search-bar .go:before {
       font-family: 'octiconsregular';
       content: '\f25a';
       height: 16px;
       width: 16px;
-      font-size: 16px; }
+      font-size: 16px;
+      visibility: visible; }
     .search-bar .go:hover {
       color: #555; }
     .search-bar .go:active {
