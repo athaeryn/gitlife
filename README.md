@@ -11,8 +11,6 @@ Life](http://en.wikipedia.org/wiki/Conway's_Game_of_Life).
 
 ## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+Unfortunately, I will not be accepting pull requests, as I would like to keep this a personal project. The best ways to contribute are by sending me an email (see above) and opening issues.
+
+
