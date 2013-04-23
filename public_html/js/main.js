@@ -6,11 +6,17 @@ $(document).ready(function () {
 
     var W = 53,
         H = 21,
-        messageBox = $('#message'),
-        userBox = $('#userBox'),
+        messageBox = $('#error'),
         stepsBox = $('#stepsBox'),
         readyToRun = false,
         user = "",
+        grid = $('#grid'),
+        search = $('#search'),
+        userInfo = {
+            gravatar: $('#gravatar'),
+            heading: $('#name'),
+            subheading: $('#username')
+        },
         game = new GameOfLife({
             width: W,
             height: H,
@@ -23,7 +29,7 @@ $(document).ready(function () {
 
     // Get the users list for typeahead
     $.getJSON('../users.json', function (json) {
-        $('#search').typeahead({
+        search.typeahead({
             name: 'username',
             local: json
         });
@@ -33,25 +39,21 @@ $(document).ready(function () {
     // Throws errors and temper tantrums if things go awry
     function parseGitHubData(raw) {
         var offset, i, x, y, parsed = [], pad = [];
-        if (raw[0] !== '[') {
-            throw new Error("That user does not appear to exist...");
-        }
-
-        // Separate the data points.
-        raw = raw.split('],[');
 
         // Grab the offset. This is the day of the week that the data begins on,
         // because of the way the contributions calendar is structured.
-        offset = (new Date(raw[0].split('"')[1]).getDay());
+        offset = (new Date(raw[0][0]).getDay());
 
         // Map each data point to a boolean representing commits or no commits
         // on each day.
         raw = $.map(raw, function (v) {
-            return v.replace(/\[|\]/g, '').split(',')[1] > 0;
+            return v[1] > 0;
         });
+
         if (raw.indexOf(true) === -1) {
-            throw new Error("This user has no (public) commits...");
+            throw new Error("has no (public) commits...");
         }
+
         // Massage that data
         for (i = 0; i < offset; i += 1) {
             raw.unshift(false);
@@ -80,49 +82,55 @@ $(document).ready(function () {
     function gridClickable(yesno) {
         readyToRun = yesno;
         if (readyToRun) {
-            $('#grid').addClass('clickable');
+            grid.addClass('clickable');
         } else {
-            $('#grid').removeClass('clickable');
+            grid.removeClass('clickable');
         }
     }
 
     function loadUserInfo(info) {
-        $('#gravatar').attr('src', 'http://gravatar.com/avatar/' + info.gravatar_id + '?s=210&d=blank');
+        userInfo.gravatar.attr(
+            'src',
+            'http://gravatar.com/avatar/' + info.gravatar_id + '?s=210&d=blank'
+        );
         if (info.name) {
-            $('#name').html(info.name);
-            $('#username').html(info.login);
+            userInfo.heading.html(info.name);
+            userInfo.subheading.html(info.login);
         } else {
-            $('#name').html(info.login);
-            $('#username').html('');
+            userInfo.heading.html(info.login);
+            userInfo.subheading.html('');
         }
     }
 
     function go(user) {
-        $.get('/d/' + user, function (data) {
-            try {
-                $.getJSON('https://api.github.com/users/' + user, function (d) {
-                    loadUserInfo(d);
-                });
-                game.setData(parseGitHubData(data));
-                document.title = "GitLife (" + user + ")";
-                userBox.html(user);
-                message(); // Clears the message field.
-                $('#user').val(""); // Reset the user field.
-                // Add the username to the list for typeahead.
-                $.post('json.php', {
-                    "action": "add",
-                    "user": user
-                });
-                gridClickable(true);
-                $('#search').blur();
-            } catch (e) {
-                message(e.message);
-                gridClickable(false);
+        $.getJSON('/d/' + user, function (data) {
+            if (data.error) {
+                message(data.error);
+            } else {
+                try {
+                    $.getJSON('https://api.github.com/users/' + user, function (d) {
+                        loadUserInfo(d);
+                    });
+                    game.setData(parseGitHubData(data));
+                    document.title = "GitLife (" + user + ")";
+                    message(); // Clears the message field.
+                    $('#user').val(""); // Reset the user field.
+                    // Add the username to the list for typeahead.
+                    $.post('json.php', {
+                        "action": "add",
+                        "user": user
+                    });
+                    gridClickable(true);
+                    search.blur();
+                } catch (e) {
+                    message(e.message);
+                    gridClickable(false);
+                }
             }
         });
     }
 
-    $('#search').focus(function () {
+    search.focus(function () {
         $(this).addClass('wide');
     }).blur(function () {
         $(this).removeClass('wide');
@@ -145,9 +153,8 @@ $(document).ready(function () {
         gridClickable(false);
         message("<img src=\"img/loader.gif\">"); // Clears the message field.
         stepsBox.html('--');
-        userBox.html('--');
         $("#user").blur();
-        $("#search").typeahead('setQuery', '');
+        search.typeahead('setQuery', '');
         game.clear();
         try {
             // If no user was entered, we can't go on.
@@ -164,7 +171,7 @@ $(document).ready(function () {
             return false;
         }
     });
-    $('#grid').click(function () {
+    grid.click(function () {
         if (readyToRun) {
             game.play(300, function (s) { // onStep
                  //Update the steps box with the current count.
@@ -172,16 +179,6 @@ $(document).ready(function () {
             }, function (s) { // onComplete
                 // Display how many steps the simulation took.
                 message(user + " went " + s + " step(s)!");
-                // Save the result to the leaderboard.
-                //$.post('save_record.php', {
-                    //"user": user,
-                    //"steps": s
-                //}, function () {
-                    //// Fetch the updated leaderboard.
-                    //$.get('leaderboard.php', function (board) {
-                        //$('.rows').html(board);
-                    //});
-                //});
             });
             gridClickable(false);
         } else {

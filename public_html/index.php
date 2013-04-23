@@ -79,7 +79,7 @@ function data($user) {
         $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
         if($httpCode == 404) {
             /* Handle 404 here. */
-            die ('That users does not appear to exist...');
+            die ('{"error": "That users does not appear to exist..."}');
         }
 
         curl_close($handle);

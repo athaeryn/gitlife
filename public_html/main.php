@@ -34,6 +34,7 @@
                 <img src="" id="gravatar" height="210" width="210">
                 <h1 class="name" id="name"></h1>
                 <h3 class="username" id="username"></h3>
+                <h3 class="error" id="error"></h3>
                 <hr>
             </div>
             <div class="right-column">
