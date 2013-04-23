@@ -35,6 +35,7 @@ $(document).ready(function () {
         });
     });
 
+
     // Function to parse the raw data from GitHub
     // Throws errors and temper tantrums if things go awry
     function parseGitHubData(raw) {

@@ -589,7 +589,7 @@ ul li {
 
 .clickable {
   cursor: pointer;
-  transition: box-shadow 1s;
+  transition: box-shadow 0.3s;
   -webkit-box-shadow: 0px 0px 0px 1px white, 0px 0px 1px 2px green;
   -moz-box-shadow: 0px 0px 0px 1px white, 0px 0px 1px 2px green;
   box-shadow: 0px 0px 0px 1px white, 0px 0px 1px 2px green; }
@@ -614,6 +614,7 @@ header {
   margin-bottom: 40px;
   background: #f3f3f3;
   border-bottom: 1px solid #e5e5e5;
+  background-image: linear-gradient(#f9f9f9, #f3f3f3);
   font-family: 'octiconsregular'; }
   header .logo {
     height: 24px;
@@ -701,7 +702,6 @@ nav {
   margin-right: 15px; }
 
 #grid {
-  transition: box-shadow 1s ease;
   margin: 24px auto;
   display: block; }
 
