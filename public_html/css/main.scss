@@ -21,12 +21,6 @@
 body{
     font: 13px Helvetica, arial, freesans, clean, sans-serif; 
 }
-a{
-    text-decoration: none;
-    &:visited{
-        color: #333;
-    }
-}
 p{
     line-height: 150%;
 }
@@ -90,10 +84,20 @@ header{
     }
 }
 nav{
+    a {
+        text-decoration: none;
+    }
+    a:visited{
+        color: black;
+    }
     float: right;
     list-style: none;
     font-weight: bold;
     line-height: 3;
+}
+.about-content{
+    margin-bottom: 30px;
+    margin-top: -20px;
 }
 #gravatar{
     box-sizing: content-box;
@@ -145,7 +149,7 @@ nav{
         border: 1px solid #ccc;
         border-radius: 3px;
         width: 230px;
-        -webkit-transition: all 0.3s ease;
+        -webkit-transition: all 0.1s ease;
         outline: none;
         &.focus{
             border-color: #51a7e8;
@@ -156,6 +160,8 @@ nav{
 #stepsBox{
     float: right; 
     margin-right: 15px;
+    line-height: 25px;
+    font-weight: bold;
 }
 
 #grid{

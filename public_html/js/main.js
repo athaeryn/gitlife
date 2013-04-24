@@ -130,6 +130,10 @@ $(document).ready(function () {
         });
     }
 
+    $('#about-toggle').click(function () {
+        $('#about-content').toggle('fast');
+    });
+
     search.focus(function () {
         $(this).addClass('focus');
     }).blur(function () {

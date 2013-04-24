@@ -22,7 +22,7 @@
                     <div class="logo"></div>
                 </a>
                 <nav>
-                    <a href="/">about</a>
+                    <a href="javascript:void(0);" id="about-toggle">about</a>
                 </nav>
             </div>
         </header>
@@ -35,6 +35,19 @@
                 <hr>
             </div>
             <div class="right-column">
+                <div class="about-content" id="about-content" style="display: none">
+                    <h1>GitLife</h1>
+                    <p>
+                        GitLife takes the nifty <a href="https://github.com/blog/1360-introducing-contributions">contributions calendar</a> from a GitHub user's profile and turns it into a simulation of <a href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life">Conway's Game of Life</a>.
+                        The code is up on Github <a href="https://github.com/athaeryn/gitlife">over here</a>, and you can direct feeback to <a href="mailto:hello@mrmikea.com">hello@mrmikea.com</a>.
+                    </p>
+                    <h2>Instructions</h2>
+                    <ul>
+                        <li>Enter a GitHub username into the search bar.</li>
+                        <li>Click the grid to play the simulation</li>
+                    </ul>
+                    <p>You can also send links to people like this: <a href="http://gitlife.mrmikea.com/athaeryn">gitlife.mrmikea.com/athaeryn</a></p>
+                </div>
                 <div class="grid-container">
                     <div class="top clearfix">
                         <div class="search-bar">
