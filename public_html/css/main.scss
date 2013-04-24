@@ -38,9 +38,9 @@ ul{
 .clickable{
     cursor: pointer;
     transition: box-shadow 0.3s;
-    -webkit-box-shadow: 0px 0px 0px 1px white, 0px 0px 1px 2px green;
-       -moz-box-shadow: 0px 0px 0px 1px white, 0px 0px 1px 2px green;
-            box-shadow: 0px 0px 0px 1px white, 0px 0px 1px 2px green;
+    -webkit-box-shadow: 0px 0px 0px 1px white, 0px 0px 1px 2px green, 0px 0px 13px rgba(81,255,81,0.5);
+       -moz-box-shadow: 0px 0px 0px 1px white, 0px 0px 1px 2px green, 0px 0px 13px rgba(81,255,81,0.5);
+            box-shadow: 0px 0px 0px 1px white, 0px 0px 1px 2px green, 0px 0px 13px rgba(81,255,81,0.5);
 }
 .page-outer{
 
@@ -91,14 +91,9 @@ header{
 }
 nav{
     float: right;
-    ul{
-        list-style: none;
-        li{
-            float: left;
-            margin-left: 20px;
-            font-weight: bold;
-        }
-    }
+    list-style: none;
+    font-weight: bold;
+    line-height: 3;
 }
 #gravatar{
     box-sizing: content-box;
@@ -149,11 +144,10 @@ nav{
         font-size: 12px;
         border: 1px solid #ccc;
         border-radius: 3px;
-        width: 140px;
+        width: 230px;
         -webkit-transition: all 0.3s ease;
         outline: none;
-        &.wide{
-            width: 230px;
+        &.focus{
             border-color: #51a7e8;
             box-shadow: inset 0 1px 2px rgba(0,0,0,0.075), 0 0 5px rgba(81,167,232,0.5);
         }

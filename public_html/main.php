@@ -22,10 +22,7 @@
                     <div class="logo"></div>
                 </a>
                 <nav>
-                    <ul>
-                        <li><a href="/">about</a></li>
-                        <li><a href="/">contribute</a></li>
-                    </ul>
+                    <a href="/">about</a>
                 </nav>
             </div>
         </header>
@@ -42,7 +39,7 @@
                     <div class="top clearfix">
                         <div class="search-bar">
                             <form>
-                                <input id="search" type="text" placeholder="Search for a user...">
+                                <input id="search" type="text" placeholder="Search for a user..." autocomplete="off">
                                 <button type="submit" class="go" id="submit"></button>
                             </form>
                         </div>

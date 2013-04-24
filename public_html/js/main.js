@@ -131,9 +131,9 @@ $(document).ready(function () {
     }
 
     search.focus(function () {
-        $(this).addClass('wide');
+        $(this).addClass('focus');
     }).blur(function () {
-        $(this).removeClass('wide');
+        $(this).removeClass('focus');
     });
 
     if (window.location.pathname !== "/") {
@@ -150,6 +150,9 @@ $(document).ready(function () {
     // Handle the user submitting the form.
     $('#submit').click(function () {
         user = search.val();
+        if (user.length === 0) {
+            return false;
+        }
         gridClickable(false);
         //message("<img src=\"img/loader.gif\">");
         stepsBox.html('--');
@@ -158,9 +161,6 @@ $(document).ready(function () {
         game.clear();
         try {
             // If no user was entered, we can't go on.
-            if (user.length === 0) {
-                throw new Error("Please enter a user before clicking that button.");
-            }
             // Try to fetch the data and start the simulation.
             go(user);
         } catch (e) {
