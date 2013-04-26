@@ -18,7 +18,9 @@ function GameOfLife(args) {
             steps: 0,
             stat: ""
         },
-        runInterval;
+        runInterval,
+        onStep,
+        onComplete;
 
     // Randomly selects one of the greens.
     function getLiveColor() {
@@ -84,7 +86,7 @@ function GameOfLife(args) {
                 (neighbors === 2 && living));
     }
 
-    function advance(onStep, onComplete) {
+    function advance() {
         var state, stepchange = 0, living = false;
         data.backGrid = [];
         eachCell(function (x, y, index) {
@@ -112,9 +114,9 @@ function GameOfLife(args) {
         clearInterval(runInterval);
     }
 
-    function runSimulation(speed, onStep, onComplete) {
+    function runSimulation(speed) {
         runInterval = setInterval(function () {
-            advance(onStep, onComplete);
+            advance();
         }, speed);
     }
 
@@ -128,8 +130,14 @@ function GameOfLife(args) {
             data.grid = d;
             drawGrid(data.grid);
         },
-        play: function (speed, onStep, onComplete) {
-            runSimulation(speed, onStep, onComplete);
+        play: function (speed, stepCallback, completeCallback) {
+            onStep = function (steps) {
+                stepCallback(steps);
+            };
+            onComplete = function (steps) {
+                completeCallback(steps);
+            };
+            runSimulation(speed);
         }
     };
 }
