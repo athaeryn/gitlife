@@ -5,6 +5,7 @@
 /**
  * Correct `block` display not defined in IE 6/7/8/9 and Firefox 3.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\0000322}}
 article,
 aside,
 details,
@@ -17,32 +18,39 @@ main,
 nav,
 section,
 summary {
-  display: block; }
+  display: block;
+}
 
 /**
  * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\0000332}}
 audio,
 canvas,
 video {
   display: inline-block;
   *display: inline;
-  *zoom: 1; }
+  *zoom: 1;
+}
 
 /**
  * Prevent modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\0000343}}
 audio:not([controls]) {
   display: none;
-  height: 0; }
+  height: 0;
+}
 
 /**
  * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
  * Known issue: no IE 6 support.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\0000353}}
 [hidden] {
-  display: none; }
+  display: none;
+}
 
 /* ==========================================================================
    Base
@@ -53,30 +61,36 @@ audio:not([controls]) {
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\0000368}}
 html {
   font-size: 100%;
   /* 1 */
   -webkit-text-size-adjust: 100%;
   /* 2 */
   -ms-text-size-adjust: 100%;
-  /* 2 */ }
+  /* 2 */
+}
 
 /**
  * Address `font-family` inconsistency between `textarea` and other form
  * elements.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\0000383}}
 html,
 button,
 input,
 select,
 textarea {
-  font-family: sans-serif; }
+  font-family: sans-serif;
+}
 
 /**
  * Address margins handled incorrectly in IE 6/7.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\0000391}}
 body {
-  margin: 0; }
+  margin: 0;
+}
 
 /* ==========================================================================
    Links
@@ -84,15 +98,19 @@ body {
 /**
  * Address `outline` inconsistency between Chrome and other browsers.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003103}}
 a:focus {
-  outline: thin dotted; }
+  outline: thin dotted;
+}
 
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003112}}
 a:active,
 a:hover {
-  outline: 0; }
+  outline: 0;
+}
 
 /* ==========================================================================
    Typography
@@ -102,129 +120,171 @@ a:hover {
  * Address font sizes within `section` and `article` in Firefox 4+, Safari 5,
  * and Chrome.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003126}}
 h1 {
   font-size: 2em;
-  margin: 0.67em 0; }
+  margin: 0.67em 0;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003131}}
 h2 {
   font-size: 1.5em;
-  margin: 0.83em 0; }
+  margin: 0.83em 0;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003136}}
 h3 {
   font-size: 1.17em;
-  margin: 1em 0; }
+  margin: 1em 0;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003141}}
 h4 {
   font-size: 1em;
-  margin: 1.33em 0; }
+  margin: 1.33em 0;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003146}}
 h5 {
   font-size: 0.83em;
-  margin: 1.67em 0; }
+  margin: 1.67em 0;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003151}}
 h6 {
   font-size: 0.67em;
-  margin: 2.33em 0; }
+  margin: 2.33em 0;
+}
 
 /**
  * Address styling not present in IE 7/8/9, Safari 5, and Chrome.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003160}}
 abbr[title] {
-  border-bottom: 1px dotted; }
+  border-bottom: 1px dotted;
+}
 
 /**
  * Address style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003169}}
 b,
 strong {
-  font-weight: bold; }
+  font-weight: bold;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003173}}
 blockquote {
-  margin: 1em 40px; }
+  margin: 1em 40px;
+}
 
 /**
  * Address styling not present in Safari 5 and Chrome.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003181}}
 dfn {
-  font-style: italic; }
+  font-style: italic;
+}
 
 /**
  * Address differences between Firefox and other browsers.
  * Known issue: no IE 6/7 normalization.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003190}}
 hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  height: 0; }
+  height: 0;
+}
 
 /**
  * Address styling not present in IE 6/7/8/9.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003200}}
 mark {
   background: #ff0;
-  color: #000; }
+  color: #000;
+}
 
 /**
  * Address margins set differently in IE 6/7.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003210}}
 p,
 pre {
-  margin: 1em 0; }
+  margin: 1em 0;
+}
 
 /**
  * Correct font family set oddly in IE 6, Safari 4/5, and Chrome.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003221}}
 code,
 kbd,
 pre,
 samp {
   font-family: monospace, serif;
   _font-family: 'courier new', monospace;
-  font-size: 1em; }
+  font-size: 1em;
+}
 
 /**
  * Improve readability of pre-formatted text in all browsers.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003231}}
 pre {
   white-space: pre;
   white-space: pre-wrap;
-  word-wrap: break-word; }
+  word-wrap: break-word;
+}
 
 /**
  * Address CSS quotes not supported in IE 6/7.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003241}}
 q {
-  quotes: none; }
+  quotes: none;
+}
 
 /**
  * Address `quotes` property not supported in Safari 4.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003250}}
 q:before,
 q:after {
   content: '';
-  content: none; }
+  content: none;
+}
 
 /**
  * Address inconsistent and variable font size in all browsers.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003259}}
 small {
-  font-size: 80%; }
+  font-size: 80%;
+}
 
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003268}}
 sub,
 sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003275}}
 sup {
-  top: -0.5em; }
+  top: -0.5em;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003279}}
 sub {
-  bottom: -0.25em; }
+  bottom: -0.25em;
+}
 
 /* ==========================================================================
    Lists
@@ -232,30 +292,38 @@ sub {
 /**
  * Address margins set differently in IE 6/7.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003294}}
 dl,
 menu,
 ol,
 ul {
-  margin: 1em 0; }
+  margin: 1em 0;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003298}}
 dd {
-  margin: 0 0 0 40px; }
+  margin: 0 0 0 40px;
+}
 
 /**
  * Address paddings set differently in IE 6/7.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003308}}
 menu,
 ol,
 ul {
-  padding: 0 0 0 40px; }
+  padding: 0 0 0 40px;
+}
 
 /**
  * Correct list images handled incorrectly in IE 7.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003317}}
 nav ul,
 nav ol {
   list-style: none;
-  list-style-image: none; }
+  list-style-image: none;
+}
 
 /* ==========================================================================
    Embedded content
@@ -264,17 +332,21 @@ nav ol {
  * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
  * 2. Improve image quality when scaled in IE 7.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003331}}
 img {
   border: 0;
   /* 1 */
   -ms-interpolation-mode: bicubic;
-  /* 2 */ }
+  /* 2 */
+}
 
 /**
  * Correct overflow displayed oddly in IE 9.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003340}}
 svg:not(:root) {
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 /* ==========================================================================
    Figures
@@ -282,8 +354,10 @@ svg:not(:root) {
 /**
  * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003352}}
 figure {
-  margin: 0; }
+  margin: 0;
+}
 
 /* ==========================================================================
    Forms
@@ -291,22 +365,27 @@ figure {
 /**
  * Correct margin displayed oddly in IE 6/7.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003364}}
 form {
-  margin: 0; }
+  margin: 0;
+}
 
 /**
  * Define consistent border, margin, and padding.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003372}}
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em; }
+  padding: 0.35em 0.625em 0.75em;
+}
 
 /**
  * 1. Correct color not being inherited in IE 6/7/8/9.
  * 2. Correct text not wrapping in Firefox 3.
  * 3. Correct alignment displayed oddly in IE 6/7.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003384}}
 legend {
   border: 0;
   /* 1 */
@@ -314,7 +393,8 @@ legend {
   white-space: normal;
   /* 2 */
   *margin-left: -7px;
-  /* 3 */ }
+  /* 3 */
+}
 
 /**
  * 1. Correct font size not being inherited in all browsers.
@@ -322,6 +402,7 @@ legend {
  *    and Chrome.
  * 3. Improve appearance and consistency in all browsers.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003401}}
 button,
 input,
 select,
@@ -333,15 +414,18 @@ textarea {
   vertical-align: baseline;
   /* 3 */
   *vertical-align: middle;
-  /* 3 */ }
+  /* 3 */
+}
 
 /**
  * Address Firefox 3+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003414}}
 button,
 input {
-  line-height: normal; }
+  line-height: normal;
+}
 
 /**
  * Address inconsistent `text-transform` inheritance for `button` and `select`.
@@ -349,9 +433,11 @@ input {
  * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
  * Correct `select` style inheritance in Firefox 4+ and Opera.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003426}}
 button,
 select {
-  text-transform: none; }
+  text-transform: none;
+}
 
 /**
  * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
@@ -362,6 +448,7 @@ select {
  * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
  *    Known issue: inner spacing remains in IE 6.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003443}}
 button,
 html input[type="button"],
 input[type="reset"],
@@ -371,14 +458,17 @@ input[type="submit"] {
   cursor: pointer;
   /* 3 */
   *overflow: visible;
-  /* 4 */ }
+  /* 4 */
+}
 
 /**
  * Re-set default cursor for disabled elements.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003454}}
 button[disabled],
 html input[disabled] {
-  cursor: default; }
+  cursor: default;
+}
 
 /**
  * 1. Address box sizing set to content-box in IE 8/9.
@@ -386,6 +476,7 @@ html input[disabled] {
  * 3. Remove excess padding in IE 7.
  *    Known issue: excess padding remains in IE 6.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003466}}
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
@@ -395,46 +486,55 @@ input[type="radio"] {
   *height: 13px;
   /* 3 */
   *width: 13px;
-  /* 3 */ }
+  /* 3 */
+}
 
 /**
  * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
  * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
  *    (include `-moz` to future-proof).
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003479}}
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   /* 2 */
-  box-sizing: content-box; }
+  box-sizing: content-box;
+}
 
 /**
  * Remove inner padding and search cancel button in Safari 5 and Chrome
  * on OS X.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003492}}
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none; }
+  -webkit-appearance: none;
+}
 
 /**
  * Remove inner padding and border in Firefox 3+.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003501}}
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 /**
  * 1. Remove default vertical scrollbar in IE 6/7/8/9.
  * 2. Improve readability and alignment in all browsers.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003511}}
 textarea {
   overflow: auto;
   /* 1 */
   vertical-align: top;
-  /* 2 */ }
+  /* 2 */
+}
 
 /* ==========================================================================
    Tables
@@ -442,21 +542,26 @@ textarea {
 /**
  * Remove most spacing between table cells.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_normalize\.scss}line{font-family:\00003524}}
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+}
 
 /*
  * typeahead.js 0.8.2
  * https://github.com/twitter/typeahead
  * Copyright 2013 Twitter, Inc. and other contributors; Licensed MIT
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_typeahead\.scss}line{font-family:\000037}}
 .twitter-typeahead {
   position: relative !important;
   display: inline-block;
   *display: inline;
-  *zoom: 1; }
+  *zoom: 1;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_typeahead\.scss}line{font-family:\0000313}}
 .tt-query {
   position: relative !important;
   /* for unknown reasons, this fixes alignment issues in ie7 */
@@ -465,8 +570,10 @@ table {
   background-color: transparent !important;
   /* ie6-8 doesn't fire hover and click events for transparent elements
      for a workaround, use a 1x1 transparent gif */
-  background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) !important; }
+  background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) !important;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_typeahead\.scss}line{font-family:\0000325}}
 .tt-hint {
   position: absolute !important;
   top: 0 !important;
@@ -474,173 +581,246 @@ table {
   border-color: transparent !important;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
-  box-shadow: none !important; }
+  box-shadow: none !important;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_typeahead\.scss}line{font-family:\0000336}}
 .tt-dropdown-menu,
 .tt-suggestions,
 .tt-suggestion {
   padding: 0;
   margin: 0;
-  list-style: none; }
+  list-style: none;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_typeahead\.scss}line{font-family:\0000341}}
 .tt-dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
   z-index: 100;
   /* TODO: need default z-index, should be configurable */
-  display: none; }
+  display: none;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_typeahead\.scss}line{font-family:\0000350}}
 .tt-dropdown-menu.tt-is-open {
-  display: block; }
+  display: block;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_typeahead\.scss}line{font-family:\0000353}}
 .tt-dropdown-menu.tt-is-empty {
-  display: none; }
+  display: none;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_typeahead\.scss}line{font-family:\0000356}}
 .tt-suggestion {
   display: block;
   white-space: nowrap;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_typeahead\.scss}line{font-family:\0000361}}
 .tt-suggestion * {
-  white-space: normal; }
+  white-space: normal;
+}
 
 /* rtl support */
 /* ----------- */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_typeahead\.scss}line{font-family:\0000366}}
 .twitter-typeahead.tt-rtl {
-  direction: rtl; }
+  direction: rtl;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_typeahead\.scss}line{font-family:\0000369}}
 .twitter-typeahead.tt-rtl .tt-dropdown-menu {
   left: auto;
-  right: 0; }
+  right: 0;
+}
 
 /* ==========================================================================
 HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
 ========================================================================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_header\.scss}line{font-family:\000039}}
 html,
 button,
 input,
 select,
 textarea {
-  color: #222; }
+  color: #222;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_header\.scss}line{font-family:\0000313}}
 body {
   font-size: 1em;
-  line-height: 1.4; }
+  line-height: 1.4;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_header\.scss}line{font-family:\0000318}}
 ::-moz-selection {
   background: #b3d4fc;
-  text-shadow: none; }
+  text-shadow: none;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_header\.scss}line{font-family:\0000323}}
 ::selection {
   background: #b3d4fc;
-  text-shadow: none; }
+  text-shadow: none;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_header\.scss}line{font-family:\0000328}}
 hr {
   display: block;
   height: 1px;
   border: 0;
   border-top: 1px solid #ccc;
   margin: 1em 0;
-  padding: 0; }
+  padding: 0;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_header\.scss}line{font-family:\0000337}}
 img {
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_header\.scss}line{font-family:\0000341}}
 fieldset {
   border: 0;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_header\.scss}line{font-family:\0000347}}
 textarea {
-  resize: vertical; }
+  resize: vertical;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_header\.scss}line{font-family:\0000351}}
 .chromeframe {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
-  padding: 0.2em 0; }
+  padding: 0.2em 0;
+}
 
 @font-face {
   font-family: 'octiconsregular';
   src: url("font/octicons-regular-webfont.eot");
   src: url("font/octicons-regular-webfont.eot?#iefix") format("embedded-opentype"), url("font/octicons-regular-webfont.woff") format("woff"), url("font/octicons-regular-webfont.ttf") format("truetype");
   font-weight: normal;
-  font-style: normal; }
+  font-style: normal;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\0000316}}
 * {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box; }
+  -webkit-box-sizing: border-box;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\0000321}}
 body {
-  font: 13px Helvetica, arial, freesans, clean, sans-serif; }
+  font: 13px Helvetica, arial, freesans, clean, sans-serif;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\0000324}}
 p {
-  line-height: 150%; }
+  line-height: 150%;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\0000328}}
 ul li {
-  margin-bottom: 0.4em; }
+  margin-bottom: 0.4em;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\0000332}}
 .clickable {
   cursor: pointer;
   transition: box-shadow 0.3s;
   -webkit-box-shadow: 0px 0px 0px 1px white, 0px 0px 1px 2px green, 0px 0px 13px rgba(81, 255, 81, 0.5);
   -moz-box-shadow: 0px 0px 0px 1px white, 0px 0px 1px 2px green, 0px 0px 13px rgba(81, 255, 81, 0.5);
-  box-shadow: 0px 0px 0px 1px white, 0px 0px 1px 2px green, 0px 0px 13px rgba(81, 255, 81, 0.5); }
+  box-shadow: 0px 0px 0px 1px white, 0px 0px 1px 2px green, 0px 0px 13px rgba(81, 255, 81, 0.5);
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\0000342}}
 .page-inner {
   width: 920px;
   margin: 0 auto;
-  padding: 0; }
+  padding: 0;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\0000348}}
 .left-column {
   width: 220px;
-  float: left; }
-  .left-column hr {
-    margin-top: 15px; }
+  float: left;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\0000351}}
+.left-column hr {
+  margin-top: 15px;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\0000355}}
 .right-column {
   float: right;
-  width: 680px; }
+  width: 680px;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\0000359}}
 header {
   height: 40px;
   margin-bottom: 40px;
   background: #f3f3f3;
   border-bottom: 1px solid #e5e5e5;
   background-image: linear-gradient(#f9f9f9, #f3f3f3);
-  font-family: 'octiconsregular'; }
-  header .logo {
-    height: 24px;
-    width: 24px;
-    display: inline-block;
-    float: left;
-    margin-top: 8px; }
-    header .logo:before {
-      font-size: 24px;
-      content: '\f29f'; }
-  header a {
-    -webkit-transition: color 0.3s ease;
-    color: #333;
-    text-shadow: 0 1px 0 10px white; }
-  header a:hover {
-    color: #4183c4; }
+  font-family: 'octiconsregular';
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\0000366}}
+header .logo {
+  height: 24px;
+  width: 24px;
+  display: inline-block;
+  float: left;
+  margin-top: 8px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\0000371}}
+header .logo:before {
+  font-size: 24px;
+  content: '\f29f';
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\0000377}}
+header a {
+  -webkit-transition: color 0.3s ease;
+  color: #333;
+  text-shadow: 0 1px 0 10px white;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\0000382}}
+header a:hover {
+  color: #4183c4;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\0000386}}
 nav {
   float: right;
   list-style: none;
   font-weight: bold;
-  line-height: 3; }
-  nav a {
-    text-decoration: none; }
-  nav a:visited {
-    color: black; }
+  line-height: 3;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\0000387}}
+nav a {
+  text-decoration: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\0000390}}
+nav a:visited {
+  color: black;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\0000398}}
 .about-content {
   margin-bottom: 30px;
-  margin-top: -20px; }
+  margin-top: -20px;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003102}}
 #gravatar {
   box-sizing: content-box;
   padding: 5px;
@@ -648,17 +828,23 @@ nav {
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
   background: url("../img/no-gravatar.png") center center no-repeat;
   background-size: 210px 210px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003111}}
 #error {
   margin: 8px 0;
-  color: red; }
+  color: red;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003115}}
 .name {
   letter-spacing: -1px;
   color: #495961;
-  margin: 5px 0; }
+  margin: 5px 0;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003120}}
 .username {
   font-weight: 300;
   font-size: 20px;
@@ -666,122 +852,171 @@ nav {
   line-height: 24px;
   -webkit-font-smoothing: antialiased;
   margin: 5px 0;
-  letter-spacing: -1px; }
+  letter-spacing: -1px;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003129}}
 .grid-container {
   border-radius: 3px;
   border: 1px solid #ddd;
   margin: 0 auto;
   margin-bottom: 20px;
-  width: 100%; }
-  .grid-container .top {
-    background: #f7f7f7;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    line-height: 100%;
-    width: 100%;
-    height: 35px;
-    margin: 0;
-    padding: 5px;
-    border-bottom: 1px solid #ddd; }
-  .grid-container input {
-    padding: 4px 20px 4px 8px;
-    font-size: 12px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    width: 230px;
-    -webkit-transition: all 0.1s ease;
-    outline: none; }
-    .grid-container input.focus {
-      border-color: #51a7e8;
-      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 5px rgba(81, 167, 232, 0.5); }
+  width: 100%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003135}}
+.grid-container .top {
+  background: #f7f7f7;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  line-height: 100%;
+  width: 100%;
+  height: 35px;
+  margin: 0;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003146}}
+.grid-container input {
+  padding: 4px 20px 4px 8px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 230px;
+  -webkit-transition: all 0.1s ease;
+  outline: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003154}}
+.grid-container input.focus {
+  border-color: #51a7e8;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 5px rgba(81, 167, 232, 0.5);
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003160}}
 #stepsBox {
   float: right;
   margin-right: 15px;
   line-height: 25px;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003167}}
 #grid {
   margin: 24px auto;
-  display: block; }
+  display: block;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003171}}
 .intro {
-  margin-bottom: 2em; }
-  .intro h1 {
-    font-size: 3em; }
+  margin-bottom: 2em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003172}}
+.intro h1 {
+  font-size: 3em;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003177}}
 .search-bar {
   position: relative;
-  display: inline-block; }
-  .search-bar .go {
-    position: absolute;
-    top: 3px;
-    right: 1px;
-    cursor: pointer;
-    color: #888;
-    visibility: hidden;
-    padding: 0; }
-    .search-bar .go:before {
-      font-family: 'octiconsregular';
-      content: '\f25a';
-      height: 16px;
-      width: 16px;
-      font-size: 16px;
-      visibility: visible; }
-    .search-bar .go:hover {
-      color: #555; }
-    .search-bar .go:active {
-      color: #51a7e8; }
+  display: inline-block;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003180}}
+.search-bar .go {
+  position: absolute;
+  top: 3px;
+  right: 1px;
+  cursor: pointer;
+  color: #888;
+  visibility: hidden;
+  padding: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003188}}
+.search-bar .go:before {
+  font-family: 'octiconsregular';
+  content: '\f25a';
+  height: 16px;
+  width: 16px;
+  font-size: 16px;
+  visibility: visible;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003196}}
+.search-bar .go:hover {
+  color: #555;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003199}}
+.search-bar .go:active {
+  color: #51a7e8;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003204}}
 .form-contain {
   width: 100%;
-  margin: 0 auto; }
-  .form-contain .twitter-typeahead {
-    width: 75%;
-    height: 50px; }
-  .form-contain input[type="text"] {
-    width: 100%;
-    height: inherit;
-    padding: 10px;
-    float: left;
-    border-radius: 3px; }
-  .form-contain input[type="submit"] {
-    display: block;
-    width: 23%;
-    float: right;
-    height: 50px; }
+  margin: 0 auto;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003207}}
+.form-contain .twitter-typeahead {
+  width: 75%;
+  height: 50px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003211}}
+.form-contain input[type="text"] {
+  width: 100%;
+  height: inherit;
+  padding: 10px;
+  float: left;
+  border-radius: 3px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003218}}
+.form-contain input[type="submit"] {
+  display: block;
+  width: 23%;
+  float: right;
+  height: 50px;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003225}}
 .footer {
   font-size: 85%;
   float: right;
-  margin: 10px 0; }
+  margin: 10px 0;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003230}}
 .tt-hint {
   color: #ccc;
-  width: 100% !important; }
+  width: 100% !important;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003234}}
 .tt-dropdown-menu {
   background: white;
   width: 100%;
   border: 1px solid #ddd;
   border-top: none;
   border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px; }
+  border-bottom-right-radius: 3px;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003242}}
 .tt-suggestion {
   padding-left: 10px;
   border-bottom: 1px solid #ddd;
-  background: #f7f7f7; }
-  .tt-suggestion p {
-    margin: 0;
-    padding: 1em; }
+  background: #f7f7f7;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003246}}
+.tt-suggestion p {
+  margin: 0;
+  padding: 1em;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003251}}
 .tt-is-under-cursor {
-  background: white; }
+  background: white;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/main\.scss}line{font-family:\00003254}}
 .todo {
-  margin-top: 70px; }
+  margin-top: 70px;
+}
 
 /* ==========================================================================
    Media Queries
@@ -789,22 +1024,29 @@ nav {
 /* ==========================================================================
    Helper classes
    ========================================================================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_footer\.scss}line{font-family:\0000320}}
 .ir {
   background-color: transparent;
   border: 0;
   overflow: hidden;
-  *text-indent: -9999px; }
+  *text-indent: -9999px;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_footer\.scss}line{font-family:\0000327}}
 .ir:before {
   content: "";
   display: block;
   width: 0;
-  height: 150%; }
+  height: 150%;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_footer\.scss}line{font-family:\0000334}}
 .hidden {
   display: none !important;
-  visibility: hidden; }
+  visibility: hidden;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_footer\.scss}line{font-family:\0000339}}
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -813,8 +1055,10 @@ nav {
   overflow: hidden;
   padding: 0;
   position: absolute;
-  width: 1px; }
+  width: 1px;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_footer\.scss}line{font-family:\0000351}}
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -822,77 +1066,110 @@ nav {
   margin: 0;
   overflow: visible;
   position: static;
-  width: auto; }
+  width: auto;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_footer\.scss}line{font-family:\0000360}}
 .invisible {
-  visibility: hidden; }
+  visibility: hidden;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_footer\.scss}line{font-family:\0000365}}
 .clearfix:before, .page-inner:before,
 .clearfix:after,
 .page-inner:after {
   content: " ";
-  display: table; }
+  display: table;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_footer\.scss}line{font-family:\0000370}}
 .clearfix:after, .page-inner:after {
-  clear: both; }
+  clear: both;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_footer\.scss}line{font-family:\0000374}}
 .clearfix, .page-inner {
-  *zoom: 1; }
+  *zoom: 1;
+}
 
 /* ==========================================================================
    Print styles
    ========================================================================== */
 @media print {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_footer\.scss}line{font-family:\0000383}}
   * {
     background: transparent !important;
     color: #000 !important;
     /* Black prints faster: h5bp.com/s */
     box-shadow: none !important;
-    text-shadow: none !important; }
+    text-shadow: none !important;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_footer\.scss}line{font-family:\0000391}}
   a,
   a:visited {
-    text-decoration: underline; }
+    text-decoration: underline;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_footer\.scss}line{font-family:\0000395}}
   a[href]:after {
-    content: " (" attr(href) ")"; }
+    content: " (" attr(href) ")";
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_footer\.scss}line{font-family:\0000399}}
   abbr[title]:after {
-    content: " (" attr(title) ")"; }
+    content: " (" attr(title) ")";
+  }
 
   /*
    * Don't show links for images, or javascript/internal links
    */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_footer\.scss}line{font-family:\00003109}}
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
-    content: ""; }
+    content: "";
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_footer\.scss}line{font-family:\00003114}}
   pre,
   blockquote {
     border: 1px solid #999;
-    page-break-inside: avoid; }
+    page-break-inside: avoid;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_footer\.scss}line{font-family:\00003119}}
   thead {
     display: table-header-group;
-    /* h5bp.com/t */ }
+    /* h5bp.com/t */
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_footer\.scss}line{font-family:\00003124}}
   tr,
   img {
-    page-break-inside: avoid; }
+    page-break-inside: avoid;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_footer\.scss}line{font-family:\00003128}}
   img {
-    max-width: 100% !important; }
+    max-width: 100% !important;
+  }
 
   @page {
-    margin: 0.5cm; }
+    margin: 0.5cm;
+}
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_footer\.scss}line{font-family:\00003138}}
   p,
   h2,
   h3 {
     orphans: 3;
-    widows: 3; }
+    widows: 3;
+  }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mike\/www\/gitlife\/public_html\/css\/sass\/_footer\.scss}line{font-family:\00003144}}
   h2,
   h3 {
-    page-break-after: avoid; } }
+    page-break-after: avoid;
+  }
+}
