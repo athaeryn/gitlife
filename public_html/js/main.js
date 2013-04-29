@@ -116,10 +116,7 @@ $(document).ready(function () {
                     document.title = "GitLife (" + user + ")";
                     message(); // Clears the message field.
                     // Add the username to the list for typeahead.
-                    $.post('json.php', {
-                        "action": "add",
-                        "user": user
-                    });
+                    $.post('/j/' + user);
                     gridClickable(true);
                     search.blur();
                 } catch (e) {
