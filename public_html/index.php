@@ -7,11 +7,6 @@ $app = $root."/../app/";
 require_once $app."config.default.php";
 require_once $app."config.php";
 
-// Add ability to override EVN to preview prod
-if (isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING'] === "prod") {
-    $GLOBALS['ENV'] = 'prod';
-}
-
 function leaderboard() {
     mysql_connect('localhost', $GLOBALS['db_user'], $GLOBALS['db_pass']);
     @mysql_select_db('gitlife') or die("");
@@ -55,15 +50,6 @@ function leaderboard() {
 
 }
 
-
-if (substr($_SERVER['REQUEST_URI'], 0, 3) === '/d/') {
-    $username = substr($_SERVER['REQUEST_URI'], 3);
-    if (!empty($username)) {
-        data($username);
-        exit;
-    }
-}
-
 function data($user) {
     if (!isset($user) || $user === "") {
         echo "Error: no user specified.";
@@ -79,7 +65,7 @@ function data($user) {
         $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
         if($httpCode == 404) {
             /* Handle 404 here. */
-            die ('That users does not appear to exist...');
+            die ('{"error": "That users does not appear to exist..."}');
         }
 
         curl_close($handle);
@@ -88,6 +74,40 @@ function data($user) {
     }
 }
 
-include "header.php";
+function users_json($user) {
+    if (!$_SERVER['SERVER_ADDR'] == $_SERVER['REMOTE_ADDR']){
+      $this->output->set_status_header(400, 'No Remote Access Allowed');
+      exit; //just for good measure
+    }
+    $user = strtolower($user);
+    $raw = file_get_contents("users.json");
+    $data = json_decode($raw);
+    if (!is_array($data)) {
+        $data = array();
+    }
+    if (!in_array($user, $data)) {
+        array_push($data, $user);
+    }
+    $fh = fopen("users.json", "w");
+    fwrite($fh, json_encode($data));
+    fclose($fh);
+}
+
+switch (substr($_SERVER['REQUEST_URI'], 0, 3)) {
+    case '/d/':
+        $username = substr($_SERVER['REQUEST_URI'], 3);
+        if (!empty($username)) {
+            data($username);
+            exit;
+        }
+        break;
+    case '/j/':
+        $username = substr($_SERVER['REQUEST_URI'], 3);
+        if (!empty($username)) {
+            users_json($username);
+            exit;
+        }
+        break;
+}
+
 include "main.php";
-include "footer.php";

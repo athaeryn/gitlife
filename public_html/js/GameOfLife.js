@@ -117,19 +117,10 @@ function GameOfLife(args) {
         running = false;
     }
 
-    function runSimulation() {
-        if (!running) {
-            runInterval = setInterval(advance, speed);
-            running = true;
-        }
-    }
-
-    function changeSpeed(newSpeed) {
-        speed = newSpeed;
-        if (running) {
-            clearInterval(runInterval);
-            runInterval = setInterval(advance, speed);
-        }
+    function runSimulation(speed) {
+        runInterval = setInterval(function () {
+            advance();
+        }, speed);
     }
 
     return {
@@ -142,11 +133,14 @@ function GameOfLife(args) {
             data.grid = d;
             drawGrid(data.grid);
         },
-        play: function () {
-            runSimulation();
-        },
-        speed: function(speed) {
-            changeSpeed(speed);
+        play: function (speed, stepCallback, completeCallback) {
+            onStep = function (steps) {
+                stepCallback(steps);
+            };
+            onComplete = function (steps) {
+                completeCallback(steps);
+            };
+            runSimulation(speed);
         }
     };
 }
