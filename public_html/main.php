@@ -44,7 +44,7 @@
                     <h2>Instructions</h2>
                     <ul>
                         <li>Enter a GitHub username into the search bar.</li>
-                        <li>Click the grid to play the simulation</li>
+                        <li>Click the grid to play the simulation.</li>
                     </ul>
                     <p>You can also send links to people like this: <a href="http://gitlife.mrmikea.com/athaeryn">gitlife.mrmikea.com/athaeryn</a></p>
                 </div>
