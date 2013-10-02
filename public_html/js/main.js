@@ -187,5 +187,8 @@ $(document).ready(function () {
             return;
         }
     });
+    $('#speedSelect').change(function() {
+        game.speed($(this).val());
+    });
 });
 

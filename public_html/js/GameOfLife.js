@@ -8,6 +8,9 @@ function GameOfLife(args) {
         s = args.cellSize,
         p = args.cellPadding,
         canvas = args.canvas,
+        speed = 300,
+        onStep = args.onStep,
+        onComplete = args.onComplete,
         colors = {
             live: ["#1E6823", "#44A340", "#8CC665"],
             dead: "#EEE"
@@ -19,8 +22,7 @@ function GameOfLife(args) {
             stat: ""
         },
         runInterval,
-        onStep,
-        onComplete;
+        running = false;
 
     // Randomly selects one of the greens.
     function getLiveColor() {
@@ -112,6 +114,7 @@ function GameOfLife(args) {
         data.backGrid = [];
         data.steps = 0;
         clearInterval(runInterval);
+        running = false;
     }
 
     function runSimulation(speed) {
