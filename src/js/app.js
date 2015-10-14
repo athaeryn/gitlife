@@ -54,9 +54,10 @@ $(document).ready(function () {
     }
 
     function loadUserInfo(info) {
+        console.log(info)
         userInfo.gravatar.attr(
             'src',
-            'http://gravatar.com/avatar/' + info.gravatar_id + '?s=210&d=blank'
+            info.avatar_url
         );
         if (info.name) {
             userInfo.heading.html(info.name);
@@ -74,6 +75,7 @@ $(document).ready(function () {
             } else {
                 try {
                     $.getJSON('https://api.github.com/users/' + user, function (d) {
+                      console.log(d)
                         loadUserInfo(d);
                     });
                     game.setData(parseGitHubData(data));
