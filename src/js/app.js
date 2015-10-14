@@ -113,7 +113,8 @@ $(document).ready(function () {
     }
 
     // Handle the user submitting the form.
-    $('#submit').click(function () {
+    $('#search-form').submit(function (e) {
+        e.preventDefault()
         user = search.val();
         if (user.length === 0) {
             return false;
