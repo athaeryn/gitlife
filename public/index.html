@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>GitLife</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+      <header class="page-outer">
+        <div class="page-inner">
+          <a href="/">
+            <div class="logo"></div>
+          </a>
+          <nav>
+            <a href="javascript:void(0);" id="about-toggle">about</a>
+          </nav>
+        </div>
+      </header>
+      <div class="page-inner">
+        <div class="left-column">
+          <img src="" id="gravatar" height="210" width="210">
+          <h1 class="name" id="name"></h1>
+          <h3 class="username" id="username"></h3>
+          <h3 class="error" id="error"></h3>
+          <hr>
+        </div>
+        <div class="right-column">
+          <div class="about-content" id="about-content" style="display: none">
+            <h1>GitLife</h1>
+            <p>
+            GitLife takes the nifty <a href="https://github.com/blog/1360-introducing-contributions">contributions calendar</a> from a GitHub user's profile and turns it into a simulation of <a href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life">Conway's Game of Life</a>.
+            The code is up on Github <a href="https://github.com/athaeryn/gitlife">over here</a>, and you can direct feeback to <a href="mailto:hello@mrmikea.com">hello@mrmikea.com</a>.
+            </p>
+            <h2>Instructions</h2>
+            <ul>
+              <li>Enter a GitHub username into the search bar.</li>
+              <li>Click the grid to play the simulation.</li>
+            </ul>
+            <p>You can also send links to people like this: <a href="http://gitlife.mrmikea.com/athaeryn">gitlife.mrmikea.com/athaeryn</a></p>
+          </div>
+          <div class="grid-container">
+            <div class="top clearfix">
+              <div class="search-bar">
+                <form>
+                  <input id="search" type="text" placeholder="Search for a user..." autocomplete="off">
+                  <button type="submit" class="go" id="submit"></button>
+                </form>
+              </div>
+              <span id="stepsBox">--</span>
+            </div>
+            <canvas id="grid" width="634" height="250"></canvas>
+          </div>
+        </div>
+      </div>
+      <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+      <script src="/js/app.js"></script>
+      <script>
+// TODO: analytics
+      </script>
+  </body>
+</html>

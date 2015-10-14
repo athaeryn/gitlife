@@ -2,3 +2,5 @@
 public_html/css/.sass-cache/
 users.json
 app/config.php
+
+node_modules

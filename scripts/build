@@ -1,0 +1,3 @@
+#!/bin/bash
+
+`npm bin`/browserify ./src/js/index.js -o ./public/js/app.js
